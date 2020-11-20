@@ -30,6 +30,7 @@ public class Restaurant {
 	 * @precondition
 	 * 		name != null
 	 * 		name.isEmpty() == False
+	 * 		price != null
 	 * 		location != null
 	 * 		location.isEmpty() == False
 	 * 		distance >= 0
@@ -69,6 +70,9 @@ public class Restaurant {
 		}
 		if(name.isEmpty()) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY);
+		}
+		if(price == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_PRICE_SHOULD_NOT_BE_NULL);
 		}
 		if(location == null) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_LOCATION_SHOULD_NOT_BE_NULL);

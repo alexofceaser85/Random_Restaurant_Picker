@@ -12,6 +12,7 @@ public class ErrorMessages {
 
 	public static final String RESTAURANT_NAME_SHOULD_NOT_BE_NULL = "The restaurant's name cannot be null";
 	public static final String RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY = "The restaurant's name cannot be empty";
+	public static final String RESTAURANT_PRICE_SHOULD_NOT_BE_NULL = "The restaurant's price cannot be null";
 	public static final String RESTAURANT_LOCATION_SHOULD_NOT_BE_NULL = "The restaurant's location cannot be null";
 	public static final String RESTAURANT_LOCATION_SHOULD_NOT_BE_EMPTY = "The restaurant's location cannot be empty";
 	public static final String RESTAURANT_DISTANCE_SHOULD_NOT_BE_LESS_THAN_ZERO = "The restaurant's distance cannot be less than zero";
