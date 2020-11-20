@@ -1,4 +1,4 @@
-package viewModel;
+package viewmodel;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
