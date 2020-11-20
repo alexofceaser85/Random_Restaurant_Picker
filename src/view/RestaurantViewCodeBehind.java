@@ -30,7 +30,7 @@ public class RestaurantViewCodeBehind {
     private Text restaurantReivewScoreText;
 
     @FXML
-    private Button seeRestauarntReviewsButton;
+    private Button seeRestaurantReviewsButton;
 
     @FXML
     private Button seeRestauarntMenuButton;
