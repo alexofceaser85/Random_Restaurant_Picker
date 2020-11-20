@@ -16,7 +16,7 @@ public class Restaurant {
 	private static final int RESTURANT_MAXIMUM_REVIEW_SCORE = 5;
 	
 	private String name;
-	//private Price price;
+	private Price price;
 	private String location;
 	private int distance;
 	private double reviewScore;
@@ -44,6 +44,7 @@ public class Restaurant {
 	 * 
 	 * @postcondition 
 	 * 		this.name = name
+	 * 		this.price = price
 	 * 		this.location = location
 	 * 		this.distance = distance
 	 * 		this.reviewScore = reviewScore
@@ -52,6 +53,7 @@ public class Restaurant {
 	 * 		this.id = id
 	 * 
 	 * @param name the restaurant's name
+	 * @param price the restaurant's price
 	 * @param location the restaurant's location
 	 * @param distance the restaurant's distance from the user
 	 * @param reviewScore the restaurant's review score
@@ -60,7 +62,7 @@ public class Restaurant {
 	 * @param id the restaurant's id
 	 **/
 	
-	public Restaurant(String name, String location, int distance, double reviewScore, String menuURL, String imageURL, String id) {
+	public Restaurant(String name, Price price, String location, int distance, double reviewScore, String menuURL, String imageURL, String id) {
 		
 		if(name == null) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NAME_SHOULD_NOT_BE_NULL);
@@ -103,6 +105,7 @@ public class Restaurant {
 		}
 		
 		this.name = name;
+		this.price = price;
 		this.location = location;
 		this.distance = distance;
 		this.reviewScore = reviewScore;
@@ -111,4 +114,106 @@ public class Restaurant {
 		this.id = id;
 	}
 
+	/**
+	 * gets the restaurant name
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant name
+	 */
+	public String getName() {
+		return this.name;
+	}
+	
+	/**
+	 * gets the restaurant price
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant price
+	 */
+	
+	public Price getPrice() {
+		return this.price;
+	}
+	
+	/**
+	 * gets the restaurant location
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant location
+	 */
+	
+	public String getLocation() {
+		return this.location;
+	}
+	
+	/**
+	 * gets the restaurant distance from user
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant distance from user
+	 */
+	
+	public int getDistance() {
+		return this.distance;
+	}
+	
+	/**
+	 * gets the restaurant review score
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant's review score
+	 */
+	
+	public double getReviewScore() {
+		return this.reviewScore;
+	}
+	
+	/**
+	 * gets the restaurant's menu URL
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant's menu URL
+	 */
+	
+	public String getMenuURL() {
+		return this.menuURL;
+	}
+	
+	/**
+	 * gets the restaurant's image URL
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant's image URL
+	 */
+	
+	public String getImageURL() {
+		return this.imageURL;
+	}
+	
+	/**
+	 * gets the restaurant's id
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the restaurant's id
+	 */
+	
+	public String getId() {
+		return this.id;
+	}
 }
