@@ -375,4 +375,14 @@ class TestConstructor {
 		
 	}
 	
+	@Test
+	public void shouldReturnToStringWithValidValues() {
+		
+		Price thePrice = Price.$$;
+		Restaurant theRestaurant = new Restaurant("The Name", thePrice, "Atlanta, GA, USA", 0, 4.9, "The Menu URL", "The Image URL", "156");
+		
+		assertEquals("Name: The Name Price: $$ Location: Atlanta, GA, USA Distance: 0 Review Score: 4.9 Menu URL: The Menu URL Image URL: The Image URL Id: 156", theRestaurant.toString());
+		
+	}
+	
 }

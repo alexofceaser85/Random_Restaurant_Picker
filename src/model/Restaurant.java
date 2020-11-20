@@ -220,4 +220,21 @@ public class Restaurant {
 	public String getId() {
 		return this.id;
 	}
+	
+	/**
+	 * returns a string representation of the Restaurant object
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return restaurantString the string representation of the object
+	 */
+	
+	@Override
+	public String toString() {
+		
+		String restaurantString = "Name: " + this.getName() + " Price: " + this.getPrice() + " Location: " + this.getLocation() + " Distance: " + this.getDistance() + " Review Score: " + this.getReviewScore() + " Menu URL: " + this.getMenuURL() + " Image URL: " + this.getImageURL() + " Id: " + this.getId();
+		
+		return restaurantString;
+	}
 }
