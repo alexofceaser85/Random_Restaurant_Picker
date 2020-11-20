@@ -12,7 +12,7 @@ import src.error_messages.ErrorMessages;
 public class Restaurant {
 	
 	private static final int RESTURANT_MINIMUM_DISTANCE = 0;
-	private static final int RESTURANT_MINIMUM_REVIEW_SCORE = 0;
+	private static final int RESTURANT_MINIMUM_REVIEW_SCORE = 1;
 	private static final int RESTURANT_MAXIMUM_REVIEW_SCORE = 5;
 	
 	private String name;
@@ -34,7 +34,7 @@ public class Restaurant {
 	 * 		location != null
 	 * 		location.isEmpty() == False
 	 * 		distance >= 0
-	 * 		reviewScore >= 0
+	 * 		reviewScore >= 1
 	 * 		reviewScore <= 5
 	 * 		menuURL != null
 	 * 		menuURL.isEmpty() == False
