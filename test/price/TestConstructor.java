@@ -1,4 +1,4 @@
-package test;
+package test.price;
 
 import static org.junit.jupiter.api.Assertions.*;
 
