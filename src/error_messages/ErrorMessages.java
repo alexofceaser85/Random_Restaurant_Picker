@@ -1,4 +1,4 @@
-package error_messages;
+package src.error_messages;
 
 /**
  * The class for the error messages

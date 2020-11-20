@@ -1,4 +1,4 @@
-package model;
+package src.model;
 
 /**
  * Models the price component for use with the Yelp API.

@@ -1,4 +1,4 @@
-package test.restaurant;
+package src.test.restaurant;
 
 import static org.junit.jupiter.api.Assertions.*;
 

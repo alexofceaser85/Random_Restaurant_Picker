@@ -1,10 +1,10 @@
-package test.price;
+package src.test.price;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import model.Price;
+import src.model.Price;
 
 class TestConstructor {
 

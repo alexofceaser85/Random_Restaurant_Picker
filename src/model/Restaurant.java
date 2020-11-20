@@ -1,6 +1,6 @@
-package model;
+package src.model;
 
-import error_messages.ErrorMessages;
+import src.error_messages.ErrorMessages;
 
 /**
  * The class responsible for holding the restaurant information

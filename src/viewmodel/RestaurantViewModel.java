@@ -1,10 +1,10 @@
-package viewmodel;
+package src.viewmodel;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import model.MainManager;
+import src.model.MainManager;
 
 public class RestaurantViewModel {
 	private StringProperty nameProperty;
