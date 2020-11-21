@@ -83,7 +83,7 @@
          </font>
       </Text>
       <Button fx:id="seeRestaurantReviewsButton" mnemonicParsing="false" onAction="#seeRestaurantReviews" prefHeight="42.0" prefWidth="221.0" text="See *Restaurant Name* Reviews" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
-      <Button fx:id="seeRestaurantMenuButton" mnemonicParsing="false" onAction="#seeRestaurantButton" prefHeight="42.0" prefWidth="219.0" text="See *Restaurant Name* Menu" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+      <Button fx:id="seeRestaurantMenuButton" mnemonicParsing="false" onAction="#seeRestaurantMenu" prefHeight="42.0" prefWidth="219.0" text="See *Restaurant Name* Menu" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="See Another Restaurant:" textAlignment="CENTER" wrappingWidth="238.349609375" GridPane.halignment="CENTER" GridPane.rowIndex="13">
          <font>
             <Font size="20.0" />
