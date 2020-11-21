@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.text.Text;
+import src.viewmodel.RestaurantViewModel;
 
 /**
  * Code Behind for the Restaurant View
@@ -41,7 +42,7 @@ public class RestaurantViewCodeBehind {
     @FXML
     private Button resetFiltersButton;
     
-    //private RestaurantViewViewModel viewModel;
+    private RestaurantViewModel viewModel;
 
     @FXML
     void grabNewRestaurant(ActionEvent event) {

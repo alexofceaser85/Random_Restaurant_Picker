@@ -2,6 +2,7 @@ package src.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import src.error_messages.ErrorMessages;
 
@@ -15,6 +16,7 @@ import src.error_messages.ErrorMessages;
 public class RestaurantManager {
 	
 	private List<Restaurant> theRestaurants;
+	private Random randomGenerator;
 	
 	/**
 	 * The constructor for the Restaurant Manager
@@ -25,6 +27,7 @@ public class RestaurantManager {
 	
 	public RestaurantManager() {
 		this.theRestaurants = new ArrayList<Restaurant>();
+		this.randomGenerator = new Random();
 	}
 	
 	/**
@@ -99,6 +102,11 @@ public class RestaurantManager {
 		}
 		
 		return restaurantManagerString;
+	}
+
+	public Restaurant pickRandom() {
+		int randomIndex = randomGenerator.nextInt(theRestaurants.size());
+		return this.theRestaurants.get(randomIndex);
 	}
 
 }
