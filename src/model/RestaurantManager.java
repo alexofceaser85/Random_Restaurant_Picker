@@ -25,9 +25,9 @@ public class RestaurantManager {
 	 * @postcondition none
 	 */
 	
-	public RestaurantManager() {
+	public RestaurantManager(Random randomGenerator) {
 		this.theRestaurants = new ArrayList<Restaurant>();
-		this.randomGenerator = new Random();
+		this.randomGenerator = randomGenerator != null ? randomGenerator : new Random();
 	}
 	
 	/**
@@ -105,6 +105,9 @@ public class RestaurantManager {
 	}
 
 	public Restaurant pickRandom() {
+		if (theRestaurants.size() == 0){
+			return null;
+		}
 		int randomIndex = randomGenerator.nextInt(theRestaurants.size());
 		return this.theRestaurants.get(randomIndex);
 	}

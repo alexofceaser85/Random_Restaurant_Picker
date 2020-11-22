@@ -24,7 +24,8 @@ public class ErrorMessages {
 	public static final String RESTAURANT_IMAGE_URL_SHOULD_NOT_BE_EMPTY = "The restaurant's image URL cannot be empty";
 	public static final String RESTAURANT_ID_SHOULD_NOT_BE_NULL = "The restaurant's id cannot be null";
 	public static final String RESTAURANT_ID_SHOULD_NOT_BE_EMPTY = "The restaurant's id cannot be empty";
-	
+	public static final String MAIN_MANAGER_SHOULD_NOT_BE_NULL = "The MainManager cannot be null";
+	public static final	String RESTAURANT_NOT_FOUND = "A Restaurant could not be picked";
 	public static final String RESTAURANT_TO_ADD_CANNOT_BE_NULL = "The restaurant to add to the restaurant manager cannot be null";
 	public static final String RESTAURANT_TO_REMOVE_CANNOT_BE_NULL = "The restaurant to remove from the restaurant manager cannot be null";
 }

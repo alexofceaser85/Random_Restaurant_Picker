@@ -14,7 +14,7 @@ class TestRestaurantManager {
 	@Test
 	public void shouldNotAddANullRestaurant() {
 
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			theManager.addRestaurant(null);
@@ -25,7 +25,7 @@ class TestRestaurantManager {
 	@Test
 	public void shouldNotRemoveANullRestaurant() {
 		
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			theManager.removeRestaurant(null);
@@ -36,7 +36,7 @@ class TestRestaurantManager {
 	@Test
 	public void shouldAddOneRestaurant() {
 		
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theRestaurant = new Restaurant("Name", thePrice, "Atlanta, GA, USA", 20, 5, "Menu URL", "Image URL", "5416");
 		
@@ -50,7 +50,7 @@ class TestRestaurantManager {
 	@Test
 	public void shouldAddMultipleRestaurants() {
 		
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
@@ -68,7 +68,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldNotRemoveFromEmptyManager() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theRestaurant = new Restaurant("Name", thePrice, "Atlanta, GA, USA", 20, 5, "Menu URL", "Image URL", "5416");
 		theManager.removeRestaurant(theRestaurant);
@@ -79,7 +79,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldNotRemoveRestaurantNotInAManagerWithOneRestaurant() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
@@ -94,7 +94,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldNotRemoveRestaurantNotInAManagerWithManyRestaurants() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
@@ -115,7 +115,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldRemoveRestaurantInAManagerWithOneRestaurant() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		
@@ -128,7 +128,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldRemoveFirstRestaurantInAManagerWithManyRestaurants() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
@@ -147,7 +147,7 @@ class TestRestaurantManager {
 
 	@Test
 	public void shouldRemoveMiddleRestaurantInAManagerWithManyRestaurants() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
@@ -166,7 +166,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldRemoveLastRestaurantInAManagerWithManyRestaurants() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
@@ -185,14 +185,14 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldGetSizeOfEmptyManager() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		assertEquals(0, theManager.size());
 	}
 	
 	@Test
 	public void shouldGetSizeOfManagerWithOneRestaurant() {
 		Price thePrice = Price.$;
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Restaurant theRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		
 		theManager.addRestaurant(theRestaurant);
@@ -202,7 +202,7 @@ class TestRestaurantManager {
 	
 	@Test
 	public void shouldGetSizeOfManagerWithManyRestaurants() {
-		RestaurantManager theManager = new RestaurantManager();
+		RestaurantManager theManager = new RestaurantManager(null);
 		Price thePrice = Price.$;
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", thePrice, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", thePrice, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
