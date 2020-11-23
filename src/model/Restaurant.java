@@ -84,7 +84,7 @@ public class Restaurant {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_DISTANCE_SHOULD_NOT_BE_LESS_THAN_ZERO);
 		}
 		if(reviewScore < RESTURANT_MINIMUM_REVIEW_SCORE) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_LESS_THAN_ZERO);
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_LESS_THAN_ONE);
 		}
 		if(reviewScore > RESTURANT_MAXIMUM_REVIEW_SCORE) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_MORE_THAN_FIVE);
