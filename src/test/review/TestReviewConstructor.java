@@ -156,4 +156,9 @@ class TestReviewConstructor {
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
 		assertEquals(5, theReview.getReviewScore()); 
 	}
+	
+	@Test public void shouldReturnToStringWithValidValues() {
+		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
+		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 5.0", theReview.toString()); 
+	}
 }

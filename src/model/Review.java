@@ -103,4 +103,19 @@ public class Review {
 	public double getReviewScore() {
 		return this.reviewScore;
 	}
+	
+	/**
+	 * Returns the string representation of the review
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return reviewString the string representation of the review
+	 */
+	
+	@Override
+	public String toString() {
+		String reviewString = "Reviewer: " + this.getReviewerName() + " Content: " + this.getReviewContent() + " Score: " + this.getReviewScore();
+		return reviewString;
+	}
 }
