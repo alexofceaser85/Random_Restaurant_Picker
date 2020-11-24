@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="294.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="399.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="311.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="202.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurant Filter" textAlignment="CENTER" wrappingWidth="208.583984375" GridPane.halignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <Text fx:id="categoriesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
 </GridPane>
-
