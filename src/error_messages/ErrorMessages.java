@@ -38,4 +38,9 @@ public class ErrorMessages {
 	public static final String REVIEW_CONTENT_CANNOT_BE_EMPTY = "The content of the restaurant review cannot be empty";
 	public static final String REVIEW_SCORE_CANNOT_BE_LESS_THAN_ONE = "The review score of the restaurant review cannot be less than one";
 	public static final String REVIEW_SCORE_CANNOT_BE_MORE_THAN_FIVE = "The review score of the restaurant review cannot be more than five";
+	
+	public static final String REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_NULL = "The restaurant name for the reviews cannot be null";
+	public static final String REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY = "The restaurant name for the reviews cannot be empty";
+	public static final String REVIEW_TO_ADD_CANNOT_BE_NULL = "The review to add to the review manager cannot be null";
+	public static final String REVIEW_TO_REMOVE_CANNOT_BE_NULL = "The review to remove from the review manager cannot be null";
 }
