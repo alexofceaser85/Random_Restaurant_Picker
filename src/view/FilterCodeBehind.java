@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import src.model.Radius;
 
 public class FilterCodeBehind {
 
@@ -20,7 +21,7 @@ public class FilterCodeBehind {
 	    private Text enterRadiusText;
 
 	    @FXML
-	    private ComboBox<?> radiusComboBox;
+	    private ComboBox<Radius> radiusComboBox;
 
 	    @FXML
 	    private Button beginButton;
