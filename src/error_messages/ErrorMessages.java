@@ -50,4 +50,6 @@ public class ErrorMessages {
 	public static final String LOCATION_SHOULD_NOT_BE_BLANK = "The location cannot be blank";
 	public static final String CATEGORIES_SHOULD_NOT_BE_NULL = "The categories cannot be null";
 	public static final String PRICES_SHOULD_NOT_BE_NULL = "The prices cannot be null";
+	
+	public static final String REVIEW_TO_GET_FOR_VIEW_MODEL_CANNOT_BE_NULL = "The review to get for the view model cannot be null";
 }
