@@ -1,4 +1,4 @@
-package src.test.restaurantViewModel;
+package src.test.restaurantviewmodel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +14,7 @@ import src.model.MainManager;
 import src.model.Price;
 import src.model.Restaurant;
 import src.model.RestaurantManager;
-import src.viewModel.RestaurantViewModel;
+import src.viewmodel.RestaurantViewModel;
 
 
 

@@ -1,4 +1,4 @@
-package src.viewModel;
+package src.viewmodel;
 import javafx.scene.image.Image;
 
 import java.text.DecimalFormat;

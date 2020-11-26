@@ -1,4 +1,4 @@
-package src.test.restaurantViewModel;
+package src.test.restaurantviewmodel;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,7 +8,7 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
-import src.viewModel.RestaurantViewModel;
+import src.viewmodel.RestaurantViewModel;
 
 public class TestConstructor {
 

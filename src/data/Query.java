@@ -2,11 +2,12 @@ package src.data;
 
 import java.net.URL;
 
+import src.error_messages.ErrorMessages;
+
 public abstract class Query {
-	public static String queryProtocol = "https";
-	public static String queryHost = "api.yelp.com";
+	public final static String QUERY_PROTOCOL = "https";
+	public final static String QUERY_HOST = "api.yelp.com";
 	private URL queryURL;
-	
 	
 	public void setQueryURL(URL queryURL) {
 		this.queryURL = queryURL;

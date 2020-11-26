@@ -1,4 +1,4 @@
-package src.test.reviewManager;
+package src.test.reviewmanager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
