@@ -11,7 +11,7 @@ public class ReviewsQuery extends Query  {
 		if(restaurantID.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANTID_SHOULD_NOT_BE_BLANK);
 		}
-		URLBuilder  urlBuilder = new URLBuilder(Query.queryHost, Query.queryProtocol);
+		URLBuilder  urlBuilder = new URLBuilder(Query.QUERY_HOST, Query.QUERY_PROTOCOL);
 		urlBuilder.addFolder("v3");
 		urlBuilder.addFolder("businesses");
 		urlBuilder.addFolder(restaurantID);

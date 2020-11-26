@@ -1,4 +1,4 @@
-package src.test.reviewsQuery;
+package src.test.reviewsquery;
 
 import static org.junit.jupiter.api.Assertions.*;
 

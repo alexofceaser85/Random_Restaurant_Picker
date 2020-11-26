@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 import src.error_messages.ErrorMessages;
 import src.model.Price;
 
-public class RestaurantQuery extends Query {
-	public RestaurantQuery(String location, 
+public class RestaurantsQuery extends Query {
+	public RestaurantsQuery(String location, 
 			int radius, 
 			String categories, 
 			double reviewScore, 
@@ -25,7 +25,7 @@ public class RestaurantQuery extends Query {
 		if(location.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.LOCATION_SHOULD_NOT_BE_BLANK);
 		}
-		URLBuilder  urlBuilder = new URLBuilder(Query.queryHost, Query.queryProtocol);
+		URLBuilder  urlBuilder = new URLBuilder(Query.QUERY_HOST, Query.QUERY_PROTOCOL);
 		urlBuilder.addFolder("v3");
 		urlBuilder.addFolder("businesses");
 		urlBuilder.addFolder("search");

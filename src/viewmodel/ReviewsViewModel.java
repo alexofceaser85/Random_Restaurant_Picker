@@ -1,4 +1,4 @@
-package src.viewModel;
+package src.viewmodel;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.StringProperty;
