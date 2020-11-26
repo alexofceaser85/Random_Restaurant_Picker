@@ -25,6 +25,7 @@ public class ReviewManager {
 	 * 
 	 * @postcondition 
 	 * 		this.restaurantName = restaurantName
+	 * 		this.reviews = ArrayList<Review>
 	 * 		
 	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
