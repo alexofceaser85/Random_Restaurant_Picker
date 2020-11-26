@@ -1,13 +1,10 @@
 package src.data;
 
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-
 import src.error_messages.ErrorMessages;
 
 public class ReviewsQuery extends Query  {
 
-	public ReviewsQuery(String restaurantID) throws MalformedURLException, URISyntaxException {
+	public ReviewsQuery(String restaurantID) {
 		if(restaurantID == null) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANTID_SHOULD_NOT_BE_NULL);
 		}

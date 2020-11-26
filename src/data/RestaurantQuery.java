@@ -18,18 +18,12 @@ public class RestaurantQuery extends Query {
 			boolean handicap, 
 			boolean reservations, 
 			boolean hotAndNew, 
-			boolean neutralBathroom) throws MalformedURLException, URISyntaxException{
+			boolean neutralBathroom) {
 		if(location == null) {
 			throw new IllegalArgumentException(ErrorMessages.LOCATION_SHOULD_NOT_BE_NULL);
 		}
 		if(location.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.LOCATION_SHOULD_NOT_BE_BLANK);
-		}
-		if(categories == null) {
-			throw new IllegalArgumentException(ErrorMessages.CATEGORIES_SHOULD_NOT_BE_NULL);
-		}
-		if(prices == null) {
-			throw new IllegalArgumentException(ErrorMessages.PRICES_SHOULD_NOT_BE_NULL);
 		}
 		URLBuilder  urlBuilder = new URLBuilder(Query.queryHost, Query.queryProtocol);
 		urlBuilder.addFolder("v3");
@@ -38,22 +32,39 @@ public class RestaurantQuery extends Query {
 		urlBuilder.addParameter("term", "restaurants");
 		urlBuilder.addParameter("location", location);
 		urlBuilder.addParameter("radius", Integer.toString(radius));
-		urlBuilder.addParameter("open_now", Boolean.toString(currentlyOpen));
-		if (!prices.isEmpty()) {
+		if (categories != null && !categories.isBlank()) {
+			urlBuilder.addParameter("categories", categories);
+		}
+		if (prices != null && !prices.isEmpty()) {
 			String pricesCommaSeperated = prices.stream()
 	                .map(price -> price.value)
 	                .collect(Collectors.joining(","));
 			urlBuilder.addParameter("price", pricesCommaSeperated);
 		}
+		if (currentlyOpen) {
+			urlBuilder.addParameter("open_now", Boolean.toString(currentlyOpen));
+		}
 		StringBuilder attributes = new StringBuilder();
-		attributes.append(handicap);
-		attributes.append(",");
-		attributes.append(reservations);
-		attributes.append(",");
-		attributes.append(hotAndNew);
-		attributes.append(",");
-		attributes.append(neutralBathroom);
-		urlBuilder.addParameter("attributes", attributes.toString());
+		if (handicap) {
+			attributes.append("wheelchair_accessible");
+			attributes.append(",");
+		}
+		if (reservations) {
+			attributes.append("reservation");
+			attributes.append(",");
+		}
+		if (hotAndNew) {
+			attributes.append("hot_and_new");
+			attributes.append(",");
+		}
+		if (neutralBathroom) {
+			attributes.append("gender_neutral_restrooms");
+			attributes.append(",");
+		}
+		if (attributes.length() > 0) {
+			attributes.deleteCharAt(attributes.length()-1);
+			urlBuilder.addParameter("attributes", attributes.toString());
+		}
 		super.setQueryURL(urlBuilder.getURL());
 	}
 }

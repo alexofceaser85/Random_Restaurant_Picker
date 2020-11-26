@@ -11,9 +11,6 @@ public abstract class Query {
 	
 	
 	public void setQueryURL(URL queryURL) {
-		if(queryURL == null) {
-			throw new IllegalArgumentException(ErrorMessages.QUERYURL_SHOULD_NOT_BE_NULL);
-		}
 		this.queryURL = queryURL;
 	}
 	

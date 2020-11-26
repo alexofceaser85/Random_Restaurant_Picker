@@ -52,4 +52,14 @@ public class ErrorMessages {
 	public static final String PRICES_SHOULD_NOT_BE_NULL = "The prices cannot be null";
 	
 	public static final String REVIEW_TO_GET_FOR_VIEW_MODEL_CANNOT_BE_NULL = "The review to get for the view model cannot be null";
+	public static final String HOST_SHOULD_NOT_BE_NULL = "The host cannot be null";
+	public static final String HOST_SHOULD_NOT_BE_BLANK = "The host cannot be blank";
+	public static final String PROTOCOL_SHOULD_NOT_BE_NULL = "The protocol cannot be null";
+	public static final String PROTOCOL_SHOULD_NOT_BE_BLANK = "The protocol cannot be blank";
+	public static final String FOLDER_SHOULD_NOT_BE_NULL = "The folder cannot be null";
+	public static final String FOLDER_SHOULD_NOT_BE_BLANK = "The folder cannot be blank";
+	public static final String PARAMETER_SHOULD_NOT_BE_NULL = "The parameter cannot be null";
+	public static final String PARAMETER_SHOULD_NOT_BE_BLANK = "The parameter cannot be blank";
+	public static final String VALUE_SHOULD_NOT_BE_NULL = "The value cannot be null";
+	public static final String VALUE_SHOULD_NOT_BE_BLANK = "The value cannot be blank";
 }
