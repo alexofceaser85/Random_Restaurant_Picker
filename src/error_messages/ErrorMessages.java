@@ -43,4 +43,6 @@ public class ErrorMessages {
 	public static final String REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY = "The restaurant name for the reviews cannot be empty";
 	public static final String REVIEW_TO_ADD_CANNOT_BE_NULL = "The review to add to the review manager cannot be null";
 	public static final String REVIEW_TO_REMOVE_CANNOT_BE_NULL = "The review to remove from the review manager cannot be null";
+	
+	public static final String REVIEW_TO_GET_FOR_VIEW_MODEL_CANNOT_BE_NULL = "The review to get for the view model cannot be null";
 }
