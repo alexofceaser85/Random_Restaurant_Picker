@@ -10,7 +10,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import src.model.Review;
-import src.viewModel.ReviewsViewModel;
+import src.viewmodel.ReviewsViewModel;
 
 class TestReviewsViewModel {
 
