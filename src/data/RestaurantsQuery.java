@@ -31,7 +31,7 @@ public class RestaurantsQuery extends Query {
 		urlBuilder.addFolder("search");
 		urlBuilder.addParameter("term", "restaurants");
 		urlBuilder.addParameter("location", location);
-		urlBuilder.addParameter("radius", Integer.toString(radius));
+		urlBuilder.addParameter("radius", Integer.toString(radius*1609));
 		if (categories != null && !categories.isBlank()) {
 			urlBuilder.addParameter("categories", categories);
 		}
