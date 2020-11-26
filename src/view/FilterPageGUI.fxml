@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="294.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="294.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="399.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="311.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="202.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="277.0" minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="336.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="451.0" minHeight="0.0" prefHeight="54.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="487.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="109.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="451.0" minHeight="10.0" prefHeight="141.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Restaurant Filter" textAlignment="CENTER" wrappingWidth="208.583984375" GridPane.halignment="CENTER">
@@ -28,5 +36,71 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <TextField fx:id="categoriesTextBox" prefHeight="25.0" prefWidth="241.0" promptText="Chinese, Burgers, Mexican" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reviews" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="reviewScoreTextBox" prefHeight="25.0" prefWidth="239.0" promptText="5.0" GridPane.rowIndex="4" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <GridPane prefHeight="147.0" prefWidth="294.0" GridPane.rowIndex="6">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox fx:id="price1Checkbox" mnemonicParsing="false" text="\$" GridPane.halignment="CENTER" />
+            <CheckBox fx:id="price2Checkbox" mnemonicParsing="false" text="\$$" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <CheckBox fx:id="price4Checkbox" mnemonicParsing="false" text="\$$$$" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <CheckBox fx:id="price3Checkbox" mnemonicParsing="false" text="\$$$" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="More Filters" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <GridPane prefHeight="112.0" prefWidth="294.0" GridPane.rowIndex="8">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <CheckBox fx:id="currentOpenCheckbox" mnemonicParsing="false" text="Currently Open" GridPane.halignment="CENTER" />
+            <CheckBox fx:id="handicapAccessibleCheckbox" mnemonicParsing="false" text="Handicap Accessible" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <CheckBox fx:id="acceptsReservationsCheckbox" mnemonicParsing="false" text="Accepts Reservations" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <CheckBox fx:id="newRestaurantsCheckbox" mnemonicParsing="false" text="New Restaurants" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <CheckBox fx:id="genderNeutralBathroomsCheckbox" mnemonicParsing="false" text="Gender-Neutral Bathrooms" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.rowIndex="9">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" prefHeight="51.0" prefWidth="131.0" text="Back" GridPane.halignment="RIGHT" />
+            <Button fx:id="submitButton" mnemonicParsing="false" onAction="#handleSubmit" prefHeight="51.0" prefWidth="131.0" text="Submit" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
    </children>
 </GridPane>

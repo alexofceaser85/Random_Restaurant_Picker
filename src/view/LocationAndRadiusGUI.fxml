@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="296.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -41,7 +41,7 @@
          </font>
       </Text>
       <ComboBox fx:id="radiusComboBox" prefHeight="25.0" prefWidth="194.0" promptText="Choose your Radius" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" prefHeight="57.0" prefWidth="146.0" text="Begin" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+      <Button fx:id="beginButton" mnemonicParsing="false" onAction="#handleBegin" prefHeight="57.0" prefWidth="146.0" text="Begin" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
          <GridPane.margin>
             <Insets bottom="20.0" />
          </GridPane.margin>
