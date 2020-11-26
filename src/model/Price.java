@@ -6,5 +6,14 @@ package src.model;
  *
  */
 public enum Price {
-	$,$$,$$$,$$$$
+	$("1"),
+	$$("2"),
+	$$$("3"),
+	$$$$("4");
+
+	public final String value;
+	
+	Price(String value) {
+		this.value = value;
+	}
 }
