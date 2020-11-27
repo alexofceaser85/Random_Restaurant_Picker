@@ -15,21 +15,12 @@ import src.viewmodel.ReviewsViewModel;
 class TestReviewsViewModel {
 
 	@Test
-	public void shouldNotAllowNullReview() {
-		
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			new ReviewsViewModel(null);
-		});
-	}
-	
-	@Test
 	public void shouldGetReviewer() {
 		
 		StringProperty reviewerNameTestAgainst = new SimpleStringProperty();
 		reviewerNameTestAgainst.set("Lewis Baumstark");
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 3);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 3);
 		
 		assertEquals(reviewerNameTestAgainst.getValue(), theReviewsViewModel.getReviewer().getValue());
 	}
@@ -40,8 +31,7 @@ class TestReviewsViewModel {
 		StringProperty reviewerContentTestAgainst = new SimpleStringProperty();
 		reviewerContentTestAgainst.set("This lamb is so undercooked, it’s following Mary to school!");
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 3);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 3);
 		
 		assertEquals(reviewerContentTestAgainst.getValue(), theReviewsViewModel.getContent().getValue());
 	}
@@ -52,8 +42,7 @@ class TestReviewsViewModel {
 		DoubleProperty reviewScoreTestAgainst = new SimpleDoubleProperty();
 		reviewScoreTestAgainst.set(1);
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1);
 		
 		assertEquals(reviewScoreTestAgainst.getValue(), theReviewsViewModel.getReviewScore().getValue());
 	}
@@ -64,8 +53,7 @@ class TestReviewsViewModel {
 		DoubleProperty reviewScoreTestAgainst = new SimpleDoubleProperty();
 		reviewScoreTestAgainst.set(1.1);
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		
 		assertEquals(reviewScoreTestAgainst.getValue(), theReviewsViewModel.getReviewScore().getValue());
 	}
@@ -76,8 +64,7 @@ class TestReviewsViewModel {
 		DoubleProperty reviewScoreTestAgainst = new SimpleDoubleProperty();
 		reviewScoreTestAgainst.set(2);
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 2);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 2);
 		
 		assertEquals(reviewScoreTestAgainst.getValue(), theReviewsViewModel.getReviewScore().getValue());
 	}
@@ -88,8 +75,7 @@ class TestReviewsViewModel {
 		DoubleProperty reviewScoreTestAgainst = new SimpleDoubleProperty();
 		reviewScoreTestAgainst.set(4.9);
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 4.9);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 4.9);
 		
 		assertEquals(reviewScoreTestAgainst.getValue(), theReviewsViewModel.getReviewScore().getValue());
 	}
@@ -100,8 +86,7 @@ class TestReviewsViewModel {
 		DoubleProperty reviewScoreTestAgainst = new SimpleDoubleProperty();
 		reviewScoreTestAgainst.set(4);
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 4);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 4);
 		
 		assertEquals(reviewScoreTestAgainst.getValue(), theReviewsViewModel.getReviewScore().getValue());
 	}
@@ -112,8 +97,7 @@ class TestReviewsViewModel {
 		DoubleProperty reviewScoreTestAgainst = new SimpleDoubleProperty();
 		reviewScoreTestAgainst.set(5);
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
 		
 		assertEquals(reviewScoreTestAgainst.getValue(), theReviewsViewModel.getReviewScore().getValue());
 	}
@@ -122,10 +106,9 @@ class TestReviewsViewModel {
 	public void shouldReturnStringDescriptionOfViewModel() {
 		
 		StringProperty reviewerNameTestAgainst = new SimpleStringProperty();
-		reviewerNameTestAgainst.set("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Review Score: 4.0");
+		reviewerNameTestAgainst.set("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 4.0");
 		
-		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 4);
-		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel(theReview);
+		ReviewsViewModel theReviewsViewModel = new ReviewsViewModel("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 4);
 		
 		assertEquals(reviewerNameTestAgainst.getValue(), theReviewsViewModel.toString());
 	}

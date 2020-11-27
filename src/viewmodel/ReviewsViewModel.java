@@ -1,6 +1,8 @@
 package src.viewmodel;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import src.error_messages.ErrorMessages;
 import src.model.Review;
@@ -17,6 +19,7 @@ public class ReviewsViewModel {
 	StringProperty reviewer;
 	StringProperty reviewContent;
 	DoubleProperty reviewScore;
+	Review review;
 	
 	/**
 	 * This is the constructor for the Reviews View Model
@@ -30,15 +33,17 @@ public class ReviewsViewModel {
 	 * @param review the review for the view model
 	 */
 	
-	public ReviewsViewModel(Review review) {
+	public ReviewsViewModel(String reviewer, String reviewContent, double reviewScore) {
 		
-		if (review == null) {
-			throw new IllegalArgumentException(ErrorMessages.REVIEW_TO_GET_FOR_VIEW_MODEL_CANNOT_BE_NULL);
-		}
+		this.review = new Review(reviewer, reviewContent, reviewScore);
 		
-		this.reviewer.set(review.getReviewerName());
-		this.reviewContent.set(review.getReviewContent());
-		this.reviewScore.set(review.getReviewScore());
+		this.reviewer = new SimpleStringProperty();
+		this.reviewContent = new SimpleStringProperty();
+		this.reviewScore = new SimpleDoubleProperty();
+		
+		this.reviewer.set(reviewer);
+		this.reviewContent.set(reviewContent);
+		this.reviewScore.set(reviewScore);
 	}
 	
 	/**
@@ -78,6 +83,18 @@ public class ReviewsViewModel {
 	
 	public DoubleProperty getReviewScore() {
 		return this.reviewScore;
+	}
+	
+	/**
+	 * Returns the string representation of the view model
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	@Override
+	public String toString() {
+		return this.review.toString();
 	}
 	
 }
