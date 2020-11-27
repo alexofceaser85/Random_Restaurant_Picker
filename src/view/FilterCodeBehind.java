@@ -8,7 +8,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import src.model.Radius;
-
+/**
+ * Code Behind for the Filter Section of the GUI.
+ * @author Alexander Ayers
+ *
+ */
 public class FilterCodeBehind {
 
 	  @FXML
@@ -68,10 +72,27 @@ public class FilterCodeBehind {
 	    @FXML
 	    private Button submitButton;
 	    
+		/**
+		 * Zero-parameter constructor
+		 * 
+		 * @precondition none
+		 * @postcondition none
+		 */
 	    public FilterCodeBehind() {
 	    	
 	    }
-
+	    
+		/**
+		 * Initializes all properties to needed settings.
+		 * 
+		 * @precondition none
+		 * @postcondition none
+		 */
+	    public void initalize()
+	    {
+	    	this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
+	    }
+	    
 	    @FXML
 	    void handleBegin(ActionEvent event) {
 
