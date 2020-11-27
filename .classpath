@@ -15,6 +15,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="libs/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.8.0.jar"/>
+	<classpathentry kind="lib" path="libs/json-20201115.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -9,6 +9,7 @@ import src.error_messages.ErrorMessages;
 import src.model.Price;
 
 public class RestaurantsQuery extends Query {
+	public final static int METER_CONVERSION = 1609;
 	public RestaurantsQuery(String location, 
 			int radius, 
 			String categories, 
@@ -31,7 +32,7 @@ public class RestaurantsQuery extends Query {
 		urlBuilder.addFolder("search");
 		urlBuilder.addParameter("term", "restaurants");
 		urlBuilder.addParameter("location", location);
-		urlBuilder.addParameter("radius", Integer.toString(radius*1609));
+		urlBuilder.addParameter("radius", Integer.toString(radius*RestaurantsQuery.METER_CONVERSION));
 		if (categories != null && !categories.isBlank()) {
 			urlBuilder.addParameter("categories", categories);
 		}
