@@ -7,7 +7,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.util.converter.NumberStringConverter;
 import src.model.Radius;
+import src.viewmodel.FilterViewModel;
 /**
  * Code Behind for the Filter Section of the GUI.
  * @author Alexander Ayers
@@ -72,6 +74,8 @@ public class FilterCodeBehind {
 	    @FXML
 	    private Button submitButton;
 	    
+	    private FilterViewModel viewModel;
+	    
 		/**
 		 * Zero-parameter constructor
 		 * 
@@ -79,7 +83,7 @@ public class FilterCodeBehind {
 		 * @postcondition none
 		 */
 	    public FilterCodeBehind() {
-	    	
+	    	this.viewModel = new FilterViewModel();
 	    }
 	    
 		/**
@@ -90,23 +94,42 @@ public class FilterCodeBehind {
 		 */
 	    public void initalize()
 	    {
+	    	this.bindToViewModel();
 	    	this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
+	    	//TODO Setup Regex in reviewScore
 	    }
 	    
 	    @FXML
 	    void handleBegin(ActionEvent event) {
-
+			throw new UnsupportedOperationException();
+			//TODO Go over with Furichous during meeting
 	    }
 	    
 	    @FXML
 	    void handleBack(ActionEvent event) {
-
+			throw new UnsupportedOperationException();
+			//TODO Go over with Furichous during meeting
 	    }
 
 	    @FXML
 	    void handleSubmit(ActionEvent event) {
-
+	    	this.viewModel.appendRestaurantQuery();
 	    }
-
+	    
+	    private void bindToViewModel() {
+	    	this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
+	    	this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
+	    	this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
+	    	this.acceptsReservationsCheckbox.selectedProperty().bindBidirectional(this.viewModel.acceptsReservationsProperty());
+	    	this.price1Checkbox.selectedProperty().bindBidirectional(this.viewModel.price1Property());
+	    	this.price2Checkbox.selectedProperty().bindBidirectional(this.viewModel.price2Property());
+	    	this.price3Checkbox.selectedProperty().bindBidirectional(this.viewModel.price3Property());
+	    	this.price4Checkbox.selectedProperty().bindBidirectional(this.viewModel.price4Property());
+	    	this.currentOpenCheckbox.selectedProperty().bindBidirectional(this.viewModel.currentlyOpenProperty());
+	    	this.handicapAccessibleCheckbox.selectedProperty().bindBidirectional(this.viewModel.handicapAccessibleProperty());
+	    	this.genderNeutralBathroomsCheckbox.selectedProperty().bindBidirectional(this.viewModel.genderNeutralBathroomProperty());
+	    	this.newRestaurantsCheckbox.selectedProperty().bindBidirectional(this.viewModel.newRestaurantsProperty());
+	    	this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(), new NumberStringConverter());
+	    }
 	}
 
