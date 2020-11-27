@@ -62,4 +62,7 @@ public class ErrorMessages {
 	public static final String PARAMETER_SHOULD_NOT_BE_BLANK = "The parameter cannot be blank";
 	public static final String VALUE_SHOULD_NOT_BE_NULL = "The value cannot be null";
 	public static final String VALUE_SHOULD_NOT_BE_BLANK = "The value cannot be blank";
+	public static final String JSON_SHOULD_NOT_BE_NULL = "The rawJSON cannot be null";
+	public static final String JSON_SHOULD_NOT_BE_BLANK = "The rawJSON cannot be blank";
+	public static final String QUERY_SHOULD_NOT_BE_NULL = "The query cannot be null";
 }

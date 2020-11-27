@@ -6,6 +6,7 @@ package src.model;
  *
  */
 public enum Price {
+	Any("Any"),
 	$("1"),
 	$$("2"),
 	$$$("3"),
