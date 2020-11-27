@@ -8,7 +8,7 @@ package src.model;
  */
 public enum Radius {
 	FIVE(8000, "5 Miles"), TEN(16000, "10 Miles"), FIFTEEN(24000, "15 Miles"), TWENTY(32000, "20 Miles"),
-	TWENTYFIVE(40000, "25 Mils");
+	TWENTYFIVE(40000, "25 Miles");
 
 	private String display;
 
@@ -41,5 +41,11 @@ public enum Radius {
 	 */
 	public int getMeters() {
 		return meters;
+	}
+	
+	@Override
+	public String toString() {
+		return this.display;
+		
 	}
 }
