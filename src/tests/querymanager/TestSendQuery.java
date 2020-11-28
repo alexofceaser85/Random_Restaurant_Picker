@@ -16,6 +16,7 @@ class TestSendQuery {
 		String jsonReturn = QueryManager.sendQuery(testQuery);
 		assertNotNull(jsonReturn);
 	}
+	
 	@Test
 	void testNullQuery() {
 		assertThrows(IllegalArgumentException.class, () -> {

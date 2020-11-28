@@ -17,7 +17,7 @@ import src.model.*;
 
 public class RestaurantViewModel {
 	private StringProperty nameProperty;
-	private StringProperty imageURLProperty;
+	private ObjectProperty<Image> imageProperty;
 	private StringProperty locationProperty;
 	private StringProperty priceRangeProperty;
 	private StringProperty distanceProperty;
@@ -27,7 +27,7 @@ public class RestaurantViewModel {
 	private String menuURL;
 	public RestaurantViewModel(MainManager mainManager) {
 		this.nameProperty = new SimpleStringProperty();
-		this.imageURLProperty = new SimpleStringProperty();
+		this.imageProperty = new SimpleObjectProperty<Image>();
 		this.locationProperty = new SimpleStringProperty();
 		this.priceRangeProperty = new SimpleStringProperty();
 		this.distanceProperty = new SimpleStringProperty();
@@ -52,13 +52,20 @@ public class RestaurantViewModel {
 		String distanceFormatted = Integer.toString(distance);
 		
 		String imageURL = pickedRestaurant.getImageURL();
+		Image image;
+		try {
+			image = new Image(imageURL);
+		} catch (Exception e) {
+			image = new Image(JSONLoader.DEFAULT_IMAGE);
+		}
+		this.imageProperty.set(image);
 		
 		double reviewScore = pickedRestaurant.getReviewScore();
 		DecimalFormat df = new DecimalFormat("#.#"); 
 		String reviewScoreFormatted = df.format(reviewScore);
 		
 		this.nameProperty.set(name);
-		this.imageURLProperty.set(imageURL);
+		
 		this.locationProperty.set(location);
 		this.priceRangeProperty.set(price.toString());
 		this.distanceProperty.set(distanceFormatted);
@@ -89,8 +96,8 @@ public class RestaurantViewModel {
 		return this.nameProperty;
 	}
 	
-	public StringProperty imageProperty() {
-		return this.imageURLProperty;
+	public ObjectProperty<Image> imageProperty() {
+		return this.imageProperty;
 	}
 	
 	public StringProperty locationProperty() {
