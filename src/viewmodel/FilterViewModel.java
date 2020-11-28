@@ -1,5 +1,8 @@
 package src.viewmodel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
@@ -11,8 +14,16 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
+import src.data.JSONLoader;
+import src.data.QueryManager;
+import src.data.RestaurantsQuery;
+import src.data.ReviewsQuery;
 import src.model.MainManager;
+import src.model.Price;
 import src.model.Radius;
+import src.model.Restaurant;
+import src.model.RestaurantManager;
+import src.model.Review;
 
 /**
  * View Model for the Filtering section of the UI.
@@ -35,8 +46,9 @@ public class FilterViewModel {
 	private BooleanProperty acceptsReservationsProperty;
 	private BooleanProperty newRestaurantsProperty;
 	private BooleanProperty genderNeutralBathroomProperty;
-
-	public FilterViewModel() {
+	private MainManager mainManager;
+	
+	public FilterViewModel(MainManager mainManager) {
 		this.locationAddressProperty = new SimpleStringProperty();
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
 		this.selectedRadiusProperty = new SimpleObjectProperty<Radius>();
@@ -51,16 +63,48 @@ public class FilterViewModel {
 		this.acceptsReservationsProperty = new SimpleBooleanProperty();
 		this.newRestaurantsProperty = new SimpleBooleanProperty();
 		this.genderNeutralBathroomProperty = new SimpleBooleanProperty();
+		this.mainManager = mainManager;
 	}
 
-	public void setMainManager(MainManager manager) {
-		throw new UnsupportedOperationException();
-		//TODO Go over with Furichous during meeting
+	public void sendRestaurantQuery() {
+		String location = this.locationAddressProperty.getValue();
+		int radius = this.selectedRadiusProperty.getValue().getMeters();
+		String categories = this.categoriesProperty.getValue();
+		double reviewScore = this.reviewScoreProperty.getValue();
+		boolean currentlyOpen = this.currentlyOpenProperty.getValue();
+		boolean handicapAccessible = this.handicapAccessibleProperty.getValue();
+		boolean acceptsReservations = this.acceptsReservationsProperty.getValue();
+		boolean hotAndNew = this.newRestaurantsProperty.getValue();
+		boolean neutralBathrooms = this.genderNeutralBathroomProperty.getValue();
+		List<Price> prices = this.buildPrices();
+		
+		RestaurantsQuery query = new RestaurantsQuery(location, radius, categories, reviewScore, prices, currentlyOpen, handicapAccessible, acceptsReservations, hotAndNew, neutralBathrooms);
+		String response = QueryManager.sendQuery(query);
+		List<Restaurant> restaurants = JSONLoader.parseRestaurants(response);
+		RestaurantManager theManager = this.mainManager.getRestaurantManager();
+		theManager.setTheRestaurants(restaurants);
 	}
 
-	public void appendRestaurantQuery() {
-		throw new UnsupportedOperationException();
-		//TODO Go over with Furichous during meeting
+	private List<Price> buildPrices() {
+		boolean price1 = this.price1Property.getValue();
+		boolean price2 = this.price2Property.getValue();
+		boolean price3 = this.price3Property.getValue();
+		boolean price4 = this.price4Property.getValue();
+		
+		List<Price> prices = new ArrayList<Price>();
+		if (price1) {
+			prices.add(Price.$);
+		}
+		if (price2) {
+			prices.add(Price.$$);
+		}
+		if (price3) {
+			prices.add(Price.$$$);
+		}
+		if (price4) {
+			prices.add(Price.$$$$);
+		}
+		return prices;
 	}
 
 	/**

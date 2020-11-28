@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import src.viewmodel.ReviewsManagerViewModel;
 
-public class ReviewsCodeBehind {
+public class ReviewsCodeBehind extends BaseCodeBehind {
 	
 	private ReviewsManagerViewModel viewmodel = new ReviewsManagerViewModel("Mcdonalds");
 	
@@ -39,4 +39,10 @@ public class ReviewsCodeBehind {
         System.out.println(this.reviewsContainer.getChildren());
         this.mainPane.getChildren().add(this.reviewsContainer);
     }
+
+	@Override
+	public void onActivation() {
+		// TODO Add all the reviews from mainManager to reviews container
+		
+	}
 }

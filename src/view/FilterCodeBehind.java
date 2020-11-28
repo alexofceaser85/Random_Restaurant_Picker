@@ -15,7 +15,7 @@ import src.viewmodel.FilterViewModel;
  * @author Alexander Ayers
  *
  */
-public class FilterCodeBehind {
+public class FilterCodeBehind extends BaseCodeBehind {
 
 	  @FXML
 	    private Text enterLocationText;
@@ -82,8 +82,8 @@ public class FilterCodeBehind {
 		 * @precondition none
 		 * @postcondition none
 		 */
-	    public FilterCodeBehind() {
-	    	this.viewModel = new FilterViewModel();
+	    public FilterCodeBehind(FilterViewModel viewModel) {
+	    	this.viewModel = viewModel;
 	    }
 	    
 		/**
@@ -101,19 +101,21 @@ public class FilterCodeBehind {
 	    
 	    @FXML
 	    void handleBegin(ActionEvent event) {
-			throw new UnsupportedOperationException();
 			//TODO Go over with Furichous during meeting
+	    	super.getController().activate("Filter");
 	    }
 	    
 	    @FXML
 	    void handleBack(ActionEvent event) {
-			throw new UnsupportedOperationException();
 			//TODO Go over with Furichous during meeting
+			super.getController().activate("Location");
 	    }
 
 	    @FXML
 	    void handleSubmit(ActionEvent event) {
-	    	this.viewModel.appendRestaurantQuery();
+	    	//TODO Go over with Furichous during meeting
+	    	this.viewModel.sendRestaurantQuery();
+	    	super.getController().activate("Restaurant");
 	    }
 	    
 	    private void bindToViewModel() {
@@ -131,5 +133,10 @@ public class FilterCodeBehind {
 	    	this.newRestaurantsCheckbox.selectedProperty().bindBidirectional(this.viewModel.newRestaurantsProperty());
 	    	this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(), new NumberStringConverter());
 	    }
+
+		@Override
+		public void onActivation() {
+			//TODO reset properties based on MainManager
+		}
 	}
 
