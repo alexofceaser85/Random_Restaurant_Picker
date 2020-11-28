@@ -29,7 +29,7 @@ class TestGetReviewScore {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("DoubleProperty [value: 1.1]", theReviewsManagerViewModel.getReviewScore(0).toString());
+		assertEquals(1.1, theReviewsManagerViewModel.getReviewScore(0));
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ class TestGetReviewScore {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("DoubleProperty [value: 4.5]", theReviewsManagerViewModel.getReviewScore(1).toString());
+		assertEquals(4.5, theReviewsManagerViewModel.getReviewScore(1));
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ class TestGetReviewScore {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("DoubleProperty [value: 3.1]", theReviewsManagerViewModel.getReviewScore(2).toString());
+		assertEquals(3.1, theReviewsManagerViewModel.getReviewScore(2));
 	}
 
 
