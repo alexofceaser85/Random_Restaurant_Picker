@@ -1,23 +1,80 @@
 package src.main;
 	
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import java.util.Random;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
+import src.controller.SceneController;
+import src.model.MainManager;
+import src.view.FilterCodeBehind;
+import src.view.RestaurantViewCodeBehind;
+import src.viewmodel.FilterViewModel;
+import src.viewmodel.RestaurantViewModel;
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		MainManager mainManager = new MainManager(new Random());
+		
+		SceneController controller = new SceneController(primaryStage);
+		boolean loadError = false;
+		
+		FXMLLoader reviewsLoader = new FXMLLoader();
+		reviewsLoader.setLocation(Main.class.getClassLoader().getResource("src/view/ReviewsPageGUI.fxml"));
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
-			e.printStackTrace();
+			reviewsLoader.load();
+		} catch (Exception e) {
+			loadError = true;
 		}
+		
+		FXMLLoader restaurantErrorLoader = new FXMLLoader();
+		restaurantErrorLoader.setLocation(Main.class.getClassLoader().getResource("src/view/RestaurantErrorGUI.fxml"));
+		try {
+			restaurantErrorLoader.load();
+		} catch (Exception e) {
+			loadError = true;
+		}
+		
+		RestaurantViewModel restaurantViewModel = new RestaurantViewModel(mainManager);
+		RestaurantViewCodeBehind restaurantController = new RestaurantViewCodeBehind(restaurantViewModel);
+		
+		FXMLLoader restaurantLoader = new FXMLLoader();
+		restaurantLoader.setController(restaurantController);
+		restaurantLoader.setLocation(Main.class.getClassLoader().getResource("src/view/RestaurantGUI.fxml"));
+		try {
+			restaurantLoader.load();
+		} catch (Exception e) {
+			loadError = true;
+		}
+		
+		FilterViewModel filterViewModel = new FilterViewModel(mainManager);
+		FilterCodeBehind filterController = new FilterCodeBehind(filterViewModel);
+		
+		FXMLLoader filtersLoader = new FXMLLoader();
+		filtersLoader.setController(filterController);
+		filtersLoader.setLocation(Main.class.getClassLoader().getResource("src/view/FilterPageGUI.fxml"));
+		try {
+			filtersLoader.load();
+		} catch (Exception e) {
+			System.out.println("filters load error");
+		}
+		
+		FXMLLoader locationLoader = new FXMLLoader();
+		locationLoader.setController(filterController);
+		locationLoader.setLocation(Main.class.getClassLoader().getResource("src/view/LocationAndRadiusGUI.fxml"));
+		try {
+			locationLoader.load();
+		} catch (Exception e) {
+			System.out.println("location load error");
+		}
+		
+			controller.add("Restaurant", restaurantLoader);
+			controller.add("Reviews", reviewsLoader);
+			controller.add("Filter", filtersLoader);
+			controller.add("Location", locationLoader);
+			controller.add("RestaurantError", restaurantErrorLoader);
+			controller.activate("Filter");
 	}
 	
 	public static void main(String[] args) {

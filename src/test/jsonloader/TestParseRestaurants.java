@@ -16,7 +16,6 @@ class TestParseRestaurants {
 	void testZeroRestaurants() {
 		String testJSON = "{\"total\": 0,\"businesses\": []}";
 		List<Restaurant> testRestaurants = JSONLoader.parseRestaurants(testJSON);
-		
 		assertEquals(0, testRestaurants.size());
 	}
 	@Test

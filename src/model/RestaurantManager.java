@@ -112,4 +112,8 @@ public class RestaurantManager {
 		return this.theRestaurants.get(randomIndex);
 	}
 
+	public void setTheRestaurants(List<Restaurant> theRestaurants) {
+		this.theRestaurants = theRestaurants;
+	}
+
 }

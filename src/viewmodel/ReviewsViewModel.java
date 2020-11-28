@@ -16,10 +16,10 @@ import src.model.Review;
 
 public class ReviewsViewModel {
 
-	StringProperty reviewer;
-	StringProperty reviewContent;
-	DoubleProperty reviewScore;
-	Review review;
+	private StringProperty reviewer;
+	private StringProperty reviewContent;
+	private DoubleProperty reviewScore;
+	private Review review;
 	
 	/**
 	 * This is the constructor for the Reviews View Model

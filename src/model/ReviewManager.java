@@ -19,8 +19,8 @@ import src.error_messages.ErrorMessages;
 public class ReviewManager {
 
 	private String restaurantName;
-	private ArrayList<Review> reviews;
 	private String restuarantId;
+	private List<Review> reviews;
 	
 	/**
 	 * The constructor for the review manager
@@ -72,7 +72,7 @@ public class ReviewManager {
 	 * @return the restaurant reviews
 	 */
 	
-	public ArrayList<Review> getReviews() {
+	public List<Review> getReviews() {
 		return this.reviews;
 	}
 	
@@ -175,5 +175,9 @@ public class ReviewManager {
 		}
 		
 		return reviewsString;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 }

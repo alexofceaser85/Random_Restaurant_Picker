@@ -7,41 +7,37 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import src.view.BaseCodeBehind;
-
+/**
+ * Class for activating and showing registered scenes.
+ * @author Furichous Jones IV
+ */
 public class SceneController {
 	private HashMap<String,Pair<Scene,BaseCodeBehind>> pages;
 	private Stage primaryStage;
 	
 	public SceneController(Stage primaryStage) {
 		this.primaryStage = primaryStage;
+		this.pages = new HashMap<String,Pair<Scene,BaseCodeBehind>>();
 	}
 	
-	public boolean add(String key, String resourcePath) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(SceneController.class.getClassLoader().getResource(resourcePath));
-			loader.load();
-			
-			Scene scene = new Scene(loader.getRoot());
-			BaseCodeBehind codeBehind = (BaseCodeBehind) loader.getController();
-			codeBehind.setController(this);
-			Pair<Scene,BaseCodeBehind> page = new Pair<Scene,BaseCodeBehind>(scene, codeBehind);
-			
-			pages.put(key, page);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
+	public void add(String key, FXMLLoader loader) {		
+		Scene scene = new Scene(loader.getRoot());
+		BaseCodeBehind codeBehind = (BaseCodeBehind) loader.getController();
+		codeBehind.setController(this);
+		Pair<Scene,BaseCodeBehind> page = new Pair<Scene,BaseCodeBehind>(scene, codeBehind);
+		pages.put(key, page);
 	}
 	
 	public void activate(String key) {
 		Pair<Scene,BaseCodeBehind> page = pages.get(key);
-		BaseCodeBehind codeBehind = page.getValue();
-		Scene scene = page.getKey();
-		codeBehind.onActivation();
-		
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		if (page != null) {
+			BaseCodeBehind codeBehind = page.getValue();
+			Scene scene = page.getKey();
+			
+			codeBehind.onActivation();
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		}
 	}
 	
 }

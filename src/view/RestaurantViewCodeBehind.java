@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import src.viewmodel.RestaurantViewModel;
 
@@ -14,7 +15,7 @@ import src.viewmodel.RestaurantViewModel;
  *
  */
 
-public class RestaurantViewCodeBehind {
+public class RestaurantViewCodeBehind extends BaseCodeBehind {
 
     @FXML
     private Text restaurantNameText;
@@ -22,6 +23,9 @@ public class RestaurantViewCodeBehind {
     @FXML
     private Text restaurantDistanceText;
 
+    @FXML
+    private ImageView restaurantImage;
+    
     @FXML
     private Hyperlink restaurantAddressHyperlink;
 
@@ -45,15 +49,14 @@ public class RestaurantViewCodeBehind {
     
     private RestaurantViewModel viewModel;
     
-    
 	/**
 	 * Zero-parameter constructor
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 */
-    public RestaurantViewCodeBehind() {
-    	this.viewModel = new RestaurantViewModel();
+    public RestaurantViewCodeBehind(RestaurantViewModel viewModel) {
+    	this.viewModel = viewModel;
     }
     
     
@@ -69,16 +72,18 @@ public class RestaurantViewCodeBehind {
     	this.restaurantAddressHyperlink.textProperty().bind(this.viewModel.locationProperty());
     	this.restaurantPriceText.textProperty().bind(this.viewModel.priceRangeProperty());
     	this.restaurantReivewScoreText.textProperty().bind(this.viewModel.reviewScoreProperty());
+    	this.restaurantImage.imageProperty().bind(this.viewModel.imageProperty());
     }
     
     @FXML
     void grabNewRestaurant(ActionEvent event) {
-    	this.viewModel.pickARestaurant();
+    	this.onActivation();
     }
 
     @FXML
     void resetFilters(ActionEvent event) {
     	this.viewModel.resetFilters();
+    	super.getController().activate("Location");
     }
 
     @FXML
@@ -88,8 +93,17 @@ public class RestaurantViewCodeBehind {
 
     @FXML
     void seeRestaurantReviews(ActionEvent event) {
-    	throw new UnsupportedOperationException();
+    	this.viewModel.sendReviewsQuery();
+    	super.getController().activate("Reviews");
     }
+
+
+	@Override
+	public void onActivation() {
+		if (!this.viewModel.pickARestaurant()) {
+			super.getController().activate("RestaurantError");
+		}
+	}
 
 }
 

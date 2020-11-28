@@ -2,21 +2,22 @@ package src.viewmodel;
 import javafx.scene.image.Image;
 
 import java.text.DecimalFormat;
+import java.util.List;
 import java.util.Random;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import src.data.JSONLoader;
+import src.data.QueryManager;
+import src.data.ReviewsQuery;
 import src.error_messages.ErrorMessages;
-import src.model.MainManager;
-import src.model.Price;
-import src.model.Restaurant;
-import src.model.RestaurantManager;
+import src.model.*;
 
 public class RestaurantViewModel {
 	private StringProperty nameProperty;
-	private StringProperty imageProperty;
+	private ObjectProperty<Image> imageProperty;
 	private StringProperty locationProperty;
 	private StringProperty priceRangeProperty;
 	private StringProperty distanceProperty;
@@ -24,31 +25,24 @@ public class RestaurantViewModel {
 	private MainManager mainManager;
 	private String restaurantID;
 	private String menuURL;
-	public RestaurantViewModel() {
+	public RestaurantViewModel(MainManager mainManager) {
 		this.nameProperty = new SimpleStringProperty();
-		this.imageProperty = new SimpleStringProperty();
+		this.imageProperty = new SimpleObjectProperty<Image>();
 		this.locationProperty = new SimpleStringProperty();
 		this.priceRangeProperty = new SimpleStringProperty();
 		this.distanceProperty = new SimpleStringProperty();
 		this.reviewScoreProperty = new SimpleStringProperty();
 		this.restaurantID = "";
 		this.menuURL = "";
-	}
-	
-	public void setMainManager(MainManager mainManager) {
-		if(mainManager == null) {
-			throw new IllegalArgumentException(ErrorMessages.MAIN_MANAGER_SHOULD_NOT_BE_NULL);
-		}
 		this.mainManager = mainManager;
 	}
 	
-	public void pickARestaurant() {
+	public boolean pickARestaurant() {
 		RestaurantManager theManager = this.mainManager.getRestaurantManager();
 		Restaurant pickedRestaurant = theManager.pickRandom();
 		if (pickedRestaurant == null) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NOT_FOUND);
+			return false;
 		}
-		
 		
 		String name = pickedRestaurant.getName();
 		String location = pickedRestaurant.getLocation();
@@ -58,19 +52,27 @@ public class RestaurantViewModel {
 		String distanceFormatted = Integer.toString(distance);
 		
 		String imageURL = pickedRestaurant.getImageURL();
+		Image image;
+		try {
+			image = new Image(imageURL);
+		} catch (Exception e) {
+			image = new Image(JSONLoader.DEFAULT_IMAGE);
+		}
+		this.imageProperty.set(image);
 		
 		double reviewScore = pickedRestaurant.getReviewScore();
 		DecimalFormat df = new DecimalFormat("#.#"); 
 		String reviewScoreFormatted = df.format(reviewScore);
 		
 		this.nameProperty.set(name);
-		this.imageProperty.set(imageURL);
+		
 		this.locationProperty.set(location);
 		this.priceRangeProperty.set(price.toString());
 		this.distanceProperty.set(distanceFormatted);
 		this.reviewScoreProperty.set(reviewScoreFormatted);
 		this.restaurantID = pickedRestaurant.getId();
 		this.menuURL = pickedRestaurant.getMenuURL();
+		return true;
 	}
 	
 	public void resetFilters() {
@@ -80,15 +82,21 @@ public class RestaurantViewModel {
 		this.mainManager.setResetFilters(true);
 	}
 	
-	public void appendReviewsQuery() {
-		throw new UnsupportedOperationException();
+	public void sendReviewsQuery() {
+		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
+		
+		String response = QueryManager.sendQuery(query);
+		List<Review> reviews = JSONLoader.parseReviews(response);
+		
+		ReviewManager theManager = this.mainManager.getReviewManager();
+		theManager.setReviews(reviews);
 	}
 	
 	public StringProperty nameProperty() {
 		return this.nameProperty;
 	}
 	
-	public StringProperty imageProperty() {
+	public ObjectProperty<Image> imageProperty() {
 		return this.imageProperty;
 	}
 	

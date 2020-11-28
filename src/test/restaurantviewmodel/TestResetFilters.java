@@ -12,16 +12,15 @@ public class TestResetFilters {
 
 	@Test
 	void testResetFiltersWithValidMainManager() {
-		RestaurantViewModel testViewModel = new RestaurantViewModel();
 		MainManager testMainManager = new MainManager(null);
-		testViewModel.setMainManager(testMainManager);
+		RestaurantViewModel testViewModel = new RestaurantViewModel(testMainManager);
 		testViewModel.resetFilters();
 		assertTrue(testMainManager.getResetFilters());
 	}
 	
 	@Test
-	void testNullSetMainManager() {
-		RestaurantViewModel testViewModel = new RestaurantViewModel();
+	void testNullMainManager() {
+		RestaurantViewModel testViewModel = new RestaurantViewModel(null);
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			testViewModel.resetFilters();
 		});

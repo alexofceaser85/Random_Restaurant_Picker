@@ -1,7 +1,5 @@
 package src.data;
 
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +14,7 @@ public class RestaurantsQuery extends Query {
 			double reviewScore, 
 			List<Price> prices, 
 			boolean currentlyOpen, 
-			boolean handicap, 
+			boolean handicapAccessible, 
 			boolean reservations, 
 			boolean hotAndNew, 
 			boolean neutralBathroom) {
@@ -32,7 +30,7 @@ public class RestaurantsQuery extends Query {
 		urlBuilder.addFolder("search");
 		urlBuilder.addParameter("term", "restaurants");
 		urlBuilder.addParameter("location", location);
-		urlBuilder.addParameter("radius", Integer.toString(radius*RestaurantsQuery.METER_CONVERSION));
+		urlBuilder.addParameter("radius", Integer.toString(radius));
 		if (categories != null && !categories.isBlank()) {
 			urlBuilder.addParameter("categories", categories);
 		}
@@ -46,7 +44,7 @@ public class RestaurantsQuery extends Query {
 			urlBuilder.addParameter("open_now", Boolean.toString(currentlyOpen));
 		}
 		StringBuilder attributes = new StringBuilder();
-		if (handicap) {
+		if (handicapAccessible) {
 			attributes.append("wheelchair_accessible");
 			attributes.append(",");
 		}

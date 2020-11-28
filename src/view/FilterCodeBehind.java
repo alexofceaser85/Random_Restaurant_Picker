@@ -8,6 +8,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.converter.NumberStringConverter;
+import src.model.Price;
 import src.model.Radius;
 import src.viewmodel.FilterViewModel;
 /**
@@ -15,7 +16,7 @@ import src.viewmodel.FilterViewModel;
  * @author Alexander Ayers
  *
  */
-public class FilterCodeBehind {
+public class FilterCodeBehind extends BaseCodeBehind {
 
 	  @FXML
 	    private Text enterLocationText;
@@ -82,8 +83,8 @@ public class FilterCodeBehind {
 		 * @precondition none
 		 * @postcondition none
 		 */
-	    public FilterCodeBehind() {
-	    	this.viewModel = new FilterViewModel();
+	    public FilterCodeBehind(FilterViewModel viewModel) {
+	    	this.viewModel = viewModel;
 	    }
 	    
 		/**
@@ -92,33 +93,40 @@ public class FilterCodeBehind {
 		 * @precondition none
 		 * @postcondition none
 		 */
-	    public void initalize()
+	    public void initialize()
 	    {
 	    	this.bindToViewModel();
-	    	this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
+	    	//this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
 	    	//TODO Setup Regex in reviewScore
+	    	//TODO Make Location and Radius text boxes required
 	    }
 	    
 	    @FXML
 	    void handleBegin(ActionEvent event) {
-			throw new UnsupportedOperationException();
 			//TODO Go over with Furichous during meeting
+	    	super.getController().activate("Filter");
 	    }
 	    
 	    @FXML
 	    void handleBack(ActionEvent event) {
-			throw new UnsupportedOperationException();
 			//TODO Go over with Furichous during meeting
+			super.getController().activate("Location");
 	    }
 
 	    @FXML
 	    void handleSubmit(ActionEvent event) {
-	    	this.viewModel.appendRestaurantQuery();
+	    	//TODO Go over with Furichous during meeting
+	    	this.viewModel.sendRestaurantQuery();
+	    	//TODO make this go to loading screen
+	    	super.getController().activate("Restaurant");
 	    }
 	    
 	    private void bindToViewModel() {
-	    	this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
-	    	this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
+	    	if (this.locationAddressTextBox != null && this.radiusComboBox != null) {
+	    		this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
+	    		this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
+	    		this.radiusComboBox.valueProperty().bindBidirectional(this.viewModel.getSelectedRadiusProperty());
+	    	}
 	    	this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
 	    	this.acceptsReservationsCheckbox.selectedProperty().bindBidirectional(this.viewModel.acceptsReservationsProperty());
 	    	this.price1Checkbox.selectedProperty().bindBidirectional(this.viewModel.price1Property());
@@ -131,5 +139,10 @@ public class FilterCodeBehind {
 	    	this.newRestaurantsCheckbox.selectedProperty().bindBidirectional(this.viewModel.newRestaurantsProperty());
 	    	this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(), new NumberStringConverter());
 	    }
+
+		@Override
+		public void onActivation() {
+			//TODO reset properties based on MainManager
+		}
 	}
 
