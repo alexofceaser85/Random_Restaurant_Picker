@@ -21,7 +21,7 @@ class TestGetReviewContent {
 	}
 	
 	@Test
-	public void shouldGetFirstReviewer() {
+	public void shouldGetFirstReview() {
 		
 		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
 		
@@ -29,11 +29,11 @@ class TestGetReviewContent {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you値l get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("StringProperty [value: This lamb is so undercooked, it痴 following Mary to school!]", theReviewsManagerViewModel.getReviewContent(0).toString());
+		assertEquals("This lamb is so undercooked, it痴 following Mary to school!", theReviewsManagerViewModel.getReviewContent(0));
 	}
 	
 	@Test
-	public void shouldGetSecondReviewer() {
+	public void shouldGetSecondReview() {
 		
 		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
 		
@@ -41,7 +41,7 @@ class TestGetReviewContent {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you値l get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("StringProperty [value: This pizza is so disgusting, if you take it to Italy you値l get arrested.]", theReviewsManagerViewModel.getReviewContent(1).toString());
+		assertEquals("This pizza is so disgusting, if you take it to Italy you値l get arrested.", theReviewsManagerViewModel.getReviewContent(1));
 	}
 	
 	@Test
@@ -53,7 +53,7 @@ class TestGetReviewContent {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you値l get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("StringProperty [value: Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2]", theReviewsManagerViewModel.getReviewContent(2).toString());
+		assertEquals("Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", theReviewsManagerViewModel.getReviewContent(2));
 	}
 
 }

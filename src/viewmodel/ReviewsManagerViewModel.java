@@ -76,10 +76,8 @@ public class ReviewsManagerViewModel {
 	 * @return the reviewer name for a given review
 	 */
 	
-	public StringProperty getReviewer(int index) {
-		Review theReview = this.theReviewManager.getReview(index);
-		StringProperty theReviewer = new SimpleStringProperty(theReview.getReviewerName());
-		return theReviewer;
+	public String getReviewer(int index) {
+		return this.theReviewManager.getReview(index).getReviewerName();
 	}
 	
 	/**
@@ -91,10 +89,8 @@ public class ReviewsManagerViewModel {
 	 * @return the review content for a given review
 	 */
 	
-	public StringProperty getReviewContent(int index) {
-		Review theReview = this.theReviewManager.getReview(index);
-		StringProperty theReviewContent = new SimpleStringProperty(theReview.getReviewContent());
-		return theReviewContent;
+	public String getReviewContent(int index) {
+		return this.theReviewManager.getReview(index).getReviewContent();
 	}
 	
 	/**
@@ -106,10 +102,8 @@ public class ReviewsManagerViewModel {
 	 * @return the review score for a given review
 	 */
 	
-	public DoubleProperty getReviewScore(int index) {
-		Review theReview = this.theReviewManager.getReview(index);
-		DoubleProperty theReviewScore = new SimpleDoubleProperty(theReview.getReviewScore());
-		return theReviewScore;
+	public double getReviewScore(int index) {
+		return this.theReviewManager.getReview(index).getReviewScore();
 	}
 	
 	/**

@@ -97,6 +97,7 @@ public class FilterCodeBehind extends BaseCodeBehind {
 	    	this.bindToViewModel();
 	    	this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
 	    	//TODO Setup Regex in reviewScore
+	    	//TODO Make Location and Radius text boxes required
 	    }
 	    
 	    @FXML
