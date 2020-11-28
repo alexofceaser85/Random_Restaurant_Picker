@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import src.error_messages.ErrorMessages;
 import src.model.RestaurantManager;
@@ -20,6 +22,7 @@ import src.model.ReviewManager;
 public class ReviewsManagerViewModel {
 
 	private ReviewManager theReviewManager;
+	private StringProperty restaurantName;
 	
 	/**
 	 * The constructor for the reviews manager view model
@@ -34,6 +37,8 @@ public class ReviewsManagerViewModel {
 	
 	public ReviewsManagerViewModel(String restaurantName) {
 		this.theReviewManager = new ReviewManager(restaurantName);	
+		this.restaurantName = new SimpleStringProperty();
+		this.restaurantName.set(restaurantName);
 	}
 	
 	/**
@@ -63,16 +68,48 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Gets the reviews for the review manager
+	 * Gets the reviewer name for a given review
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the reviews for the review manager
+	 * @return the reviewer name for a given review
 	 */
 	
-	public ArrayList<Review> getReviews() {
-		return this.theReviewManager.getReviews();
+	public StringProperty getReviewer(int index) {
+		Review theReview = this.theReviewManager.getReview(index);
+		StringProperty theReviewer = new SimpleStringProperty(theReview.getReviewerName());
+		return theReviewer;
+	}
+	
+	/**
+	 * Gets the review content for a given review
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the review content for a given review
+	 */
+	
+	public StringProperty getReviewContent(int index) {
+		Review theReview = this.theReviewManager.getReview(index);
+		StringProperty theReviewContent = new SimpleStringProperty(theReview.getReviewContent());
+		return theReviewContent;
+	}
+	
+	/**
+	 * Gets the review score for a given review
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the review score for a given review
+	 */
+	
+	public DoubleProperty getReviewScore(int index) {
+		Review theReview = this.theReviewManager.getReview(index);
+		DoubleProperty theReviewScore = new SimpleDoubleProperty(theReview.getReviewScore());
+		return theReviewScore;
 	}
 	
 	/**
@@ -84,8 +121,8 @@ public class ReviewsManagerViewModel {
 	 * @return the restaurant name for the review manager
 	 */
 	
-	public String getRestaurantName() {
-		return this.theReviewManager.getRestaurantName();
+	public StringProperty getRestaurantName() {
+		return this.restaurantName;
 	}
 	
 	/**

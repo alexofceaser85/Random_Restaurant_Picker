@@ -115,6 +115,22 @@ public class ReviewManager {
 	}
 	
 	/**
+	 * Returns a given review
+	 * 
+	 * @precondition index >= 0
+	 * @postcondition none
+	 */
+	
+	public Review getReview(int index) {
+		
+		if (index < 0) {
+			throw new IllegalArgumentException(ErrorMessages.REVIEW_INDEX_CANNOT_BE_LESS_THAN_ZERO);
+		}
+		
+		return this.reviews.get(index);
+	}
+	
+	/**
 	 * Returns the string representation of the reviews array
 	 * 
 	 * @precondition none

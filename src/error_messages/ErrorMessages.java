@@ -43,6 +43,7 @@ public class ErrorMessages {
 	public static final String REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY = "The restaurant name for the reviews cannot be empty";
 	public static final String REVIEW_TO_ADD_CANNOT_BE_NULL = "The review to add to the review manager cannot be null";
 	public static final String REVIEW_TO_REMOVE_CANNOT_BE_NULL = "The review to remove from the review manager cannot be null";
+	public static final String REVIEW_INDEX_CANNOT_BE_LESS_THAN_ZERO = "The review index cannot be less than zero";
 	public static final String RESTAURANTID_SHOULD_NOT_BE_BLANK = "The restaurantID cannot be blank";
 	public static final String RESTAURANTID_SHOULD_NOT_BE_NULL = "The restaurantID cannot be null";
 	public static final String QUERYURL_SHOULD_NOT_BE_NULL = "The queryURL cannot be null";

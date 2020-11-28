@@ -11,7 +11,7 @@ class TestGetRestaurantName {
 	@Test
 	public void shouldGetRestaurantName() {
 		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
-		assertEquals("Mcdonalds", theReviewsManagerViewModel.getRestaurantName());
+		assertEquals("StringProperty [value: Mcdonalds]", theReviewsManagerViewModel.getRestaurantName().toString());
 	}
 
 }
