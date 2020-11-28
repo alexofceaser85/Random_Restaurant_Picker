@@ -8,13 +8,14 @@ import java.util.Random;
 
 import org.junit.jupiter.api.Test;
 
+import src.model.MainManager;
 import src.viewmodel.RestaurantViewModel;
 
 public class TestConstructor {
 
 	@Test
 	void testConstructor() {
-		RestaurantViewModel testViewModel = new RestaurantViewModel();
+		RestaurantViewModel testViewModel = new RestaurantViewModel(new MainManager(null));
 		assertNotNull(testViewModel.nameProperty());
 		assertNotNull(testViewModel.imageProperty());
 		assertNotNull(testViewModel.locationProperty());

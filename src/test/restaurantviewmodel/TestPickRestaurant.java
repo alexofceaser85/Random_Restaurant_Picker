@@ -31,32 +31,23 @@ public class TestPickRestaurant {
 		}
 	}
 	
-	private RestaurantViewModel testViewModel;
-	@BeforeEach
-	void initializeTest() {
-		this.testViewModel = new RestaurantViewModel();
-	}
-	
 	@Test
 	void testEmptyRestaurants() {
 		MainManager testMainManager = new MainManager(new FakeRandom(1));
-		this.testViewModel.setMainManager(testMainManager);
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			this.testViewModel.pickARestaurant();
-		});
+		RestaurantViewModel testViewModel = new RestaurantViewModel(testMainManager);
+		assertFalse(testViewModel.pickARestaurant());
 	}
 	
 	@Test
 	void testOneRestaurants() {
 		MainManager testMainManager = new MainManager(new FakeRandom(0));
 		RestaurantManager testRestaurantManager = testMainManager.getRestaurantManager();
-		this.testViewModel.setMainManager(testMainManager);
-		
+		RestaurantViewModel testViewModel = new RestaurantViewModel(testMainManager);
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", Price.$, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 
 		testRestaurantManager.addRestaurant(theFirstRestaurant);
 		
-		this.testViewModel.pickARestaurant();
+		assertTrue(testViewModel.pickARestaurant());
 		assertEquals("First Restaurant",testViewModel.nameProperty().get());
 		assertEquals("First Image URL",testViewModel.imageProperty().get());
 		assertEquals("Atlanta, GA, USA",testViewModel.locationProperty().get());
@@ -72,8 +63,7 @@ public class TestPickRestaurant {
 	void testManyRestaurants() {
 		MainManager testMainManager = new MainManager(new FakeRandom(1));
 		RestaurantManager testRestaurantManager = testMainManager.getRestaurantManager();
-		this.testViewModel.setMainManager(testMainManager);
-		
+		RestaurantViewModel testViewModel = new RestaurantViewModel(testMainManager);
 		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", Price.$, "Atlanta, GA, USA", 20, 1.8, "First Menu URL", "First Image URL", "5416");
 		Restaurant theSecondRestaurant = new Restaurant("Second Restaurant", Price.$$, "Atlanta, GA, USA", 15, 3.9, "Second Menu URL", "Second Image URL", "41987");
 		Restaurant theThirdRestaurant = new Restaurant("Third Restaurant", Price.$$$, "Atlanta, GA, USA", 10, 4.5, "Third Menu URL", "Third Image URL", "4561");
@@ -82,7 +72,7 @@ public class TestPickRestaurant {
 		testRestaurantManager.addRestaurant(theSecondRestaurant);
 		testRestaurantManager.addRestaurant(theThirdRestaurant);
 		
-		this.testViewModel.pickARestaurant();
+		assertTrue(testViewModel.pickARestaurant());
 		assertEquals("Second Restaurant",testViewModel.nameProperty().get());
 		assertEquals("Second Image URL",testViewModel.imageProperty().get());
 		assertEquals("Atlanta, GA, USA",testViewModel.locationProperty().get());

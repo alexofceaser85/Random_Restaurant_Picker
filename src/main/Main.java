@@ -57,7 +57,7 @@ public class Main extends Application {
 		try {
 			filtersLoader.load();
 		} catch (Exception e) {
-			loadError = true;
+			System.out.println("filters load error");
 		}
 		
 		FXMLLoader locationLoader = new FXMLLoader();
@@ -66,17 +66,15 @@ public class Main extends Application {
 		try {
 			locationLoader.load();
 		} catch (Exception e) {
-			loadError = true;
+			System.out.println("location load error");
 		}
 		
-		if (!loadError) {
 			controller.add("Restaurant", restaurantLoader);
 			controller.add("Reviews", reviewsLoader);
 			controller.add("Filter", filtersLoader);
 			controller.add("Location", locationLoader);
 			controller.add("RestaurantError", restaurantErrorLoader);
-			controller.activate("Restaurant");
-		}
+			controller.activate("Filter");
 	}
 	
 	public static void main(String[] args) {

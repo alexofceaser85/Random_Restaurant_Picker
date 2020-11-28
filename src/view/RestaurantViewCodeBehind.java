@@ -44,9 +44,6 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
     private Button resetFiltersButton;
     
     private RestaurantViewModel viewModel;
-
-	private boolean errorOccured;
-    
     
 	/**
 	 * Zero-parameter constructor
@@ -56,7 +53,6 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
 	 */
     public RestaurantViewCodeBehind(RestaurantViewModel viewModel) {
     	this.viewModel = viewModel;
-    	this.errorOccured = false;
     }
     
     
@@ -99,11 +95,8 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
 
 	@Override
 	public void onActivation() {
-		if (!this.errorOccured && !this.viewModel.pickARestaurant()) {
-			this.errorOccured = true;
+		if (!this.viewModel.pickARestaurant()) {
 			super.getController().activate("RestaurantError");
-		} else {
-			this.errorOccured = false;
 		}
 	}
 

@@ -8,6 +8,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.converter.NumberStringConverter;
+import src.model.Price;
 import src.model.Radius;
 import src.viewmodel.FilterViewModel;
 /**
@@ -92,10 +93,10 @@ public class FilterCodeBehind extends BaseCodeBehind {
 		 * @precondition none
 		 * @postcondition none
 		 */
-	    public void initalize()
+	    public void initialize()
 	    {
 	    	this.bindToViewModel();
-	    	this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
+	    	//this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
 	    	//TODO Setup Regex in reviewScore
 	    	//TODO Make Location and Radius text boxes required
 	    }
@@ -116,12 +117,16 @@ public class FilterCodeBehind extends BaseCodeBehind {
 	    void handleSubmit(ActionEvent event) {
 	    	//TODO Go over with Furichous during meeting
 	    	this.viewModel.sendRestaurantQuery();
+	    	//TODO make this go to loading screen
 	    	super.getController().activate("Restaurant");
 	    }
 	    
 	    private void bindToViewModel() {
-	    	this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
-	    	this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
+	    	if (this.locationAddressTextBox != null && this.radiusComboBox != null) {
+	    		this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
+	    		this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
+	    		this.radiusComboBox.valueProperty().bindBidirectional(this.viewModel.getSelectedRadiusProperty());
+	    	}
 	    	this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
 	    	this.acceptsReservationsCheckbox.selectedProperty().bindBidirectional(this.viewModel.acceptsReservationsProperty());
 	    	this.price1Checkbox.selectedProperty().bindBidirectional(this.viewModel.price1Property());

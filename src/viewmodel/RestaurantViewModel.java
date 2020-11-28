@@ -17,7 +17,7 @@ import src.model.*;
 
 public class RestaurantViewModel {
 	private StringProperty nameProperty;
-	private StringProperty imageProperty;
+	private StringProperty imageURLProperty;
 	private StringProperty locationProperty;
 	private StringProperty priceRangeProperty;
 	private StringProperty distanceProperty;
@@ -27,7 +27,7 @@ public class RestaurantViewModel {
 	private String menuURL;
 	public RestaurantViewModel(MainManager mainManager) {
 		this.nameProperty = new SimpleStringProperty();
-		this.imageProperty = new SimpleStringProperty();
+		this.imageURLProperty = new SimpleStringProperty();
 		this.locationProperty = new SimpleStringProperty();
 		this.priceRangeProperty = new SimpleStringProperty();
 		this.distanceProperty = new SimpleStringProperty();
@@ -58,7 +58,7 @@ public class RestaurantViewModel {
 		String reviewScoreFormatted = df.format(reviewScore);
 		
 		this.nameProperty.set(name);
-		this.imageProperty.set(imageURL);
+		this.imageURLProperty.set(imageURL);
 		this.locationProperty.set(location);
 		this.priceRangeProperty.set(price.toString());
 		this.distanceProperty.set(distanceFormatted);
@@ -90,7 +90,7 @@ public class RestaurantViewModel {
 	}
 	
 	public StringProperty imageProperty() {
-		return this.imageProperty;
+		return this.imageURLProperty;
 	}
 	
 	public StringProperty locationProperty() {

@@ -14,7 +14,6 @@ class TestSendQuery {
 	void testValidQuery() {
 		RestaurantsQuery testQuery = new RestaurantsQuery("Carrollton,GA", 10, "chinese", 4, null, false, false, false, false, false);
 		String jsonReturn = QueryManager.sendQuery(testQuery);
-		System.out.println(jsonReturn);
 		assertNotNull(jsonReturn);
 	}
 	@Test
