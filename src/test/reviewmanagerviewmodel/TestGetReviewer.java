@@ -13,7 +13,7 @@ class TestGetReviewer {
 	@Test
 	public void shouldNotGetReviewerFromEmptyReviewManager() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		
 		Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
 			theReviewsManagerViewModel.getReviewer(1);
@@ -24,7 +24,7 @@ class TestGetReviewer {
 	@Test
 	public void shouldGetFirstReviewer() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		
 		theReviewsManagerViewModel.addReview("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
@@ -36,7 +36,7 @@ class TestGetReviewer {
 	@Test
 	public void shouldGetSecondReviewer() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		
 		theReviewsManagerViewModel.addReview("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
@@ -48,7 +48,7 @@ class TestGetReviewer {
 	@Test
 	public void shouldGetThirdReviewer() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		
 		theReviewsManagerViewModel.addReview("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);

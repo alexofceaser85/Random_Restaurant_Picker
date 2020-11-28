@@ -11,7 +11,7 @@ class TestSize {
 	@Test
 	public void shouldGetSizeOfEmptyReviewManagerViewModel() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		
 		assertEquals(0, theReviewsManagerViewModel.size());
 	}
@@ -19,7 +19,7 @@ class TestSize {
 	@Test
 	public void shouldGetSizeOfReviewManagerViewModelWithOneReview() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		theReviewsManagerViewModel.addReview("Alex DeCesare", "It was tremendous", 5);
 		
 		assertEquals(1, theReviewsManagerViewModel.size());
@@ -28,7 +28,7 @@ class TestSize {
 	@Test
 	public void shouldGetSizeOfReviewManagerViewModelWithManyReviews() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		theReviewsManagerViewModel.addReview("Alex DeCesare", "It was tremendous", 5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "It was not tremendous", 3);
 		theReviewsManagerViewModel.addReview("Furichous Jones", "It was terrible", 1);

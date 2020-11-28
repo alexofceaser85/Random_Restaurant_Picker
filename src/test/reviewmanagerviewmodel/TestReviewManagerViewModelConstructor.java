@@ -12,7 +12,7 @@ class TestReviewManagerViewModelConstructor {
 	@Test
 	public void shouldAllowReviewManagerViewModelWithValidRestaurantName() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
 		assertNotNull(theReviewsManagerViewModel);
 		assertNotNull(theReviewsManagerViewModel.getRestaurantName());
 	}

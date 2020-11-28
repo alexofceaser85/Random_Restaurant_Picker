@@ -13,7 +13,7 @@ class TestAddReview {
 	@Test
 	public void ShouldNotAddNullReview() {
 		
-		ReviewManager theReviewManager = new ReviewManager("American Pie");
+		ReviewManager theReviewManager = new ReviewManager("American Pie", "111");
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			theReviewManager.addReview(null);
@@ -24,7 +24,7 @@ class TestAddReview {
 	@Test
 	public void ShouldAddOneReview() {
 		
-		ReviewManager theReviewManager = new ReviewManager("American Pie");
+		ReviewManager theReviewManager = new ReviewManager("American Pie", "111");
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		
 		theReviewManager.addReview(theReview);
@@ -36,7 +36,7 @@ class TestAddReview {
 	@Test
 	public void ShouldAddManyReviews() {
 		
-		ReviewManager theReviewManager = new ReviewManager("American Pie");
+		ReviewManager theReviewManager = new ReviewManager("American Pie", "111");
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);

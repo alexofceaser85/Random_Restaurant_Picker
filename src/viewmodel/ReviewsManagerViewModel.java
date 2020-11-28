@@ -35,8 +35,8 @@ public class ReviewsManagerViewModel {
 	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
 	
-	public ReviewsManagerViewModel(String restaurantName) {
-		this.theReviewManager = new ReviewManager(restaurantName);	
+	public ReviewsManagerViewModel(String restaurantName, String restaurantId) {
+		this.theReviewManager = new ReviewManager(restaurantName, restaurantId);	
 		this.restaurantName = new SimpleStringProperty();
 		this.restaurantName.set(restaurantName);
 	}

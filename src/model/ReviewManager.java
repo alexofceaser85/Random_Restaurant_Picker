@@ -1,7 +1,12 @@
 package src.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import src.data.JSONLoader;
+import src.data.Query;
+import src.data.QueryManager;
+import src.data.ReviewsQuery;
 import src.error_messages.ErrorMessages;
 
 /**
@@ -15,6 +20,7 @@ public class ReviewManager {
 
 	private String restaurantName;
 	private ArrayList<Review> reviews;
+	private String restuarantId;
 	
 	/**
 	 * The constructor for the review manager
@@ -30,7 +36,7 @@ public class ReviewManager {
 	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
 	
-	public ReviewManager(String restaurantName) {
+	public ReviewManager(String restaurantName, String restaurantId) {
 		
 		if(restaurantName == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_NULL);
@@ -39,6 +45,7 @@ public class ReviewManager {
 			throw new IllegalArgumentException(ErrorMessages.REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY);
 		}
 		
+		this.restuarantId = restaurantId;
 		this.restaurantName = restaurantName;
 		this.reviews = new ArrayList<Review>();
 	}
@@ -128,6 +135,25 @@ public class ReviewManager {
 		}
 		
 		return this.reviews.get(index);
+	}
+	
+	/**
+	 * Populates the reviews array with reviews from a given restaurant
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return none
+	 */
+	
+	public void populateReviews() {
+		
+		Query theQuery = new ReviewsQuery(this.restuarantId);
+		List<Review> reviews = JSONLoader.parseReviews(QueryManager.sendQuery(theQuery));
+		
+		for (Review review : reviews) {
+			this.addReview(review);
+		}
 	}
 	
 	/**

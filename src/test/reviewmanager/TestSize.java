@@ -12,7 +12,7 @@ class TestSize {
 	@Test
 	public void ShouldGetSizeOfEmptyReviewManager() {
 		
-		ReviewManager theReviewManager = new ReviewManager("Border Mexican Restaurant");
+		ReviewManager theReviewManager = new ReviewManager("Border Mexican Restaurant", "111");
 		
 		assertEquals(0, theReviewManager.size());
 	}
@@ -20,7 +20,7 @@ class TestSize {
 	@Test
 	public void ShouldGetSizeOfReviewManagerWithOneReview() {
 		
-		ReviewManager theReviewManager = new ReviewManager("Border Mexican Restaurant");
+		ReviewManager theReviewManager = new ReviewManager("Border Mexican Restaurant", "111");
 		
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
 		theReviewManager.addReview(theReview);
@@ -32,7 +32,7 @@ class TestSize {
 	@Test
 	public void ShouldGetSizeOfReviewManagerWithManyReviews() {
 		
-		ReviewManager theReviewManager = new ReviewManager("Border Mexican Restaurant");
+		ReviewManager theReviewManager = new ReviewManager("Border Mexican Restaurant", "tnhfDIl8EaGSXZGiuQGg");
 		
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);

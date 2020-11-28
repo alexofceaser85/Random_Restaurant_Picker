@@ -12,7 +12,7 @@ class TestAddReview {
 	@Test
 	public void shouldAddOneReview() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("American Pie");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("American Pie", "111");
 		theReviewsManagerViewModel.addReview("Alex DeCesare", "It was tremendous", 5);
 		
 		assertEquals("Reviewer: Alex DeCesare Content: It was tremendous Score: 5.0"
@@ -22,7 +22,7 @@ class TestAddReview {
 	@Test
 	public void shouldAddManyReviews() {
 		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("American Pie");
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("American Pie", "111");
 		theReviewsManagerViewModel.addReview("Alex DeCesare", "It was tremendous", 5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "It was not tremendous", 3);
 		theReviewsManagerViewModel.addReview("Furichous Jones", "It was terrible", 1);

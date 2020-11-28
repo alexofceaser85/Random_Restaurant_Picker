@@ -22,7 +22,7 @@ import src.viewmodel.ReviewsManagerViewModel;
 
 public class ReviewsCodeBehind {
 	
-	private ReviewsManagerViewModel viewmodel = new ReviewsManagerViewModel("Mcdonalds");
+	private ReviewsManagerViewModel viewmodel = new ReviewsManagerViewModel("Mcdonalds", "111");
 	
     @FXML
     private AnchorPane mainPane;
