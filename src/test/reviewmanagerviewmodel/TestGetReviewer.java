@@ -30,7 +30,7 @@ class TestGetReviewer {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("StringProperty [value: Lewis Baumstark]", theReviewsManagerViewModel.getReviewer(0).toString());
+		assertEquals("Lewis Baumstark", theReviewsManagerViewModel.getReviewer(0));
 	}
 	
 	@Test
@@ -42,7 +42,7 @@ class TestGetReviewer {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("StringProperty [value: Duane Yoder]", theReviewsManagerViewModel.getReviewer(1).toString());
+		assertEquals("Duane Yoder", theReviewsManagerViewModel.getReviewer(1));
 	}
 	
 	@Test
@@ -54,7 +54,7 @@ class TestGetReviewer {
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		assertEquals("StringProperty [value: Alexander Ayers]", theReviewsManagerViewModel.getReviewer(2).toString());
+		assertEquals("Alexander Ayers", theReviewsManagerViewModel.getReviewer(2));
 	}
 
 }
