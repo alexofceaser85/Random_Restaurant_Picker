@@ -27,11 +27,8 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     private GridPane mainGrid;
 
     @FXML
-    private Label restaurantHeaderLabel;
+    private GridPane contentPane;
 
-    @FXML
-    private Pane contentPane;
-    
     @FXML
     private Button backButton;
     
@@ -46,11 +43,6 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     
     public ReviewsCodeBehind(ReviewsManagerViewModel theReviewsManagerViewModel) {
     	this.viewmodel = theReviewsManagerViewModel;
-    }
-    
-    public void initialize() {
-    	
-    	this.restaurantHeaderLabel.textProperty().bind(this.viewmodel.getRestaurantName());
     }
 
 	@Override
@@ -67,7 +59,7 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     		this.reviewPane.setPadding(new Insets(10, 10, 10, 10));
     		this.reviewPane.setMaxWidth(400);
 
-    		this.reviewPane.setStyle("-fx-background-color: #dddddd;"
+    		this.reviewPane.setStyle("-fx-background-color: #e5e5e5;"
     				+ "-fx-border-width: 2;"
     				+ "-fx-background-radius: 15;"
     				+ "-fx-alignment: center;");
