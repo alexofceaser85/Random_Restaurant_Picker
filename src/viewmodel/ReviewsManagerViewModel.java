@@ -1,14 +1,7 @@
 package src.viewmodel;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import src.error_messages.ErrorMessages;
-import src.model.RestaurantManager;
 import src.model.Review;
 import src.model.ReviewManager;
 

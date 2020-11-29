@@ -3,7 +3,6 @@ import javafx.scene.image.Image;
 
 import java.text.DecimalFormat;
 import java.util.List;
-import java.util.Random;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
