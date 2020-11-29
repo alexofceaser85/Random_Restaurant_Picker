@@ -64,7 +64,7 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
     	
     	this.reviewsContainer.setSpacing(40);
     	
-    	for (int counter = 0; counter < viewmodel.size(); counter++) {
+    	for (int counter = 0; counter < this.viewmodel.size(); counter++) {
     		this.reviewPane = new VBox();
     		VBox.setMargin(this.reviewPane, new Insets(0,50,0,50));
     		
@@ -75,9 +75,9 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
     				+ "-fx-background-radius: 15;"
     				+ "-fx-alignment: center;");
     		
-    		Label reviewerName = new Label("Reviewed By: " + viewmodel.getReviewer(counter));
-    		Label reviewContent = new Label(viewmodel.getReviewContent(counter));   
-    		Label reviewScore = new Label("Score: " + viewmodel.getReviewScore(counter));
+    		Label reviewerName = new Label("Reviewed By: " + this.viewmodel.getReviewer(counter));
+    		Label reviewContent = new Label(this.viewmodel.getReviewContent(counter));   
+    		Label reviewScore = new Label("Score: " + this.viewmodel.getReviewScore(counter));
     		
     		this.reviewPane.getChildren().add(reviewerName);
     		this.reviewPane.getChildren().add(reviewContent);
