@@ -13,7 +13,6 @@ import src.view.ReviewsCodeBehind;
 import src.viewmodel.FilterViewModel;
 import src.viewmodel.RestaurantViewModel;
 import src.viewmodel.ReviewsManagerViewModel;
-import src.viewmodel.ReviewsViewModel;
 
 public class Main extends Application {
 	private SceneController controller;
@@ -22,25 +21,21 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		this.mainManager = new MainManager(new Random());
 		this.controller = new SceneController(primaryStage);
+		
 		registerReviews();
 		registerRestaurantError();
-		
-		RestaurantViewModel restaurantViewModel = new RestaurantViewModel(this.mainManager);
-		RestaurantViewCodeBehind restaurantController = new RestaurantViewCodeBehind(restaurantViewModel);
-		registerRestaurant(restaurantController);
+		registerRestaurantLoad();
+		registerRestaurant();
 		
 		FilterViewModel filterViewModel = new FilterViewModel(this.mainManager);
-		FilterCodeBehind filterController = new FilterCodeBehind(filterViewModel);
-		
-		registerFilter(filterController);
-		registerLocation(filterController);
+		registerFilter(filterViewModel);
+		registerLocation(filterViewModel);
 	
 		this.controller.activate("Location");
 	}
 
 	private void registerReviews() {
 		FXMLLoader reviewsLoader = new FXMLLoader();
-		
 		ReviewsManagerViewModel reviewsViewModel = new ReviewsManagerViewModel(this.mainManager);
 		ReviewsCodeBehind reviewsManagerCodeBehind = new ReviewsCodeBehind(reviewsViewModel);
 		reviewsLoader.setController(reviewsManagerCodeBehind);
@@ -64,7 +59,20 @@ public class Main extends Application {
 		this.controller.add("RestaurantError", restaurantErrorLoader);
 	}
 
-	private void registerRestaurant(RestaurantViewCodeBehind restaurantController) {
+	private void registerRestaurantLoad() {
+		FXMLLoader restaurantLoadLoader = new FXMLLoader();
+		restaurantLoadLoader.setLocation(Main.class.getClassLoader().getResource("src/view/RestaurantLoadGUI.fxml"));
+		try {
+			restaurantLoadLoader.load();
+		} catch (Exception e) {
+			System.out.println("RestaurantLoadGUI load error");
+		}
+		this.controller.add("RestaurantLoad", restaurantLoadLoader);
+	}
+	
+	private void registerRestaurant() {
+		RestaurantViewModel restaurantViewModel = new RestaurantViewModel(this.mainManager);
+		RestaurantViewCodeBehind restaurantController = new RestaurantViewCodeBehind(restaurantViewModel);
 		FXMLLoader restaurantLoader = new FXMLLoader();
 		restaurantLoader.setController(restaurantController);
 		restaurantLoader.setLocation(Main.class.getClassLoader().getResource("src/view/RestaurantGUI.fxml"));
@@ -76,8 +84,9 @@ public class Main extends Application {
 		this.controller.add("Restaurant", restaurantLoader);
 	}
 
-	private void registerFilter(FilterCodeBehind filterController) {
+	private void registerFilter(FilterViewModel filterViewModel) {
 		FXMLLoader filtersLoader = new FXMLLoader();
+		FilterCodeBehind filterController = new FilterCodeBehind(filterViewModel);
 		filtersLoader.setController(filterController);
 		filtersLoader.setLocation(Main.class.getClassLoader().getResource("src/view/FilterPageGUI.fxml"));
 		try {
@@ -88,8 +97,9 @@ public class Main extends Application {
 		this.controller.add("Filter", filtersLoader);
 	}
 
-	private void registerLocation(FilterCodeBehind filterController) {
+	private void registerLocation(FilterViewModel filterViewModel) {
 		FXMLLoader locationLoader = new FXMLLoader();
+		FilterCodeBehind filterController = new FilterCodeBehind(filterViewModel);
 		locationLoader.setController(filterController);
 		locationLoader.setLocation(Main.class.getClassLoader().getResource("src/view/LocationAndRadiusGUI.fxml"));
 		try {

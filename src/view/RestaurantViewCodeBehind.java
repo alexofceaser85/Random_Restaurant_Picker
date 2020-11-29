@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import src.controller.Activatable;
 import src.viewmodel.RestaurantViewModel;
 
 /**
@@ -15,7 +16,7 @@ import src.viewmodel.RestaurantViewModel;
  *
  */
 
-public class RestaurantViewCodeBehind extends BaseCodeBehind {
+public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activatable {
 
     @FXML
     private Text restaurantNameText;
@@ -59,7 +60,6 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
     	this.viewModel = viewModel;
     }
     
-    
 	/**
 	 * Initializes all properties to needed settings.
 	 * 
@@ -88,7 +88,7 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
 
     @FXML
     void seeRestaurantMenu(ActionEvent event) {
-    	throw new UnsupportedOperationException();
+    	this.viewModel.openMenuInBrowser();
     }
 
     @FXML
@@ -101,7 +101,7 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
 	@Override
 	public void onActivation() {
 		if (!this.viewModel.pickARestaurant()) {
-			super.getController().activate("RestaurantError");
+			super.getController().show("RestaurantError");
 		}
 	}
 

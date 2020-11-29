@@ -1,6 +1,11 @@
 package src.viewmodel;
 import javafx.scene.image.Image;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -89,6 +94,14 @@ public class RestaurantViewModel {
 		
 		ReviewManager theManager = this.mainManager.getReviewManager();
 		theManager.setReviews(reviews);
+	}
+	
+	public void openMenuInBrowser() {
+		try {
+			Desktop.getDesktop().browse(new URL(this.menuURL).toURI());
+		} catch (Exception e) {
+			//swallow catch
+		}
 	}
 	
 	public StringProperty nameProperty() {

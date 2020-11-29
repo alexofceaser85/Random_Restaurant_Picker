@@ -25,7 +25,7 @@ public class QueryManager {
 			try (InputStream inputStream = urlConn.getInputStream()) {
 				return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
 			return null;
 		}
 	}	

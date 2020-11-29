@@ -117,6 +117,7 @@ public class FilterViewModel {
 	 */
 	public void resetProperties() {
 		if (this.mainManager.getResetFilters()) {
+			this.mainManager.setResetFilters(false);
 			this.locationAddressProperty.setValue("");
 			this.selectedRadiusProperty.setValue(Radius.FIVE);
 			this.categoriesProperty.setValue("");

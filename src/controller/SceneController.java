@@ -31,10 +31,15 @@ public class SceneController {
 	public void activate(String key) {
 		Pair<Scene,BaseCodeBehind> page = pages.get(key);
 		if (page != null) {
-			BaseCodeBehind codeBehind = page.getValue();
-			Scene scene = page.getKey();
-			
+			Activatable codeBehind = (Activatable) page.getValue();
 			codeBehind.onActivation();
+			this.show(key);
+		}
+	}
+	public void show(String key) {
+		Pair<Scene,BaseCodeBehind> page = pages.get(key);
+		if (page != null) {
+			Scene scene = page.getKey();
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		}

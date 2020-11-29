@@ -13,8 +13,4 @@ public class RestaurantErrorCodeBehind extends BaseCodeBehind {
     void handleTryAgain(MouseEvent event) {
     	super.getController().activate("Restaurant");
     }
-
-	@Override
-	public void onActivation() {
-	}
 }

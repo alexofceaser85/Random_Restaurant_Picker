@@ -23,10 +23,5 @@ public abstract class BaseCodeBehind {
 	public void setController(SceneController controller) {
 		this.controller = controller;
 	}
-
-	/**
-	 * Method to be fired upon activation of scene
-	 */
-	public abstract void onActivation();
 	
 }
