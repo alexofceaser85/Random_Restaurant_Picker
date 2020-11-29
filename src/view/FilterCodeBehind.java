@@ -103,19 +103,16 @@ public class FilterCodeBehind extends BaseCodeBehind {
 	    
 	    @FXML
 	    void handleBegin(ActionEvent event) {
-			//TODO Go over with Furichous during meeting
 	    	super.getController().activate("Filter");
 	    }
 	    
 	    @FXML
 	    void handleBack(ActionEvent event) {
-			//TODO Go over with Furichous during meeting
 			super.getController().activate("Location");
 	    }
 
 	    @FXML
 	    void handleSubmit(ActionEvent event) {
-	    	//TODO Go over with Furichous during meeting
 	    	this.viewModel.sendRestaurantQuery();
 	    	//TODO make this go to loading screen
 	    	super.getController().activate("Restaurant");
@@ -142,7 +139,7 @@ public class FilterCodeBehind extends BaseCodeBehind {
 
 		@Override
 		public void onActivation() {
-			//TODO reset properties based on MainManager
+			this.viewModel.resetProperties();
 		}
 	}
 

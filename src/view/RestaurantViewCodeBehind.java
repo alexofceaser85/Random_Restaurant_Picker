@@ -59,7 +59,6 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
     	this.viewModel = viewModel;
     }
     
-    
 	/**
 	 * Initializes all properties to needed settings.
 	 * 
@@ -88,7 +87,7 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind {
 
     @FXML
     void seeRestaurantMenu(ActionEvent event) {
-    	throw new UnsupportedOperationException();
+    	this.viewModel.openMenuInBrowser();
     }
 
     @FXML
