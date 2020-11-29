@@ -47,7 +47,7 @@ public class FilterViewModel {
 	private BooleanProperty newRestaurantsProperty;
 	private BooleanProperty genderNeutralBathroomProperty;
 	private MainManager mainManager;
-	
+
 	public FilterViewModel(MainManager mainManager) {
 		this.locationAddressProperty = new SimpleStringProperty();
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
@@ -114,10 +114,9 @@ public class FilterViewModel {
 	 * 
 	 * @precondition none
 	 * @postcondition all values have been set to their default values.
-	 * @param reset whether to reset the properties or not.
 	 */
-	public void resetProperties(boolean reset) {
-		if (reset) {
+	public void resetProperties() {
+		if (this.mainManager.getResetFilters()) {
 			this.locationAddressProperty.setValue("");
 			this.selectedRadiusProperty.setValue(Radius.FIVE);
 			this.categoriesProperty.setValue("");
@@ -285,8 +284,18 @@ public class FilterViewModel {
 	 * @return the selected radius property.
 	 */
 
-	public ObjectProperty<Radius> getSelectedRadiusProperty() {
+	public ObjectProperty<Radius> selectedRadiusProperty() {
 		return selectedRadiusProperty;
 	}
 
+	/**
+	 * Gets the Main Manager.
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * @return the Main Manager
+	 */
+	public MainManager getMainManager() {
+		return this.mainManager;
+	}
 }

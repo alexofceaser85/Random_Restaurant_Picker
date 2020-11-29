@@ -125,7 +125,7 @@ public class FilterCodeBehind extends BaseCodeBehind {
 	    	if (this.locationAddressTextBox != null && this.radiusComboBox != null) {
 	    		this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
 	    		this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
-	    		this.radiusComboBox.valueProperty().bindBidirectional(this.viewModel.getSelectedRadiusProperty());
+	    		this.radiusComboBox.valueProperty().bindBidirectional(this.viewModel.selectedRadiusProperty());
 	    	}
 	    	this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
 	    	this.acceptsReservationsCheckbox.selectedProperty().bindBidirectional(this.viewModel.acceptsReservationsProperty());
