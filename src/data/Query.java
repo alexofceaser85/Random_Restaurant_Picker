@@ -2,7 +2,6 @@ package src.data;
 
 import java.net.URL;
 
-import src.error_messages.ErrorMessages;
 
 public abstract class Query {
 	public final static String QUERY_PROTOCOL = "https";

@@ -2,7 +2,6 @@ package src.tests.querymanager;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import src.data.QueryManager;

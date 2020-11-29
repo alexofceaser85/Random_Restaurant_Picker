@@ -1,6 +1,5 @@
 package src.model;
 
-import java.util.List;
 import java.util.Random;
 
 public class MainManager {

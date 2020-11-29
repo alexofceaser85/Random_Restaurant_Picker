@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import src.model.MainManager;
-import src.model.Review;
 import src.viewmodel.ReviewsManagerViewModel;
 
 class TestGetReviewer {

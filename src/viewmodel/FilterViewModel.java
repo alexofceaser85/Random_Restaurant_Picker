@@ -17,13 +17,11 @@ import javafx.collections.FXCollections;
 import src.data.JSONLoader;
 import src.data.QueryManager;
 import src.data.RestaurantsQuery;
-import src.data.ReviewsQuery;
 import src.model.MainManager;
 import src.model.Price;
 import src.model.Radius;
 import src.model.Restaurant;
 import src.model.RestaurantManager;
-import src.model.Review;
 
 /**
  * View Model for the Filtering section of the UI.

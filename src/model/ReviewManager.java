@@ -3,10 +3,6 @@ package src.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import src.data.JSONLoader;
-import src.data.Query;
-import src.data.QueryManager;
-import src.data.ReviewsQuery;
 import src.error_messages.ErrorMessages;
 
 /**

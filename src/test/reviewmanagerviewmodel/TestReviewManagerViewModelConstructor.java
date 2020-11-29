@@ -7,7 +7,6 @@ import java.util.Random;
 import org.junit.jupiter.api.Test;
 
 import src.model.MainManager;
-import src.model.ReviewManager;
 import src.viewmodel.ReviewsManagerViewModel;
 
 class TestReviewManagerViewModelConstructor {
