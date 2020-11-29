@@ -4,7 +4,10 @@ import com.sun.prism.paint.Color;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -69,20 +72,25 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
     		VBox.setMargin(this.reviewPane, new Insets(0,50,0,50));
     		
     		this.reviewPane.setSpacing(15);
-    		
+    		this.reviewPane.setPadding(new Insets(10, 10, 10, 10));
+    		this.reviewPane.setMaxWidth(400);
+
     		this.reviewPane.setStyle("-fx-background-color: #dddddd;"
     				+ "-fx-border-width: 2;"
     				+ "-fx-background-radius: 15;"
     				+ "-fx-alignment: center;");
     		
     		Label reviewerName = new Label("Reviewed By: " + this.viewmodel.getReviewer(counter));
-    		Label reviewContent = new Label(this.viewmodel.getReviewContent(counter));   
     		Label reviewScore = new Label("Score: " + this.viewmodel.getReviewScore(counter));
+    		Label reviewContent = new Label(this.viewmodel.getReviewContent(counter));   
+    		
+    		reviewContent.setWrapText(true);
     		
     		this.reviewPane.getChildren().add(reviewerName);
-    		this.reviewPane.getChildren().add(reviewContent);
     		this.reviewPane.getChildren().add(reviewScore);
+    		this.reviewPane.getChildren().add(reviewContent);
     		
+    		this.reviewsContainer.setAlignment(Pos.CENTER);
     		this.reviewsContainer.getChildren().add(this.reviewPane);
     	}
     	

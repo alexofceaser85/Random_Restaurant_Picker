@@ -41,7 +41,7 @@
                   </Label>
                </children>
             </GridPane>
-            <GridPane fx:id="contentPane" GridPane.rowIndex="1">
+            <GridPane fx:id="contentPane" alignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
