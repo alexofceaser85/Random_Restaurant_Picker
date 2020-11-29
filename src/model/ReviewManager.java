@@ -134,8 +134,22 @@ public class ReviewManager {
 		
 		return reviewsString;
 	}
+	
+	/**
+	 * Sets the reviews for the review manager to hold
+	 * 
+	 * @precondition reviews != null
+	 * @postcondition this.reviews = reviews
+	 * 
+	 * @param reviews the reviews for the manager to hold
+	 */
 
 	public void setReviews(List<Review> reviews) {
+		
+		if(reviews == null) {
+			throw new IllegalArgumentException(ErrorMessages.REVIEWS_TO_SET_CANNOT_BE_NULL);
+		}
+		
 		this.reviews = reviews;
 	}
 }

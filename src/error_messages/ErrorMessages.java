@@ -31,6 +31,7 @@ public class ErrorMessages {
 	
 	public static final String RESTAURANT_TO_ADD_CANNOT_BE_NULL = "The restaurant to add to the restaurant manager cannot be null";
 	public static final String RESTAURANT_TO_REMOVE_CANNOT_BE_NULL = "The restaurant to remove from the restaurant manager cannot be null";
+	public static final String REVIEWS_TO_SET_CANNOT_BE_NULL = "The reviews to set cannot be null";
 	
 	public static final String REVIEWER_NAME_CANNOT_BE_NULL = "The name of the restaurant reviewer cannot be null";
 	public static final String REVIEWER_NAME_CANNOT_BE_EMPTY = "The name of the restaurant reviewer cannot be empty";
