@@ -26,8 +26,6 @@ public class ReviewManager {
 	 * @postcondition 
 	 * 		this.restaurantName = restaurantName
 	 * 		this.reviews = ArrayList<Review>
-	 * 		
-	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
 	
 	public ReviewManager() {
@@ -57,7 +55,7 @@ public class ReviewManager {
 	
 	public void addReview(Review reviewToAdd) {
 		
-		if(reviewToAdd == null) {
+		if (reviewToAdd == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEW_TO_ADD_CANNOT_BE_NULL);
 		}
 		
@@ -73,7 +71,7 @@ public class ReviewManager {
 	
 	public void removeReview(Review reviewToRemove) {
 		
-		if(reviewToRemove == null) {
+		if (reviewToRemove == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEW_TO_REMOVE_CANNOT_BE_NULL);
 		}
 		
@@ -142,7 +140,7 @@ public class ReviewManager {
 
 	public void setReviews(List<Review> reviews) {
 		
-		if(reviews == null) {
+		if (reviews == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEWS_TO_SET_CANNOT_BE_NULL);
 		}
 		

@@ -49,7 +49,7 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     	
     	for (int counter = 0; counter < this.viewmodel.size(); counter++) {
     		this.reviewPane = new VBox();
-    		VBox.setMargin(this.reviewPane, new Insets(0,50,0,50));
+    		VBox.setMargin(this.reviewPane, new Insets(0, 50, 0, 50));
     		
     		this.reviewPane.setSpacing(15);
     		this.reviewPane.setPadding(new Insets(10, 10, 10, 10));

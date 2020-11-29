@@ -22,14 +22,14 @@ public class Main extends Application {
 		this.mainManager = new MainManager(new Random());
 		this.controller = new SceneController(primaryStage);
 		
-		registerReviews();
-		registerRestaurantError();
-		registerRestaurantLoad();
-		registerRestaurant();
+		this.registerReviews();
+		this.registerRestaurantError();
+		this.registerRestaurantLoad();
+		this.registerRestaurant();
 		
 		FilterViewModel filterViewModel = new FilterViewModel(this.mainManager);
-		registerFilter(filterViewModel);
-		registerLocation(filterViewModel);
+		this.registerFilter(filterViewModel);
+		this.registerLocation(filterViewModel);
 	
 		this.controller.activate("Location");
 	}

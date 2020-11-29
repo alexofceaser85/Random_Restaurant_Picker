@@ -4,5 +4,5 @@ public interface Activatable {
 	/**
 	 * Method to be fired upon activation of scene
 	 */
-	public void onActivation();
+	void onActivation();
 }

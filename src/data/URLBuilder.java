@@ -11,17 +11,17 @@ public class URLBuilder {
     private String protocol;
     private String host;
 
-    public URLBuilder(String host,String protocol){
-    	if(host == null) {
+    public URLBuilder(String host, String protocol) {
+    	if (host == null) {
 			throw new IllegalArgumentException(ErrorMessages.HOST_SHOULD_NOT_BE_NULL);
 		}
-		if(host.isBlank()) {
+		if (host.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.HOST_SHOULD_NOT_BE_BLANK);
 		}
-		if(protocol == null) {
+		if (protocol == null) {
 			throw new IllegalArgumentException(ErrorMessages.PROTOCOL_SHOULD_NOT_BE_NULL);
 		}
-		if(protocol.isBlank()) {
+		if (protocol.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.PROTOCOL_SHOULD_NOT_BE_BLANK);
 		}
     	this.folders = new StringBuilder();
@@ -31,10 +31,10 @@ public class URLBuilder {
     }
 
     public void addFolder(String folder) {
-    	if(folder == null) {
+    	if (folder == null) {
 			throw new IllegalArgumentException(ErrorMessages.FOLDER_SHOULD_NOT_BE_NULL);
 		}
-		if(folder.isBlank()) {
+		if (folder.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.FOLDER_SHOULD_NOT_BE_BLANK);
 		}
     	this.folders.append("/");
@@ -42,19 +42,19 @@ public class URLBuilder {
     }
 
     public void addParameter(String parameter, String value) {
-    	if(parameter == null) {
+    	if (parameter == null) {
 			throw new IllegalArgumentException(ErrorMessages.PARAMETER_SHOULD_NOT_BE_NULL);
 		}
-		if(parameter.isBlank()) {
+		if (parameter.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.PARAMETER_SHOULD_NOT_BE_BLANK);
 		}
-		if(value == null) {
+		if (value == null) {
 			throw new IllegalArgumentException(ErrorMessages.VALUE_SHOULD_NOT_BE_NULL);
 		}
-		if(value.isBlank()) {
+		if (value.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.VALUE_SHOULD_NOT_BE_BLANK);
 		}
-        if(this.params.length() > 0) {
+        if (this.params.length() > 0) {
         	this.params.append("&");
         }
         this.params.append(parameter);
@@ -62,7 +62,7 @@ public class URLBuilder {
         this.params.append(value);
     }
 
-    public URL getURL(){
+    public URL getURL() {
     	String paramsEntry = this.params.toString();
     	String foldersEntry = this.folders.toString();
         try {

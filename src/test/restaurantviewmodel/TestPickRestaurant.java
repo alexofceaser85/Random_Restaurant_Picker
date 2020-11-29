@@ -50,7 +50,7 @@ public class TestPickRestaurant {
 		};
 		t.setDaemon(true);
 		t.start();
-		Thread.sleep(500);
+		Thread.sleep(1000);
 	}
 
 	@Test

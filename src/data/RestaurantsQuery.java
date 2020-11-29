@@ -7,24 +7,18 @@ import src.error_messages.ErrorMessages;
 import src.model.Price;
 
 public class RestaurantsQuery extends Query {
-	public final static int METER_CONVERSION = 1609;
-	public RestaurantsQuery(String location, 
-			int radius, 
-			String categories, 
-			double reviewScore, 
-			List<Price> prices, 
-			boolean currentlyOpen, 
-			boolean handicapAccessible, 
-			boolean reservations, 
-			boolean hotAndNew, 
+	public static final int METER_CONVERSION = 1609;
+
+	public RestaurantsQuery(String location, int radius, String categories, double reviewScore, List<Price> prices,
+			boolean currentlyOpen, boolean handicapAccessible, boolean reservations, boolean hotAndNew,
 			boolean neutralBathroom) {
-		if(location == null) {
+		if (location == null) {
 			throw new IllegalArgumentException(ErrorMessages.LOCATION_SHOULD_NOT_BE_NULL);
 		}
-		if(location.isBlank()) {
+		if (location.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.LOCATION_SHOULD_NOT_BE_BLANK);
 		}
-		URLBuilder  urlBuilder = new URLBuilder(Query.QUERY_HOST, Query.QUERY_PROTOCOL);
+		URLBuilder urlBuilder = new URLBuilder(Query.QUERY_HOST, Query.QUERY_PROTOCOL);
 		urlBuilder.addFolder("v3");
 		urlBuilder.addFolder("businesses");
 		urlBuilder.addFolder("search");
@@ -35,9 +29,7 @@ public class RestaurantsQuery extends Query {
 			urlBuilder.addParameter("categories", categories);
 		}
 		if (prices != null && !prices.isEmpty()) {
-			String pricesCommaSeperated = prices.stream()
-	                .map(price -> price.value)
-	                .collect(Collectors.joining(","));
+			String pricesCommaSeperated = prices.stream().map(price -> price.getValue()).collect(Collectors.joining(","));
 			urlBuilder.addParameter("price", pricesCommaSeperated);
 		}
 		if (currentlyOpen) {
@@ -61,7 +53,7 @@ public class RestaurantsQuery extends Query {
 			attributes.append(",");
 		}
 		if (attributes.length() > 0) {
-			attributes.deleteCharAt(attributes.length()-1);
+			attributes.deleteCharAt(attributes.length() - 1);
 			urlBuilder.addParameter("attributes", attributes.toString());
 		}
 		super.setQueryURL(urlBuilder.getURL());
