@@ -11,7 +11,7 @@ public class MainManager {
 	public MainManager(Random randomGenerator) {
 		this.resetFilters = false;
 		this.restaurantManager = new RestaurantManager(randomGenerator);
-		this.reviewManager = new ReviewManager("unkown", "tnhfDv5Il8EaGSXZGiuQGg");
+		this.reviewManager = new ReviewManager();
 	}
 
 	public RestaurantManager getRestaurantManager() {

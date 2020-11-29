@@ -13,7 +13,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldNotRemoveNullReview() {
 		
-		ReviewManager theReviewManager = new ReviewManager("American Pie", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			theReviewManager.removeReview(null);
@@ -24,7 +24,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldNotRemoveReviewFromEmptyReviewManager() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Hacienda San Antonio", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
 		
 		theReviewManager.removeReview(theReview);
@@ -34,7 +34,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldNotRemoveReviewThatIsNotInReviewManagerWithOneReview() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Salsa Carrolton", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		
@@ -48,7 +48,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldNotRemoveReviewThatIsNotInReviewManagerWithManyReviews() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Salsa Carrolton", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
@@ -68,7 +68,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldRemoveReviewThatIsInReviewManagerWithOneReview() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Salsa Carrolton", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		
 		theReviewManager.addReview(theFirstReview);
@@ -80,7 +80,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldRemoveLastReviewThatIsInReviewManagerWithManyReviews() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Salsa Carrolton", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
@@ -98,7 +98,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldRemoveMiddleReviewThatIsInReviewManagerWithManyReviews() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Salsa Carrolton", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
@@ -116,7 +116,7 @@ class TestRemoveReview {
 	@Test
 	public void ShouldRemoveFirstReviewThatIsInReviewManagerWithManyReviews() {
 		
-		ReviewManager theReviewManager = new ReviewManager("La Salsa Carrolton", "111");
+		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);

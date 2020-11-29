@@ -18,8 +18,6 @@ import src.error_messages.ErrorMessages;
 
 public class ReviewManager {
 
-	private String restaurantName;
-	private String restuarantId;
 	private List<Review> reviews;
 	
 	/**
@@ -36,31 +34,9 @@ public class ReviewManager {
 	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
 	
-	public ReviewManager(String restaurantName, String restaurantId) {
+	public ReviewManager() {
 		
-		if(restaurantName == null) {
-			throw new IllegalArgumentException(ErrorMessages.REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_NULL);
-		}
-		if(restaurantName.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessages.REVIEWS_RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY);
-		}
-		
-		this.restuarantId = restaurantId;
-		this.restaurantName = restaurantName;
 		this.reviews = new ArrayList<Review>();
-	}
-	
-	/**
-	 * Gets the restaurant name
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 
-	 * @return the name of the restaurant which the reviews apply to
-	 */
-	
-	public String getRestaurantName() {
-		return this.restaurantName;
 	}
 	
 	/**
