@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -15,7 +16,8 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="428.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="777.0" minHeight="10.0" prefHeight="777.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="801.0" minHeight="10.0" prefHeight="782.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="777.0" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <GridPane prefHeight="92.0" prefWidth="474.0" style="-fx-alignment: center;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -47,6 +49,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBack" prefHeight="42.0" prefWidth="400.0" text="Back" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>

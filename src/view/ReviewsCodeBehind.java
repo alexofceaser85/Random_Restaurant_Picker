@@ -2,6 +2,7 @@ package src.view;
 
 import com.sun.prism.paint.Color;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -35,6 +36,15 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
 
     @FXML
     private Pane contentPane;
+    
+    @FXML
+    private Button backButton;
+    
+    @FXML
+    void handleBack(ActionEvent event) {
+		super.getController().activate("Restaurant");
+		this.contentPane.getChildren().remove(this.reviewsContainer);
+    }
 
     private VBox reviewsContainer;
     private VBox reviewPane;
@@ -52,7 +62,7 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
 	public void onActivation() {
     	this.reviewsContainer = new VBox();
     	
-    	this.reviewsContainer.setSpacing(15);
+    	this.reviewsContainer.setSpacing(40);
     	
     	for (int counter = 0; counter < viewmodel.size(); counter++) {
     		this.reviewPane = new VBox();
