@@ -8,7 +8,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.converter.NumberStringConverter;
-import src.model.Price;
+import src.controller.Activatable;
+import src.controller.SceneController;
 import src.model.Radius;
 import src.viewmodel.FilterViewModel;
 /**
@@ -16,7 +17,7 @@ import src.viewmodel.FilterViewModel;
  * @author Alexander Ayers
  *
  */
-public class FilterCodeBehind extends BaseCodeBehind {
+public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 
 	  @FXML
 	    private Text enterLocationText;
@@ -103,38 +104,41 @@ public class FilterCodeBehind extends BaseCodeBehind {
 	    
 	    @FXML
 	    void handleBegin(ActionEvent event) {
-	    	super.getController().activate("Filter");
+	    	super.getController().show("Filter");
 	    }
 	    
 	    @FXML
 	    void handleBack(ActionEvent event) {
-			super.getController().activate("Location");
+			super.getController().show("Location");
 	    }
 
 	    @FXML
 	    void handleSubmit(ActionEvent event) {
+	    	SceneController controller = super.getController();
+	    	controller.show("RestaurantLoad");
 	    	this.viewModel.sendRestaurantQuery();
-	    	//TODO make this go to loading screen
-	    	super.getController().activate("Restaurant");
+	    	controller.activate("Restaurant");
 	    }
 	    
 	    private void bindToViewModel() {
-	    	if (this.locationAddressTextBox != null && this.radiusComboBox != null) {
+	    	if (this.locationAddressTextBox != null) {
 	    		this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
 	    		this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
 	    		this.radiusComboBox.valueProperty().bindBidirectional(this.viewModel.selectedRadiusProperty());
 	    	}
-	    	this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
-	    	this.acceptsReservationsCheckbox.selectedProperty().bindBidirectional(this.viewModel.acceptsReservationsProperty());
-	    	this.price1Checkbox.selectedProperty().bindBidirectional(this.viewModel.price1Property());
-	    	this.price2Checkbox.selectedProperty().bindBidirectional(this.viewModel.price2Property());
-	    	this.price3Checkbox.selectedProperty().bindBidirectional(this.viewModel.price3Property());
-	    	this.price4Checkbox.selectedProperty().bindBidirectional(this.viewModel.price4Property());
-	    	this.currentOpenCheckbox.selectedProperty().bindBidirectional(this.viewModel.currentlyOpenProperty());
-	    	this.handicapAccessibleCheckbox.selectedProperty().bindBidirectional(this.viewModel.handicapAccessibleProperty());
-	    	this.genderNeutralBathroomsCheckbox.selectedProperty().bindBidirectional(this.viewModel.genderNeutralBathroomProperty());
-	    	this.newRestaurantsCheckbox.selectedProperty().bindBidirectional(this.viewModel.newRestaurantsProperty());
-	    	this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(), new NumberStringConverter());
+	    	if (this.categoriesTextBox != null) {
+		    	this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
+		    	this.acceptsReservationsCheckbox.selectedProperty().bindBidirectional(this.viewModel.acceptsReservationsProperty());
+		    	this.price1Checkbox.selectedProperty().bindBidirectional(this.viewModel.price1Property());
+		    	this.price2Checkbox.selectedProperty().bindBidirectional(this.viewModel.price2Property());
+		    	this.price3Checkbox.selectedProperty().bindBidirectional(this.viewModel.price3Property());
+		    	this.price4Checkbox.selectedProperty().bindBidirectional(this.viewModel.price4Property());
+		    	this.currentOpenCheckbox.selectedProperty().bindBidirectional(this.viewModel.currentlyOpenProperty());
+		    	this.handicapAccessibleCheckbox.selectedProperty().bindBidirectional(this.viewModel.handicapAccessibleProperty());
+		    	this.genderNeutralBathroomsCheckbox.selectedProperty().bindBidirectional(this.viewModel.genderNeutralBathroomProperty());
+		    	this.newRestaurantsCheckbox.selectedProperty().bindBidirectional(this.viewModel.newRestaurantsProperty());
+		    	this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(), new NumberStringConverter());
+	    	}
 	    }
 
 		@Override

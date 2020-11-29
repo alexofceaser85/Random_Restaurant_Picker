@@ -31,7 +31,7 @@ public class SceneController {
 	public void activate(String key) {
 		Pair<Scene,BaseCodeBehind> page = pages.get(key);
 		if (page != null) {
-			BaseCodeBehind codeBehind = page.getValue();
+			Activatable codeBehind = (Activatable) page.getValue();
 			codeBehind.onActivation();
 			this.show(key);
 		}
