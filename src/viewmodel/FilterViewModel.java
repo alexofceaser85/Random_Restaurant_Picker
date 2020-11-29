@@ -114,10 +114,9 @@ public class FilterViewModel {
 	 * 
 	 * @precondition none
 	 * @postcondition all values have been set to their default values.
-	 * @param reset whether to reset the properties or not.
 	 */
-	public void resetProperties(boolean reset) {
-		if (reset) {
+	public void resetProperties() {
+		if (this.mainManager.getResetFilters()) {
 			this.locationAddressProperty.setValue("");
 			this.selectedRadiusProperty.setValue(Radius.FIVE);
 			this.categoriesProperty.setValue("");
