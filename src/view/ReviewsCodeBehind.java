@@ -22,7 +22,7 @@ import src.viewmodel.ReviewsManagerViewModel;
 
 public class ReviewsCodeBehind extends BaseCodeBehind {
 	
-	private ReviewsManagerViewModel viewmodel = new ReviewsManagerViewModel("Mcdonalds", "tnhfDv5Il8EaGSXZGiuQGg");
+	private ReviewsManagerViewModel viewmodel;
 	
     @FXML
     private AnchorPane mainPane;
@@ -39,15 +39,17 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
     private VBox reviewsContainer;
     private VBox reviewPane;
     
-    public ReviewsCodeBehind() {
-    	
+    public ReviewsCodeBehind(ReviewsManagerViewModel theReviewsManagerViewModel) {
+    	this.viewmodel = theReviewsManagerViewModel;
     }
     
     public void initialize() {
-    	this.viewmodel.addReview("John Smith", "you betcha yeah", 4.0);
-    	this.viewmodel.addReview("Jimmy Smith", "you betcha bi", 2.0);
     	
     	this.restaurantHeaderLabel.textProperty().bind(this.viewmodel.getRestaurantName());
+    }
+
+	@Override
+	public void onActivation() {
     	this.reviewsContainer = new VBox();
     	
     	this.reviewsContainer.setSpacing(15);
@@ -75,11 +77,5 @@ public class ReviewsCodeBehind extends BaseCodeBehind {
     	}
     	
     	this.contentPane.getChildren().add(this.reviewsContainer);
-    }
-
-	@Override
-	public void onActivation() {
-		// TODO Add all the reviews from mainManager to reviews container
-		
 	}
 }

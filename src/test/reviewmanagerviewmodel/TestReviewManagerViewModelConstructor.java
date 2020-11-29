@@ -2,8 +2,11 @@ package src.test.reviewmanagerviewmodel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Random;
+
 import org.junit.jupiter.api.Test;
 
+import src.model.MainManager;
 import src.model.ReviewManager;
 import src.viewmodel.ReviewsManagerViewModel;
 
@@ -11,8 +14,8 @@ class TestReviewManagerViewModelConstructor {
 
 	@Test
 	public void shouldAllowReviewManagerViewModelWithValidRestaurantName() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		assertNotNull(theReviewsManagerViewModel);
 		assertNotNull(theReviewsManagerViewModel.getRestaurantName());
 	}

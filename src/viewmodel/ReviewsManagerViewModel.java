@@ -2,6 +2,7 @@ package src.viewmodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import src.model.MainManager;
 import src.model.Review;
 import src.model.ReviewManager;
 
@@ -28,10 +29,9 @@ public class ReviewsManagerViewModel {
 	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
 	
-	public ReviewsManagerViewModel(String restaurantName, String restaurantId) {
-		this.theReviewManager = new ReviewManager(restaurantName, restaurantId);	
+	public ReviewsManagerViewModel(MainManager mainManager) {
+		this.theReviewManager = mainManager.getReviewManager();	
 		this.restaurantName = new SimpleStringProperty();
-		this.restaurantName.set(restaurantName);
 	}
 	
 	/**

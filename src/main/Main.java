@@ -9,23 +9,27 @@ import src.controller.SceneController;
 import src.model.MainManager;
 import src.view.FilterCodeBehind;
 import src.view.RestaurantViewCodeBehind;
+import src.view.ReviewsCodeBehind;
 import src.viewmodel.FilterViewModel;
 import src.viewmodel.RestaurantViewModel;
+import src.viewmodel.ReviewsManagerViewModel;
+import src.viewmodel.ReviewsViewModel;
 
 public class Main extends Application {
 	private SceneController controller;
+	private MainManager mainManager;
 	@Override
 	public void start(Stage primaryStage) {
-		MainManager mainManager = new MainManager(new Random());
+		this.mainManager = new MainManager(new Random());
 		this.controller = new SceneController(primaryStage);
 		registerReviews();
 		registerRestaurantError();
 		
-		RestaurantViewModel restaurantViewModel = new RestaurantViewModel(mainManager);
+		RestaurantViewModel restaurantViewModel = new RestaurantViewModel(this.mainManager);
 		RestaurantViewCodeBehind restaurantController = new RestaurantViewCodeBehind(restaurantViewModel);
 		registerRestaurant(restaurantController);
 		
-		FilterViewModel filterViewModel = new FilterViewModel(mainManager);
+		FilterViewModel filterViewModel = new FilterViewModel(this.mainManager);
 		FilterCodeBehind filterController = new FilterCodeBehind(filterViewModel);
 		
 		registerFilter(filterController);
@@ -36,6 +40,10 @@ public class Main extends Application {
 
 	private void registerReviews() {
 		FXMLLoader reviewsLoader = new FXMLLoader();
+		
+		ReviewsManagerViewModel reviewsViewModel = new ReviewsManagerViewModel(this.mainManager);
+		ReviewsCodeBehind reviewsManagerCodeBehind = new ReviewsCodeBehind(reviewsViewModel);
+		reviewsLoader.setController(reviewsManagerCodeBehind);
 		reviewsLoader.setLocation(Main.class.getClassLoader().getResource("src/view/ReviewsPageGUI.fxml"));
 		try {
 			reviewsLoader.load();

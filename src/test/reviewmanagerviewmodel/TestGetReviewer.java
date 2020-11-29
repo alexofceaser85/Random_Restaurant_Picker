@@ -2,9 +2,12 @@ package src.test.reviewmanagerviewmodel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Random;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import src.model.MainManager;
 import src.model.Review;
 import src.viewmodel.ReviewsManagerViewModel;
 
@@ -12,8 +15,8 @@ class TestGetReviewer {
 
 	@Test
 	public void shouldNotGetReviewerFromEmptyReviewManager() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		
 		Assertions.assertThrows(IndexOutOfBoundsException.class, () -> {
 			theReviewsManagerViewModel.getReviewer(1);
@@ -23,8 +26,8 @@ class TestGetReviewer {
 	
 	@Test
 	public void shouldGetFirstReviewer() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		
 		theReviewsManagerViewModel.addReview("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
@@ -35,8 +38,8 @@ class TestGetReviewer {
 	
 	@Test
 	public void shouldGetSecondReviewer() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		
 		theReviewsManagerViewModel.addReview("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
@@ -47,8 +50,8 @@ class TestGetReviewer {
 	
 	@Test
 	public void shouldGetThirdReviewer() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("Mcdonalds", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		
 		theReviewsManagerViewModel.addReview("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		theReviewsManagerViewModel.addReview("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);

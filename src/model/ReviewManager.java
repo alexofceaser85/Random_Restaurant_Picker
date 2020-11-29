@@ -137,24 +137,6 @@ public class ReviewManager {
 		return this.reviews.get(index);
 	}
 	
-	/**
-	 * Populates the reviews array with reviews from a given restaurant
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 
-	 * @return none
-	 */
-	
-	public void populateReviews() {
-		
-		Query theQuery = new ReviewsQuery(this.restuarantId);
-		List<Review> reviews = JSONLoader.parseReviews(QueryManager.sendQuery(theQuery));
-		
-		for (Review review : reviews) {
-			this.addReview(review);
-		}
-	}
 	
 	/**
 	 * Returns the string representation of the reviews array

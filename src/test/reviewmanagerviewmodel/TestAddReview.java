@@ -2,8 +2,11 @@ package src.test.reviewmanagerviewmodel;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Random;
+
 import org.junit.jupiter.api.Test;
 
+import src.model.MainManager;
 import src.viewmodel.ReviewsManagerViewModel;
 import src.viewmodel.ReviewsViewModel;
 
@@ -11,8 +14,8 @@ class TestAddReview {
 
 	@Test
 	public void shouldAddOneReview() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("American Pie", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		theReviewsManagerViewModel.addReview("Alex DeCesare", "It was tremendous", 5);
 		
 		assertEquals("Reviewer: Alex DeCesare Content: It was tremendous Score: 5.0"
@@ -21,8 +24,8 @@ class TestAddReview {
 	
 	@Test
 	public void shouldAddManyReviews() {
-		
-		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel("American Pie", "111");
+		MainManager mainManager = new MainManager(new Random());
+		ReviewsManagerViewModel theReviewsManagerViewModel = new ReviewsManagerViewModel(mainManager);
 		theReviewsManagerViewModel.addReview("Alex DeCesare", "It was tremendous", 5);
 		theReviewsManagerViewModel.addReview("Alexander Ayers", "It was not tremendous", 3);
 		theReviewsManagerViewModel.addReview("Furichous Jones", "It was terrible", 1);
