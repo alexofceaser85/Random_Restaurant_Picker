@@ -17,8 +17,9 @@ import src.controller.Activatable;
 import src.viewmodel.RestaurantViewModel;
 
 /**
- * Code Behind for the Restaurant View
+ * Code Behind for the Restaurant View.
  * @author Alexander Ayers
+ * @version Fall 2020
  *
  */
 
@@ -63,6 +64,8 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @param viewModel the viewModel for the restaurant class.
 	 */
     public RestaurantViewCodeBehind(RestaurantViewModel viewModel) {
     	this.viewModel = viewModel;

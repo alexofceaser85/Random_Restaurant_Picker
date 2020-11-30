@@ -49,11 +49,7 @@ public class ReviewManager {
 	 * @precondition reviewToAdd != null
 	 * @postcondition reviews.size() = reviews.size() + 1
 	 * 
-<<<<<<< HEAD
 	 * @param review the review being added.
-=======
-	 * @param reviewToAdd the review to add to the reviews array
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 */
 
 	public void add(Review review) {

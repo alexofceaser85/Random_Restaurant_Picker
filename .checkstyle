@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="false">
+<<<<<<< HEAD
   <fileset name="all" enabled="true" check-config-name="UWG_check" local="false">
+=======
+  <fileset name="all" enabled="true" check-config-name="UWG Checks" local="false">
+>>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four
     <file-match-pattern match-pattern="." include-pattern="true"/>
   </fileset>
 </fileset-config>

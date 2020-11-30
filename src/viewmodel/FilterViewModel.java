@@ -27,6 +27,7 @@ import src.model.RestaurantManager;
  * View Model for the Filtering section of the UI.
  * 
  * @author Alexander Ayers
+ * @version Fall 2020
  *
  */
 public class FilterViewModel {
@@ -47,11 +48,12 @@ public class FilterViewModel {
 	private MainManager mainManager;
 
 	/**
-	 * 
-	 * @param mainManager the MainManager of the application
+	 * One-parameter constructor.
 	 * 
 	 * @precondition mainManager != null
-	 * @postcondition none
+	 * @postcondition getMainManager() == mainManager
+	 * 
+	 * @param mainManager the MainManager of the application
 	 */
 	public FilterViewModel(MainManager mainManager) {
 		if (mainManager == null) {
@@ -75,7 +77,7 @@ public class FilterViewModel {
 	}
 
 	/**
-	 * 
+	 * Sends the restaurant query to construct the manager.
 	 * @precondition none
 	 * @postconditon none
 	 *

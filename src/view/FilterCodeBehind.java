@@ -18,13 +18,13 @@ import javafx.util.converter.NumberStringConverter;
 import src.controller.Activatable;
 import src.controller.SceneController;
 import src.model.Radius;
-import src.model.Restaurant;
 import src.viewmodel.FilterViewModel;
 
 /**
  * Code Behind for the Filter Section of the GUI.
  * 
  * @author Alexander Ayers
+ * @version Fall 2020
  *
  */
 public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
@@ -93,6 +93,8 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @param viewModel the view model for the filter page.
 	 */
 	public FilterCodeBehind(FilterViewModel viewModel) {
 		this.viewModel = viewModel;

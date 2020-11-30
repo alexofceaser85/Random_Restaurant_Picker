@@ -5,7 +5,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 /**
- *
+ * Code Behind for the No Reviews Error Screen.
  * @author Furichous Jones IV
  * @version Fall 2020
  */
