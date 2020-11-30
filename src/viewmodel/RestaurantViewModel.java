@@ -111,12 +111,12 @@ public class RestaurantViewModel {
 	}
 
 	/**
-	 * Gets the menuURl Property.
+	 * Gets the menu URl Property.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the value of menuURLProperty
+	 * @return the value of menu URL Property
 	 */
 	public StringProperty menuURLProperty() {
 		return this.menuURLProperty;
@@ -145,48 +145,48 @@ public class RestaurantViewModel {
 	}
 
 	/**
-	 * Returns the menuURL property
+	 * Returns the name property
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the name property
 	 */
 	public StringProperty nameProperty() {
 		return this.nameProperty;
 	}
 
 	/**
-	 * Returns the menuURL property
+	 * Returns the image URL property
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the image URL property
 	 */
 	public StringProperty imageURLProperty() {
 		return this.imageURLProperty;
 	}
 
 	/**
-	 * Returns the menuURL property
+	 * Returns the location property
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the location property
 	 */
 	public StringProperty locationProperty() {
 		return this.locationProperty;
 	}
 
 	/**
-	 * Returns the menuURL property
+	 * Returns the price range property
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the price range property
 	 */
 	public StringProperty priceRangeProperty() {
 		return this.priceRangeProperty;
@@ -198,19 +198,19 @@ public class RestaurantViewModel {
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the distance property
 	 */
 	public StringProperty distanceProperty() {
 		return this.distanceProperty;
 	}
 
 	/**
-	 * Returns the menuURL property
+	 * Returns the reviewScore property
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the reviewScore property
 	 */
 	public StringProperty reviewScoreProperty() {
 		return this.reviewScoreProperty;

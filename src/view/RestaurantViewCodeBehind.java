@@ -36,7 +36,7 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
     private ImageView restaurantImage;
     
     @FXML
-    private Hyperlink restaurantAddressHyperlink;
+    private Text restaurantAddressHyperlink;
 
     @FXML
     private Text restaurantPriceText;
