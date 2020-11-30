@@ -16,7 +16,7 @@ class TestAddReview {
 		ReviewManager theReviewManager = new ReviewManager();
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			theReviewManager.addReview(null);
+			theReviewManager.add(null);
 		});
 		
 	}
@@ -27,7 +27,7 @@ class TestAddReview {
 		ReviewManager theReviewManager = new ReviewManager();
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		
-		theReviewManager.addReview(theReview);
+		theReviewManager.add(theReview);
 		
 		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 1.1" + System.lineSeparator(), theReviewManager.toString());
 		
@@ -42,10 +42,10 @@ class TestAddReview {
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		Review theFourthReview = new Review("Ana Stanescu", "The food here is as terrible as VIM", 1.0);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
-		theReviewManager.addReview(theFourthReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
+		theReviewManager.add(theFourthReview);
 		
 		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 1.1" 
 				+ System.lineSeparator() + "Reviewer: Duane Yoder Content: This pizza is so disgusting, if you take it to Italy you’ll get arrested. Score: 4.5"

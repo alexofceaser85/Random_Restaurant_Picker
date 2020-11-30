@@ -3,10 +3,10 @@ package src.model;
 import src.error_messages.ErrorMessages;
 
 /**
- * This class holds the data for the restaurant reviews
+ * This class holds the data for the restaurant reviews.
  * 
  * @author Alex DeCesare
- * @version 22-Nov-20
+ * @version Fall 2020
  */
 
 public class Review {
@@ -19,7 +19,7 @@ public class Review {
 	private double reviewScore;
 
 	/**
-	 * The constructor for the review class
+	 * The three-parameter constructor for the review class.
 	 * 
 	 * @precondition reviewerName != null reviewerName.isEmpty() == false
 	 *               reviewContent != null reviewContent.isEmpty() == false
@@ -60,7 +60,7 @@ public class Review {
 	}
 
 	/**
-	 * Gets the name of the reviewer
+	 * Gets the name of the reviewer.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -73,7 +73,7 @@ public class Review {
 	}
 
 	/**
-	 * Gets the content of the review
+	 * Gets the content of the review.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -86,12 +86,12 @@ public class Review {
 	}
 
 	/**
-	 * Gets the score of the review
+	 * Gets the score of the review.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the score of the review
+	 * @return the score of the review.
 	 */
 
 	public double getReviewScore() {
@@ -99,12 +99,12 @@ public class Review {
 	}
 
 	/**
-	 * Returns the string representation of the review
+	 * Returns the string representation of the review.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return reviewString the string representation of the review
+	 * @return reviewString the string representation of the review.
 	 */
 
 	@Override

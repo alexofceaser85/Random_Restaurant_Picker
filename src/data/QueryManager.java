@@ -20,7 +20,7 @@ public class QueryManager {
 	private static final String API_KEY = "9B_u4A_JIL2TMNprBShU-c1xqVg-BBPECjzq6TfwUaQ3gYE84nxJAfuSp5GDHoq3AMlRxG6v-9hla4y4P2RrqLX0btJYb5amXmTfxSVdQGG4O5M-NXBYXjHlXF2_X3Yx";
 
 	/**
-	 * Sends a query with the Yelp API_KEY and returns String response
+	 * Sends a query with the Yelp API_KEY and returns String response.
 	 * 
 	 * @param currentQuery Query to be sent to API
 	 * 

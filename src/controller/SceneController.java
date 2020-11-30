@@ -12,15 +12,19 @@ import src.view.BaseCodeBehind;
  * Class for activating and showing registered scenes.
  * 
  * @author Furichous Jones IV
+ * @version Fall 2020
  */
 public class SceneController {
 	private HashMap<String, Pair<Scene, BaseCodeBehind>> pages;
 	private Stage primaryStage;
 
 	/**
+	 * One-parameter constructor.
+	 * 
 	 * @precondition none
 	 * @postcondition none
-	 * @param primaryStage
+	 * 
+	 * @param primaryStage the stage to be displayed primarily.
 	 */
 	public SceneController(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -28,12 +32,13 @@ public class SceneController {
 	}
 
 	/**
+	 * Adds a new scene to the collection.
 	 * 
 	 * @precondition none
 	 * @postconditon none
 	 *
-	 * @param key
-	 * @param loader
+	 * @param key name of the scene being added
+	 * @param loader the loader containing the fxml for the scene.
 	 */
 	public void add(String key, FXMLLoader loader) {
 		Scene scene = new Scene(loader.getRoot());
@@ -44,11 +49,12 @@ public class SceneController {
 	}
 
 	/**
+	 * Sets the scene and then shows it on the GUI.
 	 * 
 	 * @precondition none
 	 * @postconditon none
 	 *
-	 * @param key
+	 * @param key name of the scene being activated.
 	 */
 	public void activate(String key) {
 		Pair<Scene, BaseCodeBehind> page = this.pages.get(key);
@@ -60,11 +66,12 @@ public class SceneController {
 	}
 
 	/**
+	 * Shows the selected scene to the GUI.
 	 * 
 	 * @precondition none
 	 * @postconditon none
 	 *
-	 * @param key
+	 * @param key the name of the scene being shown.
 	 */
 	public void show(String key) {
 		Pair<Scene, BaseCodeBehind> page = this.pages.get(key);

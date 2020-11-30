@@ -15,7 +15,7 @@ import src.viewmodel.RestaurantViewModel;
 import src.viewmodel.ReviewsManagerViewModel;
 
 /**
- * Main class for application entry
+ * Main class for application entry.
  * 
  * @author Furichous Jones IV
  * @version Fall 2020

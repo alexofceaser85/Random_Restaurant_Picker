@@ -29,7 +29,7 @@ class TestReviewManager {
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
 		
 		testAgainstArrayList.add(theReview);
-		theReviewManager.addReview(theReview);
+		theReviewManager.add(theReview);
 		
 		assertEquals(testAgainstArrayList, theReviewManager.getReviews());
 	}
@@ -48,9 +48,9 @@ class TestReviewManager {
 		testAgainstArrayList.add(theSecondReview);
 		testAgainstArrayList.add(theThirdReview);
 
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
 		
 		assertEquals(testAgainstArrayList, theReviewManager.getReviews());
 	}

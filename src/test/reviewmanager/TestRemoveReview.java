@@ -16,7 +16,7 @@ class TestRemoveReview {
 		ReviewManager theReviewManager = new ReviewManager();
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			theReviewManager.removeReview(null);
+			theReviewManager.remove(null);
 		});
 		
 	}
@@ -27,7 +27,7 @@ class TestRemoveReview {
 		ReviewManager theReviewManager = new ReviewManager();
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
 		
-		theReviewManager.removeReview(theReview);
+		theReviewManager.remove(theReview);
 		
 	}
 	
@@ -38,8 +38,8 @@ class TestRemoveReview {
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.removeReview(theSecondReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.remove(theSecondReview);
 		
 		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 1.1" 
 				+ System.lineSeparator(), theReviewManager.toString());
@@ -54,10 +54,10 @@ class TestRemoveReview {
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		Review theFourthReview = new Review("Ana Stanescu", "The food here is as terrible as VIM", 1.0);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
-		theReviewManager.removeReview(theFourthReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
+		theReviewManager.remove(theFourthReview);
 		
 		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 1.1" 
 				+ System.lineSeparator() + "Reviewer: Duane Yoder Content: This pizza is so disgusting, if you take it to Italy you’ll get arrested. Score: 4.5"
@@ -71,8 +71,8 @@ class TestRemoveReview {
 		ReviewManager theReviewManager = new ReviewManager();
 		Review theFirstReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 1.1);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.removeReview(theFirstReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.remove(theFirstReview);
 		
 		assertEquals("", theReviewManager.toString());
 	}
@@ -85,10 +85,10 @@ class TestRemoveReview {
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
-		theReviewManager.removeReview(theThirdReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
+		theReviewManager.remove(theThirdReview);
 		
 		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 1.1" 
 				+ System.lineSeparator() + "Reviewer: Duane Yoder Content: This pizza is so disgusting, if you take it to Italy you’ll get arrested. Score: 4.5"
@@ -103,10 +103,10 @@ class TestRemoveReview {
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
-		theReviewManager.removeReview(theSecondReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
+		theReviewManager.remove(theSecondReview);
 		
 		assertEquals("Reviewer: Lewis Baumstark Content: This lamb is so undercooked, it’s following Mary to school! Score: 1.1" 
 				+ System.lineSeparator() + "Reviewer: Alexander Ayers Content: Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2 Score: 3.1"
@@ -121,10 +121,10 @@ class TestRemoveReview {
 		Review theSecondReview = new Review("Duane Yoder", "This pizza is so disgusting, if you take it to Italy you’ll get arrested.", 4.5);
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
-		theReviewManager.removeReview(theFirstReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
+		theReviewManager.remove(theFirstReview);
 		
 		assertEquals("Reviewer: Duane Yoder Content: This pizza is so disgusting, if you take it to Italy you’ll get arrested. Score: 4.5"
 				+ System.lineSeparator() + "Reviewer: Alexander Ayers Content: Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2 Score: 3.1"

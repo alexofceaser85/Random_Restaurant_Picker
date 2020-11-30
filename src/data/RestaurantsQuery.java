@@ -7,7 +7,8 @@ import src.error_messages.ErrorMessages;
 import src.model.Price;
 
 /**
- *
+ * Models a Query to the Restaurant Query.
+ * 
  * @author Furichous Jones IV
  * @version Fall 2020
  */
@@ -15,7 +16,7 @@ public class RestaurantsQuery extends Query {
 	public static final int METER_CONVERSION = 1609;
 
 	/**
-	 * Constructor method for RestaurantsQuery
+	 * Constructor method for RestaurantsQuery.
 	 * 
 	 * @param location           location of search
 	 * @param radius             radius of search

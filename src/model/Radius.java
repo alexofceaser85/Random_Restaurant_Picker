@@ -4,6 +4,7 @@ package src.model;
  * Models the radius for distance from location.
  * 
  * @author Alexander Ayers
+ * @version Fall 2020
  *
  */
 public enum Radius {
@@ -25,7 +26,7 @@ public enum Radius {
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the text display of the radius
+	 * @return the text display of the radius.
 	 */
 	public String getDisplay() {
 		return this.display;
@@ -37,7 +38,7 @@ public enum Radius {
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the number of meters
+	 * @return the number of meters.
 	 */
 	public int getMeters() {
 		return this.meters;

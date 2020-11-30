@@ -10,9 +10,10 @@ import src.error_messages.ErrorMessages;
 import src.model.Price;
 import src.model.Restaurant;
 import src.model.Review;
+
 /**
- * Data utility class for converting JSON formatted responses to 
- * corresponding Reviews or Restaurant Lists
+ * Data utility class for converting JSON formatted responses to corresponding
+ * Reviews or Restaurant Lists.
  * 
  * @author Furichous Jones IV
  * @version Fall 2020
@@ -23,7 +24,7 @@ public class JSONLoader {
 			.toString();
 
 	/**
-	 * Converts rawJSON to reviews list
+	 * Converts rawJSON to reviews list.
 	 * 
 	 * @param rawJSON JSON string to be parsed
 	 * 
@@ -66,14 +67,14 @@ public class JSONLoader {
 	}
 
 	/**
-	 * Converts rawJSON to restaurant list
-	 * 
-	 * @param rawJSON JSON string to be parsed
+	 * Converts a raw JSON string to a restaurant list.
 	 * 
 	 * @precondition rawJSON != null && !rawJSON.isBlank()
 	 * @postcondition none
 	 * 
-	 * @return parsed restaurants list
+	 * @param rawJSON JSON string to be parsed
+	 * 
+	 * @return parsed list of restaurants
 	 **/
 	public static List<Restaurant> parseRestaurants(String rawJSON) {
 		if (rawJSON == null) {
@@ -103,28 +104,39 @@ public class JSONLoader {
 			JSONObject location = business.getJSONObject("location");
 
 			StringBuilder address = new StringBuilder();
-			JSONArray addressData = location.getJSONArray("display_address");
-			for (int j = 0; j < addressData.length(); ++j) {
-				address.append(addressData.getString(j));
-				address.append(", ");
-			}
+			JSONLoader.extractAddressData(location, address);
 			address.setLength(address.length() - 2);
 
 			String price = business.has("price") ? business.getString("price") : "Any";
 			double reviewScore = business.has("rating") ? business.getDouble("rating") : 5;
-			int distance = business.has("distance")
-					? (business.getInt("distance") + RestaurantsQuery.METER_CONVERSION - 1)
-							/ RestaurantsQuery.METER_CONVERSION
-					: Integer.MAX_VALUE;
+			int distance = JSONLoader.extractDistance(business);
 			String imageURL = business.has("image_url") ? business.getString("image_url") : "";
+
 			if (imageURL.isBlank()) {
 				imageURL = JSONLoader.DEFAULT_IMAGE;
 			}
 			Restaurant newRestaurant = new Restaurant(name, Price.valueOf(price), address.toString(), distance,
 					reviewScore, menuURL, imageURL, id);
 			return newRestaurant;
+
 		} catch (Exception e) {
 			return null;
+		}
+	}
+
+	private static int extractDistance(JSONObject business) {
+		int distance = business.has("distance")
+				? (business.getInt("distance") + RestaurantsQuery.METER_CONVERSION - 1)
+						/ RestaurantsQuery.METER_CONVERSION
+				: Integer.MAX_VALUE;
+		return distance;
+	}
+
+	private static void extractAddressData(JSONObject location, StringBuilder address) {
+		JSONArray addressData = location.getJSONArray("display_address");
+		for (int j = 0; j < addressData.length(); ++j) {
+			address.append(addressData.getString(j));
+			address.append(", ");
 		}
 	}
 

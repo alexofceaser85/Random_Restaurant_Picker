@@ -10,7 +10,7 @@ import src.error_messages.ErrorMessages;
  * The class responsible for holding and managing the restaurants
  * 
  * @author Alex DeCesare
- * @version 20-November-2020
+ * @version Fall 2020
  **/
 
 public class RestaurantManager {
@@ -19,7 +19,7 @@ public class RestaurantManager {
 	private Random randomGenerator;
 
 	/**
-	 * The constructor for the Restaurant Manager
+	 * The constructor for the Restaurant Manager.
 	 * 
 	 * @param randomGenerator the Random object
 	 * 
@@ -33,12 +33,12 @@ public class RestaurantManager {
 	}
 
 	/**
-	 * Adds a restaurant to the Restaurant Manager
+	 * Adds a restaurant to the Restaurant Manager.
 	 * 
 	 * @precondition restaurantToAdd != null
 	 * @postcondition theRestaurants.size() == theRestaurants.size() + 1
 	 * 
-	 * @param restaurantToAdd the restaurant to add to the manager
+	 * @param restaurantToAdd the restaurant to add to the manager.
 	 */
 
 	public void addRestaurant(Restaurant restaurantToAdd) {
@@ -52,12 +52,12 @@ public class RestaurantManager {
 	}
 
 	/**
-	 * Removes a restaurant from the restaurant manager
+	 * Removes a restaurant from the restaurant manager.
 	 * 
 	 * @precondition restaurantToRemove != null
 	 * @postcondition theRestaurants.size() == theRestaurants.size() - 1
 	 * 
-	 * @param restaurantToRemove the restaurant to remove from the manager
+	 * @param restaurantToRemove the restaurant to remove from the manager.
 	 */
 
 	public void removeRestaurant(Restaurant restaurantToRemove) {
@@ -71,7 +71,7 @@ public class RestaurantManager {
 	}
 
 	/**
-	 * Gets the number of restaurants in the restaurant manager
+	 * Gets the number of restaurants in the restaurant manager.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -121,12 +121,12 @@ public class RestaurantManager {
 	}
 
 	/**
-	 * Sets the restaurants list if restaurants is not null
+	 * Sets the restaurants list if restaurants is not null.
 	 * 
 	 * @precondition theRestaurants != null
 	 * @postcondition this.theRestaurants == theRestaurants
 	 *
-	 * @param theRestaurants restaurants to be set
+	 * @param theRestaurants restaurants to be set.
 	 */
 	public void setTheRestaurants(List<Restaurant> theRestaurants) {
 		if (theRestaurants == null) {

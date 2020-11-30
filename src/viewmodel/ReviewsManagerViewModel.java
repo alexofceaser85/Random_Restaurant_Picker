@@ -44,7 +44,7 @@ public class ReviewsManagerViewModel {
 	public void addReview(String reviewer, String reviewContent, double reviewScore) {
 		
 		Review theReviewToAdd = new Review(reviewer, reviewContent, reviewScore);
-		this.theReviewManager.addReview(theReviewToAdd);	
+		this.theReviewManager.add(theReviewToAdd);	
 	}
 	
 	/**

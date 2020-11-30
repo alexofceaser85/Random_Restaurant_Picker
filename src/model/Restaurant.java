@@ -3,10 +3,10 @@ package src.model;
 import src.error_messages.ErrorMessages;
 
 /**
- * The class responsible for holding the restaurant information
+ * The class responsible for holding the restaurant information.
  * 
  * @author Alex DeCesare
- * @version 18-November-2020
+ * @version Fall 2020.
  **/
 public class Restaurant {
 
@@ -24,7 +24,7 @@ public class Restaurant {
 	private String id;
 
 	/**
-	 * The constructor for the restaurant class
+	 * The eight-parameter constructor for the restaurant class.
 	 * 
 	 * @precondition name != null name.isEmpty() == False price != null location !=
 	 *               null location.isEmpty() == False distance >= 0 reviewScore >= 1
@@ -51,7 +51,7 @@ public class Restaurant {
 		if (price == null) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_PRICE_SHOULD_NOT_BE_NULL);
 		}
-		
+
 		if (distance < RESTURANT_MINIMUM_DISTANCE) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_DISTANCE_SHOULD_NOT_BE_LESS_THAN_ZERO);
 		}
@@ -127,24 +127,24 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant name
+	 * Gets the restaurant name.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant name
+	 * @return the restaurant name.
 	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * gets the restaurant price
+	 * Gets the restaurant price.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant price
+	 * @return the restaurant price.
 	 */
 
 	public Price getPrice() {
@@ -152,12 +152,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant location
+	 * Gets the restaurant location.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant location
+	 * @return the restaurant location.
 	 */
 
 	public String getLocation() {
@@ -165,12 +165,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant distance from user
+	 * Gets the restaurant distance from user.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant distance from user
+	 * @return the restaurant distance from user.
 	 */
 
 	public int getDistance() {
@@ -178,12 +178,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant review score
+	 * Gets the restaurant review score.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant's review score
+	 * @return the restaurant's review score.
 	 */
 
 	public double getReviewScore() {
@@ -191,12 +191,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant's menu URL
+	 * Gets the restaurant's menu URL.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant's menu URL
+	 * @return the restaurant's menu URL.
 	 */
 
 	public String getMenuURL() {
@@ -204,12 +204,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant's image URL
+	 * Gets the restaurant's image URL.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant's image URL
+	 * @return the restaurant's image URL.
 	 */
 
 	public String getImageURL() {
@@ -217,12 +217,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * gets the restaurant's id
+	 * Gets the restaurant's id.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant's id
+	 * @return the restaurant's id.
 	 */
 
 	public String getId() {
@@ -230,12 +230,12 @@ public class Restaurant {
 	}
 
 	/**
-	 * returns a string representation of the Restaurant object
+	 * Returns a string representation of the Restaurant object.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return restaurantString the string representation of the object
+	 * @return the string representation of the object.
 	 */
 
 	@Override

@@ -23,7 +23,7 @@ class TestSize {
 		ReviewManager theReviewManager = new ReviewManager();
 		
 		Review theReview = new Review("Lewis Baumstark", "This lamb is so undercooked, it’s following Mary to school!", 5);
-		theReviewManager.addReview(theReview);
+		theReviewManager.add(theReview);
 		
 		assertEquals(1, theReviewManager.size());
 		
@@ -39,10 +39,10 @@ class TestSize {
 		Review theThirdReview = new Review("Alexander Ayers", "Roses are Red. Violets Are Blue. Null Pointer Exception on Line 2", 3.1);
 		Review theFourthReview = new Review("Ana Stanescu", "The food here is as terrible as VIM", 1.0);
 		
-		theReviewManager.addReview(theFirstReview);
-		theReviewManager.addReview(theSecondReview);
-		theReviewManager.addReview(theThirdReview);
-		theReviewManager.addReview(theFourthReview);
+		theReviewManager.add(theFirstReview);
+		theReviewManager.add(theSecondReview);
+		theReviewManager.add(theThirdReview);
+		theReviewManager.add(theFourthReview);
 		
 		assertEquals(4, theReviewManager.size());
 		

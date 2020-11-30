@@ -3,16 +3,19 @@ package src.data;
 import src.error_messages.ErrorMessages;
 
 /**
- *
+ * Models a Review Query for the Yelp API.
  * @author Furichous Jones IV
  * @version Fall 2020
  */
 public class ReviewsQuery extends Query {
 
 	/**
-	 * @precondition none
+	 * One-parameter constructor
+	 * 
+	 * @precondition restaurantID != null && !restaurantID.isEmpty()
 	 * @postcondition none
-	 * @param restaurantID
+	 * 
+	 * @param restaurantID ID of the restaurant whose reviews are being retrieved.
 	 */
 	public ReviewsQuery(String restaurantID) {
 		if (restaurantID == null) {
