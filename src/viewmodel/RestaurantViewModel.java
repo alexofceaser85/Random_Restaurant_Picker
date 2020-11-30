@@ -12,7 +12,6 @@ import javafx.beans.property.StringProperty;
 import src.data.JSONLoader;
 import src.data.QueryManager;
 import src.data.ReviewsQuery;
-import src.error_messages.ErrorMessages;
 import src.model.MainManager;
 import src.model.Price;
 import src.model.Restaurant;
