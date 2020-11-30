@@ -62,6 +62,8 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @param viewModel the view model to initialize
 	 */
     public RestaurantViewCodeBehind(RestaurantViewModel viewModel) {
     	this.viewModel = viewModel;
@@ -86,6 +88,11 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
     
     @FXML
     void grabNewRestaurant(ActionEvent event) {
+		try {
+			this.viewModel.removePickedRestaurant();
+		} catch (IllegalArgumentException e) {
+			super.getController().show("RestaurantError");
+		}
     	this.onActivation();
     }
 

@@ -77,11 +77,24 @@ public class MainManager {
 	 * The getter for the review manager
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the review manager
 	 */
 	public ReviewManager getReviewManager() {
 		return this.reviewManager;
+	}
+	
+	/**
+	 * Removes a restaurant from the manager
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 * @param theRestaurant the restaurant to remove
+	 */
+	
+	public void removeRestaurant(Restaurant theRestaurant) {
+		this.restaurantManager.removeRestaurant(theRestaurant);
 	}
 }

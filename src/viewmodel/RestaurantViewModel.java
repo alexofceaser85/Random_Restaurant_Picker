@@ -34,6 +34,7 @@ public class RestaurantViewModel {
 	private MainManager mainManager;
 	private String restaurantID;
 	private StringProperty menuURLProperty;
+	private Restaurant pickedRestaurant;
 
 	/**
 	 * Constructor of RestaurantViewModel
@@ -68,22 +69,22 @@ public class RestaurantViewModel {
 	 */
 	public boolean pickARestaurant() {
 		RestaurantManager theManager = this.mainManager.getRestaurantManager();
-		Restaurant pickedRestaurant = theManager.pickRandom();
-		if (pickedRestaurant == null) {
+		this.pickedRestaurant = theManager.pickRandom();
+		if (this.pickedRestaurant == null) {
 			return false;
 		}
 
-		String name = pickedRestaurant.getName();
-		String location = pickedRestaurant.getLocation();
-		Price price = pickedRestaurant.getPrice();
+		String name = this.pickedRestaurant.getName();
+		String location = this.pickedRestaurant.getLocation();
+		Price price = this.pickedRestaurant.getPrice();
 
-		int distance = pickedRestaurant.getDistance();
+		int distance = this.pickedRestaurant.getDistance();
 		String distanceFormatted = Integer.toString(distance) + " mi";
 
-		Image image = this.buildImage(pickedRestaurant);
+		Image image = this.buildImage(this.pickedRestaurant);
 		this.imageProperty.set(image);
 
-		double reviewScore = pickedRestaurant.getReviewScore();
+		double reviewScore = this.pickedRestaurant.getReviewScore();
 		DecimalFormat df = new DecimalFormat("#.#");
 		String reviewScoreFormatted = df.format(reviewScore);
 
@@ -93,8 +94,8 @@ public class RestaurantViewModel {
 		this.priceRangeProperty.set(price.toString());
 		this.distanceProperty.set(distanceFormatted);
 		this.reviewScoreProperty.set(reviewScoreFormatted);
-		this.restaurantID = pickedRestaurant.getId();
-		this.menuURLProperty.set(pickedRestaurant.getMenuURL());
+		this.restaurantID = this.pickedRestaurant.getId();
+		this.menuURLProperty.set(this.pickedRestaurant.getMenuURL());
 		return true;
 	}
 
@@ -110,6 +111,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
+	 * Resets the restaurant search filters
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -120,6 +122,11 @@ public class RestaurantViewModel {
 	}
 
 	/**
+	 * Gets the menu URL
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
 	 * @return the value of menuURLProperty
 	 */
 	public StringProperty menuURLProperty() {
@@ -127,11 +134,12 @@ public class RestaurantViewModel {
 	}
 	
 	/**
-	 * Returns the menuURL property
+	 * Returns the reviews query
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
+	 *@return if the reviews returned is empty or not
 	 */
 	public boolean sendReviewsQuery() {
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
@@ -229,10 +237,27 @@ public class RestaurantViewModel {
 	}
 	
 	/**
+	 * Gets the id of the restaurant
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
 	 * @return the value of restaurantID
 	 */
 	public String getRestaurantID() {
 		return this.restaurantID;
+	}
+	
+	/**
+	 * Removes the previous randomly picked restaurant
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 */
+	
+	public void removePickedRestaurant() {
+		this.getMainManager().removeRestaurant(this.pickedRestaurant);
 	}
 
 	
