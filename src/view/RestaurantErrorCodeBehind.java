@@ -5,8 +5,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 /**
- *
- * @author Furichous Jones IV
+ * Code Behind for the Restaurant Error Page.
+ * 
+ * @author Alexander Ayers
  * @version Fall 2020
  */
 public class RestaurantErrorCodeBehind extends BaseCodeBehind {

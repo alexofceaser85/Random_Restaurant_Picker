@@ -16,8 +16,9 @@ import src.controller.Activatable;
 import src.viewmodel.RestaurantViewModel;
 
 /**
- * Code Behind for the Restaurant View
+ * Code Behind for the Restaurant View.
  * @author Alexander Ayers
+ * @version Fall 2020
  *
  */
 
