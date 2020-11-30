@@ -34,6 +34,15 @@ class TestRestaurantManager {
 	}
 	
 	@Test
+	public void shouldNotSetNullRestaurants() {
+		RestaurantManager theManager = new RestaurantManager(null);
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			theManager.setTheRestaurants(null);
+		});
+	}
+	
+	@Test
 	public void shouldAddOneRestaurant() {
 		
 		RestaurantManager theManager = new RestaurantManager(null);
@@ -216,4 +225,5 @@ class TestRestaurantManager {
 		
 		assertEquals(4, theManager.size());
 	}
+	
 }

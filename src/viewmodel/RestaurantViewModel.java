@@ -63,7 +63,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
-	 * Picks a random restaurant
+	 * Picks a random restaurant.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -129,10 +129,6 @@ public class RestaurantViewModel {
 	 * 
 	 * @precondition none
 	 * @postcondition none
-	 * Gets the menu URL
-	 * 
-	 * @precondition none
-	 * @postcondition none
 	 * 
 	 * @return the value of menuURLProperty
 	 */
@@ -146,7 +142,7 @@ public class RestaurantViewModel {
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return true if reviews was successfully obtained
+	 * @return true if reviews was successfully obtained.
 	 */
 	public boolean sendReviewsQuery() {
 		if (this.restaurantID == null) {
