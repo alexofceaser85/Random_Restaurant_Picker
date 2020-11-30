@@ -51,6 +51,8 @@ public class ReviewManager {
 	 * 
 	 * @precondition reviewToAdd != null
 	 * @postcondition reviews.size() = reviews.size() + 1
+	 * 
+	 * @param reviewToAdd the review to add to the reviews array
 	 */
 	
 	public void addReview(Review reviewToAdd) {
