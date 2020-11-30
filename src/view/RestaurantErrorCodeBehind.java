@@ -17,6 +17,6 @@ public class RestaurantErrorCodeBehind extends BaseCodeBehind {
 
     @FXML
     void handleTryAgain(MouseEvent event) {
-    	super.getController().activate("Restaurant");
+    	super.getController().activate("Location");
     }
 }
