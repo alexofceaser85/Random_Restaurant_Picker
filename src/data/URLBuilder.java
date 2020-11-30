@@ -6,6 +6,7 @@ import java.net.URL;
 import src.error_messages.ErrorMessages;
 
 /**
+ * Builds the URL for the api query
  *
  * @author Furichous Jones IV
  * @version Fall 2020
@@ -17,10 +18,21 @@ public class URLBuilder {
     private String host;
 
     /**
-     * @precondition none
-     * @postcondition none
-     * @param host
-     * @param protocol
+     * The constructor for the URLBuilder class
+     * 
+     * @precondition 
+     * 		host != null
+     * 		host.isBlank() == false
+     * 		protocol != null
+     * 		protocol.isBlack == false
+     * @postcondition 
+     * 		this.folders == StringBuilder()
+     * 		this.params == StringBuilder()
+     * 		this.host == host
+     * 		this.protocol == protocol
+     * 
+     * @param host the host of the API
+     * @param protocol the network protocol to access the API
      */
     public URLBuilder(String host, String protocol) {
     	if (host == null) {
@@ -42,11 +54,15 @@ public class URLBuilder {
     }
 
     /**
+     * Adds a folder
      * 
-     * @precondition none
-     * @postconditon none
+     * @precondition
+     * 		folder != null
+     * 		folder.isBlank() == false
+     * 
+     * @postcondition none
      *
-     * @param folder
+     * @param folder the folder to append to
      */
     public void addFolder(String folder) {
     	if (folder == null) {
@@ -60,12 +76,18 @@ public class URLBuilder {
     }
 
     /**
+     * adds a parameter to the query string for the API
      * 
-     * @precondition none
-     * @postconditon none
+     * @precondition
+     * 		parameter != null
+     * 		parameter.isBlank() == false
+     * 		value != null
+     * 		value.isBlank() == false
+     * 
+     * @postcondition none
      *
-     * @param parameter
-     * @param value
+     * @param parameter the parameter to add to the query string
+     * @param value the value of the parameter
      */
     public void addParameter(String parameter, String value) {
     	if (parameter == null) {
@@ -89,11 +111,12 @@ public class URLBuilder {
     }
 
     /**
+     * Gets the query URL
      * 
      * @precondition none
-     * @postconditon none
+     * @postcondition none
      *
-     * @return
+     * @return the query URL
      */
     public URL getURL() {
     	String paramsEntry = this.params.toString();
