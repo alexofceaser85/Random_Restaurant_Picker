@@ -1,6 +1,11 @@
 package src.view;
 
 
+import java.awt.Desktop;
+import java.net.URL;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -50,6 +55,8 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
     
     private RestaurantViewModel viewModel;
     
+    private StringProperty menuURLProperty;
+    
 	/**
 	 * Zero-parameter constructor
 	 * 
@@ -58,6 +65,8 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 	 */
     public RestaurantViewCodeBehind(RestaurantViewModel viewModel) {
     	this.viewModel = viewModel;
+    	this.menuURLProperty = new SimpleStringProperty();
+    	this.menuURLProperty.bind(this.viewModel.menuURLProperty());
     }
     
 	/**
@@ -88,7 +97,11 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 
     @FXML
     void seeRestaurantMenu(ActionEvent event) {
-    	this.viewModel.openMenuInBrowser();
+    	try {
+			Desktop.getDesktop().browse(new URL(this.menuURLProperty.get()).toURI());
+		} catch (Exception e) {
+			// swallow catch
+		}
     }
 
     @FXML

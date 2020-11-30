@@ -14,7 +14,7 @@ public enum Radius {
 
 	private int meters;
 
-	private Radius(int meters, String display) {
+	Radius(int meters, String display) {
 		this.display = display;
 		this.meters = meters;
 	}
@@ -28,7 +28,7 @@ public enum Radius {
 	 * @return the text display of the radius
 	 */
 	public String getDisplay() {
-		return display;
+		return this.display;
 	}
 
 	/**
@@ -40,7 +40,7 @@ public enum Radius {
 	 * @return the number of meters
 	 */
 	public int getMeters() {
-		return meters;
+		return this.meters;
 	}
 	
 	@Override

@@ -2,20 +2,21 @@ package src.view;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import src.controller.Activatable;
 import src.viewmodel.ReviewsManagerViewModel;
 
+/**
+ *
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ */
 public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
 	
 	private ReviewsManagerViewModel viewmodel;
@@ -41,6 +42,11 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     private VBox reviewsContainer;
     private VBox reviewPane;
     
+    /**
+     * @precondition none
+     * @postcondition none
+     * @param theReviewsManagerViewModel
+     */
     public ReviewsCodeBehind(ReviewsManagerViewModel theReviewsManagerViewModel) {
     	this.viewmodel = theReviewsManagerViewModel;
     }
@@ -53,7 +59,7 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     	
     	for (int counter = 0; counter < this.viewmodel.size(); counter++) {
     		this.reviewPane = new VBox();
-    		VBox.setMargin(this.reviewPane, new Insets(0,50,0,50));
+    		VBox.setMargin(this.reviewPane, new Insets(0, 50, 0, 50));
     		
     		this.reviewPane.setSpacing(15);
     		this.reviewPane.setPadding(new Insets(10, 10, 10, 10));

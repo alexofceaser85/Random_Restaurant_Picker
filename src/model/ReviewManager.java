@@ -3,10 +3,6 @@ package src.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import src.data.JSONLoader;
-import src.data.Query;
-import src.data.QueryManager;
-import src.data.ReviewsQuery;
 import src.error_messages.ErrorMessages;
 
 /**
@@ -30,8 +26,6 @@ public class ReviewManager {
 	 * @postcondition 
 	 * 		this.restaurantName = restaurantName
 	 * 		this.reviews = ArrayList<Review>
-	 * 		
-	 * @param restaurantName the name of the restaurant which the reviews apply to
 	 */
 	
 	public ReviewManager() {
@@ -61,7 +55,7 @@ public class ReviewManager {
 	
 	public void addReview(Review reviewToAdd) {
 		
-		if(reviewToAdd == null) {
+		if (reviewToAdd == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEW_TO_ADD_CANNOT_BE_NULL);
 		}
 		
@@ -77,7 +71,7 @@ public class ReviewManager {
 	
 	public void removeReview(Review reviewToRemove) {
 		
-		if(reviewToRemove == null) {
+		if (reviewToRemove == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEW_TO_REMOVE_CANNOT_BE_NULL);
 		}
 		
@@ -100,10 +94,11 @@ public class ReviewManager {
 	/**
 	 * Returns a given review
 	 * 
+	 * @param index index of review
 	 * @precondition index >= 0
 	 * @postcondition none
+	 * @return review at index
 	 */
-	
 	public Review getReview(int index) {
 		
 		if (index < 0) {
@@ -146,7 +141,7 @@ public class ReviewManager {
 
 	public void setReviews(List<Review> reviews) {
 		
-		if(reviews == null) {
+		if (reviews == null) {
 			throw new IllegalArgumentException(ErrorMessages.REVIEWS_TO_SET_CANNOT_BE_NULL);
 		}
 		

@@ -1,13 +1,8 @@
 package src.test.restaurantviewmodel;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.util.Random;
-
 import org.junit.jupiter.api.Test;
-
 import src.model.MainManager;
 import src.viewmodel.RestaurantViewModel;
 
@@ -22,8 +17,8 @@ public class TestConstructor {
 		assertNotNull(testViewModel.priceRangeProperty());
 		assertNotNull(testViewModel.distanceProperty());
 		assertNotNull(testViewModel.reviewScoreProperty());
-		assertEquals("",testViewModel.getRestaurantID());
-		assertEquals("",testViewModel.getMenuURL());
+		assertNotNull(testViewModel.menuURLProperty());
+		assertEquals("", testViewModel.getRestaurantID());
 	}
 
 }

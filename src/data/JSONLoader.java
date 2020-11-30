@@ -10,31 +10,48 @@ import src.error_messages.ErrorMessages;
 import src.model.Price;
 import src.model.Restaurant;
 import src.model.Review;
-
+/**
+ * Data utility class for converting JSON formatted responses to 
+ * corresponding Reviews or Restaurant Lists
+ * 
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ **/
 public class JSONLoader {
-	
-	public final static String DEFAULT_IMAGE = JSONLoader.class.getClassLoader().getResource("assets/default_image.png").toString();
-	
+
+	public static final String DEFAULT_IMAGE = JSONLoader.class.getClassLoader().getResource("assets/default_image.png")
+			.toString();
+
+	/**
+	 * Converts rawJSON to reviews list
+	 * 
+	 * @param rawJSON JSON string to be parsed
+	 * 
+	 * @precondition rawJSON != null && !rawJSON.isBlank()
+	 * @postcondition none
+	 * 
+	 * @return parsed reviews list
+	 **/
 	public static List<Review> parseReviews(String rawJSON) {
-		if(rawJSON == null) {
+		if (rawJSON == null) {
 			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_NULL);
 		}
-		if(rawJSON.isBlank()) {
+		if (rawJSON.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_BLANK);
 		}
-		JSONObject json = new JSONObject(rawJSON); 
+		JSONObject json = new JSONObject(rawJSON);
 		JSONArray responses = json.getJSONArray("reviews");
 		List<Review> reviews = new ArrayList<Review>();
 		for (int i = 0; i < responses.length(); ++i) {
-		    JSONObject response = responses.getJSONObject(i);
-		    Review newReview = JSONLoader.parseReview(response);
-		    if (newReview != null) {
-		    	reviews.add(newReview);
-		    }
+			JSONObject response = responses.getJSONObject(i);
+			Review newReview = JSONLoader.parseReview(response);
+			if (newReview != null) {
+				reviews.add(newReview);
+			}
 		}
 		return reviews;
 	}
-	
+
 	private static Review parseReview(JSONObject response) {
 		try {
 			String textContent = response.getString("text");
@@ -48,22 +65,32 @@ public class JSONLoader {
 		}
 	}
 
+	/**
+	 * Converts rawJSON to restaurant list
+	 * 
+	 * @param rawJSON JSON string to be parsed
+	 * 
+	 * @precondition rawJSON != null && !rawJSON.isBlank()
+	 * @postcondition none
+	 * 
+	 * @return parsed restaurants list
+	 **/
 	public static List<Restaurant> parseRestaurants(String rawJSON) {
-		if(rawJSON == null) {
+		if (rawJSON == null) {
 			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_NULL);
 		}
-		if(rawJSON.isBlank()) {
+		if (rawJSON.isBlank()) {
 			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_BLANK);
 		}
-		JSONObject json = new JSONObject(rawJSON); 
+		JSONObject json = new JSONObject(rawJSON);
 		JSONArray businesses = json.getJSONArray("businesses");
 		List<Restaurant> restaurants = new ArrayList<Restaurant>();
 		for (int i = 0; i < businesses.length(); ++i) {
-		    JSONObject business = businesses.getJSONObject(i);
-		    Restaurant newRestaurant = JSONLoader.parseRestaurant(business);
-		    if (newRestaurant != null) {
-		    	restaurants.add(newRestaurant);
-		    }
+			JSONObject business = businesses.getJSONObject(i);
+			Restaurant newRestaurant = JSONLoader.parseRestaurant(business);
+			if (newRestaurant != null) {
+				restaurants.add(newRestaurant);
+			}
 		}
 		return restaurants;
 	}
@@ -74,27 +101,31 @@ public class JSONLoader {
 			String name = business.getString("name");
 			String menuURL = business.getString("url");
 			JSONObject location = business.getJSONObject("location");
-			
+
 			StringBuilder address = new StringBuilder();
 			JSONArray addressData = location.getJSONArray("display_address");
 			for (int j = 0; j < addressData.length(); ++j) {
 				address.append(addressData.getString(j));
 				address.append(", ");
 			}
-			address.setLength(address.length()-2);
-			
+			address.setLength(address.length() - 2);
+
 			String price = business.has("price") ? business.getString("price") : "Any";
 			double reviewScore = business.has("rating") ? business.getDouble("rating") : 5;
-			int distance = business.has("distance") ? (business.getInt("distance") + RestaurantsQuery.METER_CONVERSION - 1) / RestaurantsQuery.METER_CONVERSION : Integer.MAX_VALUE;
+			int distance = business.has("distance")
+					? (business.getInt("distance") + RestaurantsQuery.METER_CONVERSION - 1)
+							/ RestaurantsQuery.METER_CONVERSION
+					: Integer.MAX_VALUE;
 			String imageURL = business.has("image_url") ? business.getString("image_url") : "";
 			if (imageURL.isBlank()) {
 				imageURL = JSONLoader.DEFAULT_IMAGE;
 			}
-			Restaurant newRestaurant = new Restaurant(name, Price.valueOf(price), address.toString(), distance, reviewScore, menuURL, imageURL, id);
+			Restaurant newRestaurant = new Restaurant(name, Price.valueOf(price), address.toString(), distance,
+					reviewScore, menuURL, imageURL, id);
 			return newRestaurant;
-		} catch (Exception e){
+		} catch (Exception e) {
 			return null;
 		}
 	}
-	
+
 }

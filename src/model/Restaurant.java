@@ -8,7 +8,6 @@ import src.error_messages.ErrorMessages;
  * @author Alex DeCesare
  * @version 18-November-2020
  **/
-
 public class Restaurant {
 
 	private static final int RESTURANT_MINIMUM_DISTANCE = 0;
@@ -50,48 +49,19 @@ public class Restaurant {
 	public Restaurant(String name, Price price, String location, int distance, double reviewScore, String menuURL,
 			String imageURL, String id) {
 
-		if (name == null) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NAME_SHOULD_NOT_BE_NULL);
-		}
-		if (name.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY);
-		}
 		if (price == null) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_PRICE_SHOULD_NOT_BE_NULL);
 		}
-		if (location == null) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_LOCATION_SHOULD_NOT_BE_NULL);
-		}
-		if (location.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_LOCATION_SHOULD_NOT_BE_EMPTY);
-		}
+		
 		if (distance < RESTURANT_MINIMUM_DISTANCE) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_DISTANCE_SHOULD_NOT_BE_LESS_THAN_ZERO);
 		}
-		if (reviewScore < RESTURANT_MINIMUM_REVIEW_SCORE) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_LESS_THAN_ONE);
-		}
-		if (reviewScore > RESTURANT_MAXIMUM_REVIEW_SCORE) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_MORE_THAN_FIVE);
-		}
-		if (menuURL == null) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_MENU_URL_SHOULD_NOT_BE_NULL);
-		}
-		if (menuURL.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_MENU_URL_SHOULD_NOT_BE_EMPTY);
-		}
-		if (imageURL == null) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_IMAGE_URL_SHOULD_NOT_BE_NULL);
-		}
-		if (imageURL.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_IMAGE_URL_SHOULD_NOT_BE_EMPTY);
-		}
-		if (id == null) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_ID_SHOULD_NOT_BE_NULL);
-		}
-		if (id.isEmpty()) {
-			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_ID_SHOULD_NOT_BE_EMPTY);
-		}
+		this.nameConditions(name);
+		this.locationConditions(location);
+		this.reviewScoreConditions(reviewScore);
+		this.menuURLConditions(menuURL);
+		this.imageURLConditions(imageURL);
+		this.idConditions(id);
 
 		this.name = name;
 		this.price = price;
@@ -101,6 +71,60 @@ public class Restaurant {
 		this.menuURL = menuURL;
 		this.imageURL = imageURL;
 		this.id = id;
+	}
+
+	private void idConditions(String id) {
+		if (id == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_ID_SHOULD_NOT_BE_NULL);
+		}
+		if (id.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_ID_SHOULD_NOT_BE_EMPTY);
+		}
+	}
+
+	private void imageURLConditions(String imageURL) {
+		if (imageURL == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_IMAGE_URL_SHOULD_NOT_BE_NULL);
+		}
+		if (imageURL.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_IMAGE_URL_SHOULD_NOT_BE_EMPTY);
+		}
+	}
+
+	private void menuURLConditions(String menuURL) {
+		if (menuURL == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_MENU_URL_SHOULD_NOT_BE_NULL);
+		}
+		if (menuURL.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_MENU_URL_SHOULD_NOT_BE_EMPTY);
+		}
+	}
+
+	private void reviewScoreConditions(double reviewScore) {
+		if (reviewScore < RESTURANT_MINIMUM_REVIEW_SCORE) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_LESS_THAN_ONE);
+		}
+		if (reviewScore > RESTURANT_MAXIMUM_REVIEW_SCORE) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_REVIEW_SCORE_SHOULD_NOT_BE_MORE_THAN_FIVE);
+		}
+	}
+
+	private void locationConditions(String location) {
+		if (location == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_LOCATION_SHOULD_NOT_BE_NULL);
+		}
+		if (location.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_LOCATION_SHOULD_NOT_BE_EMPTY);
+		}
+	}
+
+	private void nameConditions(String name) {
+		if (name == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NAME_SHOULD_NOT_BE_NULL);
+		}
+		if (name.isEmpty()) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANT_NAME_SHOULD_NOT_BE_EMPTY);
+		}
 	}
 
 	/**

@@ -17,13 +17,11 @@ import javafx.collections.FXCollections;
 import src.data.JSONLoader;
 import src.data.QueryManager;
 import src.data.RestaurantsQuery;
-import src.data.ReviewsQuery;
 import src.model.MainManager;
 import src.model.Price;
 import src.model.Radius;
 import src.model.Restaurant;
 import src.model.RestaurantManager;
-import src.model.Review;
 
 /**
  * View Model for the Filtering section of the UI.
@@ -48,6 +46,11 @@ public class FilterViewModel {
 	private BooleanProperty genderNeutralBathroomProperty;
 	private MainManager mainManager;
 
+	/**
+	 * @precondition none
+	 * @postcondition none
+	 * @param mainManager
+	 */
 	public FilterViewModel(MainManager mainManager) {
 		this.locationAddressProperty = new SimpleStringProperty();
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
@@ -66,6 +69,12 @@ public class FilterViewModel {
 		this.mainManager = mainManager;
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 */
 	public void sendRestaurantQuery() {
 		String location = this.locationAddressProperty.getValue();
 		int radius = this.selectedRadiusProperty.getValue().getMeters();
@@ -77,8 +86,9 @@ public class FilterViewModel {
 		boolean hotAndNew = this.newRestaurantsProperty.getValue();
 		boolean neutralBathrooms = this.genderNeutralBathroomProperty.getValue();
 		List<Price> prices = this.buildPrices();
-		
-		RestaurantsQuery query = new RestaurantsQuery(location, radius, categories, reviewScore, prices, currentlyOpen, handicapAccessible, acceptsReservations, hotAndNew, neutralBathrooms);
+
+		RestaurantsQuery query = new RestaurantsQuery(location, radius, categories, reviewScore, prices, currentlyOpen,
+				handicapAccessible, acceptsReservations, hotAndNew, neutralBathrooms);
 		String response = QueryManager.sendQuery(query);
 		List<Restaurant> restaurants = JSONLoader.parseRestaurants(response);
 		RestaurantManager theManager = this.mainManager.getRestaurantManager();
@@ -90,7 +100,7 @@ public class FilterViewModel {
 		boolean price2 = this.price2Property.getValue();
 		boolean price3 = this.price3Property.getValue();
 		boolean price4 = this.price4Property.getValue();
-		
+
 		List<Price> prices = new ArrayList<Price>();
 		if (price1) {
 			prices.add(Price.$);
@@ -142,7 +152,7 @@ public class FilterViewModel {
 	 * @return the location address property.
 	 */
 	public StringProperty locationAddressProperty() {
-		return locationAddressProperty;
+		return this.locationAddressProperty;
 	}
 
 	/**
@@ -153,7 +163,7 @@ public class FilterViewModel {
 	 * @return the radius Fproperty.
 	 */
 	public ListProperty<Radius> radiusProperty() {
-		return radiusProperty;
+		return this.radiusProperty;
 	}
 
 	/**
@@ -164,7 +174,7 @@ public class FilterViewModel {
 	 * @return the categories property.
 	 */
 	public StringProperty categoriesProperty() {
-		return categoriesProperty;
+		return this.categoriesProperty;
 	}
 
 	/**
@@ -175,7 +185,7 @@ public class FilterViewModel {
 	 * @return the review score property.
 	 */
 	public DoubleProperty reviewScoreProperty() {
-		return reviewScoreProperty;
+		return this.reviewScoreProperty;
 	}
 
 	/**
@@ -186,7 +196,7 @@ public class FilterViewModel {
 	 * @return the currently open property.
 	 */
 	public BooleanProperty currentlyOpenProperty() {
-		return currentlyOpenProperty;
+		return this.currentlyOpenProperty;
 	}
 
 	/**
@@ -197,7 +207,7 @@ public class FilterViewModel {
 	 * @return the price 1 property.
 	 */
 	public BooleanProperty price1Property() {
-		return price1Property;
+		return this.price1Property;
 	}
 
 	/**
@@ -208,7 +218,7 @@ public class FilterViewModel {
 	 * @return the price 2 property.
 	 */
 	public BooleanProperty price2Property() {
-		return price2Property;
+		return this.price2Property;
 	}
 
 	/**
@@ -219,7 +229,7 @@ public class FilterViewModel {
 	 * @return the price 3 property.
 	 */
 	public BooleanProperty price3Property() {
-		return price3Property;
+		return this.price3Property;
 	}
 
 	/**
@@ -230,7 +240,7 @@ public class FilterViewModel {
 	 * @return the price 4 property.
 	 */
 	public BooleanProperty price4Property() {
-		return price4Property;
+		return this.price4Property;
 	}
 
 	/**
@@ -241,7 +251,7 @@ public class FilterViewModel {
 	 * @return the handicap accessible property.
 	 */
 	public BooleanProperty handicapAccessibleProperty() {
-		return handicapAccessibleProperty;
+		return this.handicapAccessibleProperty;
 	}
 
 	/**
@@ -252,7 +262,7 @@ public class FilterViewModel {
 	 * @return the accepts reservations property.
 	 */
 	public BooleanProperty acceptsReservationsProperty() {
-		return acceptsReservationsProperty;
+		return this.acceptsReservationsProperty;
 	}
 
 	/**
@@ -263,7 +273,7 @@ public class FilterViewModel {
 	 * @return the new restaurants property.
 	 */
 	public BooleanProperty newRestaurantsProperty() {
-		return newRestaurantsProperty;
+		return this.newRestaurantsProperty;
 	}
 
 	/**
@@ -274,7 +284,7 @@ public class FilterViewModel {
 	 * @return the gender neutral bathroom property.
 	 */
 	public BooleanProperty genderNeutralBathroomProperty() {
-		return genderNeutralBathroomProperty;
+		return this.genderNeutralBathroomProperty;
 	}
 
 	/**
@@ -286,7 +296,7 @@ public class FilterViewModel {
 	 */
 
 	public ObjectProperty<Radius> selectedRadiusProperty() {
-		return selectedRadiusProperty;
+		return this.selectedRadiusProperty;
 	}
 
 	/**

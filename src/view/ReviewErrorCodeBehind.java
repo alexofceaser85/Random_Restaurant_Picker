@@ -9,8 +9,7 @@ import javafx.scene.text.Text;
  * @author Furichous Jones IV
  * @version Fall 2020
  */
-public class RestaurantErrorCodeBehind extends BaseCodeBehind {
-	
+public class ReviewErrorCodeBehind extends BaseCodeBehind {
     @FXML
     private Text tryAgainText;
 
