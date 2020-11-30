@@ -8,7 +8,14 @@ import src.model.MainManager;
 import src.viewmodel.FilterViewModel;
 
 class TestConstructor {
-
+	
+	@Test
+	void testNullManager() {
+		assertThrows(IllegalArgumentException.class, () ->  {
+			new FilterViewModel(null);
+			});
+	}
+	
 	@Test
 	void testValidData() {
 		MainManager manager = new MainManager(null);
