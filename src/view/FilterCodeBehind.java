@@ -2,9 +2,7 @@ package src.view;
 
 import java.util.regex.Pattern;
 
-import org.junit.platform.commons.util.StringUtils;
 
-import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +11,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.text.Text;
-import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
 import src.controller.Activatable;
 import src.controller.SceneController;

@@ -97,9 +97,11 @@ public class FilterViewModel {
 		RestaurantsQuery query = new RestaurantsQuery(location, radius, categories, reviewScore, prices, currentlyOpen,
 				handicapAccessible, acceptsReservations, hotAndNew, neutralBathrooms);
 		String response = QueryManager.sendQuery(query);
-		List<Restaurant> restaurants = JSONLoader.parseRestaurants(response);
-		RestaurantManager theManager = this.mainManager.getRestaurantManager();
-		theManager.setTheRestaurants(restaurants);
+		if (response != null && !response.isBlank()) {
+			List<Restaurant> restaurants = JSONLoader.parseRestaurants(response);
+			RestaurantManager theManager = this.mainManager.getRestaurantManager();
+			theManager.setTheRestaurants(restaurants);
+		}
 	}
 
 	private List<Price> buildPrices() {

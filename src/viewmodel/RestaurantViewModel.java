@@ -34,6 +34,8 @@ public class RestaurantViewModel {
 	private StringProperty reviewScoreProperty;
 	private MainManager mainManager;
 	private String restaurantID;
+
+
 	private StringProperty menuURLProperty;
 	private Restaurant pickedRestaurant;
 
@@ -112,11 +114,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Resets the filters of the filter page and returns to that page.
-=======
-	 * Resets the restaurant search filters
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -127,18 +125,15 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Gets the menuURl Property.
 	 * 
 	 * @precondition none
 	 * @postcondition none
-=======
 	 * Gets the menu URL
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * @return the value of menuURLProperty
 	 */
 	public StringProperty menuURLProperty() {
@@ -146,30 +141,28 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
-	 * Sends the review query to make the review manager.
-=======
-	 * Returns the reviews query
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
+	 * Sends the review query to update the review manager.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-<<<<<<< HEAD
-	 * @return whether or not the review manager is empty.
-=======
-	 *@return if the reviews returned is empty or not
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
+	 * @return true if reviews was successfully obtained
 	 */
 	public boolean sendReviewsQuery() {
+		if (this.restaurantID == null) {
+			return false;
+		}
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
 
 		String response = QueryManager.sendQuery(query);
+		if (response == null || response.isBlank()) {
+			return false;
+		}
 		List<Review> reviews = JSONLoader.parseReviews(response);
 
 		ReviewManager theManager = this.mainManager.getReviewManager();
 		theManager.setReviews(reviews);
-		return reviews.isEmpty();
+		return !reviews.isEmpty();
 	}
 
 	/**
@@ -257,11 +250,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Gets the restaurant ID.
-=======
-	 * Gets the id of the restaurant
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -270,6 +259,19 @@ public class RestaurantViewModel {
 	 */
 	public String getRestaurantID() {
 		return this.restaurantID;
+	}
+	
+	/**
+	 * Gets the restaurant ID.
+	 * 
+	 * @param restaurantID the new value of restaurantID
+	 * 
+	 * @precondition none
+	 * @postcondition this.restaurantID == restaurantID
+	 * 
+	 */
+	public void setRestaurantID(String restaurantID) {
+		this.restaurantID = restaurantID;
 	}
 	
 	/**

@@ -4,7 +4,6 @@ package src.view;
 import java.awt.Desktop;
 import java.net.URL;
 
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
@@ -110,10 +109,10 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 
     @FXML
     void seeRestaurantReviews(ActionEvent event) {
-    	if (this.viewModel.sendReviewsQuery()) {
-    		super.getController().activate("ReviewsError");
-    	} else {
+    	if (!this.viewModel.sendReviewsQuery()) {
     		super.getController().activate("Reviews");
+    	} else {
+    		super.getController().activate("ReviewsError");
     	}
     	
     }
