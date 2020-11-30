@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import src.error_messages.ErrorMessages;
 import src.view.BaseCodeBehind;
 
 /**
@@ -21,12 +22,16 @@ public class SceneController {
 	/**
 	 * One-parameter constructor.
 	 * 
-	 * @precondition none
+	 * @precondition primaryStage != null
 	 * @postcondition none
 	 * 
 	 * @param primaryStage the stage to be displayed primarily.
 	 */
 	public SceneController(Stage primaryStage) {
+		if (primaryStage == null) {
+			throw new IllegalArgumentException(ErrorMessages.PRIMARY_STAGE_SHOULD_NOT_BE_NULL);
+		}
+		
 		this.primaryStage = primaryStage;
 		this.pages = new HashMap<String, Pair<Scene, BaseCodeBehind>>();
 	}
@@ -34,13 +39,23 @@ public class SceneController {
 	/**
 	 * Adds a new scene to the collection.
 	 * 
-	 * @precondition none
-	 * @postconditon none
+	 * @precondition key != null && key.isBlank() && loader != null
+	 * @postcondition none
 	 *
 	 * @param key name of the scene being added
 	 * @param loader the loader containing the fxml for the scene.
 	 */
 	public void add(String key, FXMLLoader loader) {
+		if (loader == null) {
+			throw new IllegalArgumentException(ErrorMessages.LOADER_SHOULD_NOT_BE_NULL);
+		}
+		if (key == null) {
+			throw new IllegalArgumentException(ErrorMessages.KEY_SHOULD_NOT_BE_NULL);
+		}
+		if (key.isBlank()) {
+			throw new IllegalArgumentException(ErrorMessages.KEY_SHOULD_NOT_BE_BLANK);
+		}
+		
 		Scene scene = new Scene(loader.getRoot());
 		BaseCodeBehind codeBehind = (BaseCodeBehind) loader.getController();
 		codeBehind.setController(this);
@@ -49,10 +64,10 @@ public class SceneController {
 	}
 
 	/**
-	 * Sets the scene and then shows it on the GUI.
+	 * Activates the page and then shows it on the GUI.
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @param key name of the scene being activated.
 	 */
@@ -69,7 +84,7 @@ public class SceneController {
 	 * Shows the selected scene to the GUI.
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @param key the name of the scene being shown.
 	 */
@@ -82,4 +97,27 @@ public class SceneController {
 		}
 	}
 
+	/**
+	 * Returns the primary Stage
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the value of primaryStage
+	 */
+	public Stage getPrimaryStage() {
+		return this.primaryStage;
+	}
+
+	/**
+	 * Returns the pages list
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @return the list of pages
+	 */
+	public HashMap<String, Pair<Scene, BaseCodeBehind>> getPages() {
+		return this.pages;
+	}
 }

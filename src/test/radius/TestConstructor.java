@@ -1,4 +1,4 @@
-package test.radius;
+package src.test.radius;
 
 import static org.junit.jupiter.api.Assertions.*;
 

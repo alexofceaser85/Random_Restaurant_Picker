@@ -1,17 +1,14 @@
 package src.viewmodel;
 
-import javafx.scene.image.Image;
-
 import java.text.DecimalFormat;
 import java.util.List;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import src.data.JSONLoader;
 import src.data.QueryManager;
 import src.data.ReviewsQuery;
+import src.error_messages.ErrorMessages;
 import src.model.MainManager;
 import src.model.Price;
 import src.model.Restaurant;
@@ -27,7 +24,7 @@ import src.model.ReviewManager;
  **/
 public class RestaurantViewModel {
 	private StringProperty nameProperty;
-	private ObjectProperty<Image> imageProperty;
+	private StringProperty imageURLProperty;
 	private StringProperty locationProperty;
 	private StringProperty priceRangeProperty;
 	private StringProperty distanceProperty;
@@ -49,10 +46,10 @@ public class RestaurantViewModel {
 	 */
 	public RestaurantViewModel(MainManager mainManager) {
 		if (mainManager == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(ErrorMessages.MAIN_MANAGER_SHOULD_NOT_BE_NULL);
 		}
 		this.nameProperty = new SimpleStringProperty();
-		this.imageProperty = new SimpleObjectProperty<Image>();
+		this.imageURLProperty = new SimpleStringProperty();
 		this.locationProperty = new SimpleStringProperty();
 		this.priceRangeProperty = new SimpleStringProperty();
 		this.distanceProperty = new SimpleStringProperty();
@@ -76,7 +73,7 @@ public class RestaurantViewModel {
 		if (this.pickedRestaurant == null) {
 			return false;
 		}
-
+		
 		String name = this.pickedRestaurant.getName();
 		String location = this.pickedRestaurant.getLocation();
 		Price price = this.pickedRestaurant.getPrice();
@@ -84,8 +81,8 @@ public class RestaurantViewModel {
 		int distance = this.pickedRestaurant.getDistance();
 		String distanceFormatted = Integer.toString(distance) + " mi";
 
-		Image image = this.buildImage(this.pickedRestaurant);
-		this.imageProperty.set(image);
+		String imageURL = this.pickedRestaurant.getImageURL();
+		this.imageURLProperty.set(imageURL);
 
 		double reviewScore = this.pickedRestaurant.getReviewScore();
 		DecimalFormat df = new DecimalFormat("#.#");
@@ -100,17 +97,6 @@ public class RestaurantViewModel {
 		this.restaurantID = this.pickedRestaurant.getId();
 		this.menuURLProperty.set(this.pickedRestaurant.getMenuURL());
 		return true;
-	}
-
-	private Image buildImage(Restaurant pickedRestaurant) {
-		String imageURL = pickedRestaurant.getImageURL();
-		Image image;
-		try {
-			image = new Image(imageURL);
-		} catch (Exception e) {
-			image = new Image(JSONLoader.DEFAULT_IMAGE);
-		}
-		return image;
 	}
 
 	/**
@@ -151,9 +137,6 @@ public class RestaurantViewModel {
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
 
 		String response = QueryManager.sendQuery(query);
-		if (response == null || response.isBlank()) {
-			return false;
-		}
 		List<Review> reviews = JSONLoader.parseReviews(response);
 
 		ReviewManager theManager = this.mainManager.getReviewManager();
@@ -181,8 +164,8 @@ public class RestaurantViewModel {
 	 *
 	 * @return the menuURL property
 	 */
-	public ObjectProperty<Image> imageProperty() {
-		return this.imageProperty;
+	public StringProperty imageURLProperty() {
+		return this.imageURLProperty;
 	}
 
 	/**
@@ -234,18 +217,6 @@ public class RestaurantViewModel {
 	}
 
 	/**
-	 * Returns the mainManager
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 *
-	 * @return the mainManager value
-	 */
-	public MainManager getMainManager() {
-		return this.mainManager;
-	}
-
-	/**
 	 * Gets the restaurant ID.
 	 * 
 	 * @precondition none
@@ -274,12 +245,13 @@ public class RestaurantViewModel {
 	 * Removes the previous randomly picked restaurant
 	 * 
 	 * @precondition none
-	 * @postcondition none
+	 * @postcondition this.mainManager.
 	 *
 	 */
-	
 	public void removePickedRestaurant() {
-		this.getMainManager().removeRestaurant(this.pickedRestaurant);
+		if (this.pickedRestaurant != null) {
+			this.mainManager.getRestaurantManager().removeRestaurant(this.pickedRestaurant);
+		}
 	}
 
 }

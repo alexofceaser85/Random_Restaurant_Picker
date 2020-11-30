@@ -17,6 +17,7 @@ import javafx.collections.FXCollections;
 import src.data.JSONLoader;
 import src.data.QueryManager;
 import src.data.RestaurantsQuery;
+import src.error_messages.ErrorMessages;
 import src.model.MainManager;
 import src.model.Price;
 import src.model.Radius;
@@ -57,7 +58,7 @@ public class FilterViewModel {
 	 */
 	public FilterViewModel(MainManager mainManager) {
 		if (mainManager == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(ErrorMessages.MAIN_MANAGER_SHOULD_NOT_BE_NULL);
 		}
 		this.locationAddressProperty = new SimpleStringProperty();
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
@@ -78,8 +79,9 @@ public class FilterViewModel {
 
 	/**
 	 * Sends the restaurant query to construct the manager.
+	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 */
 	public void sendRestaurantQuery() {
@@ -97,11 +99,9 @@ public class FilterViewModel {
 		RestaurantsQuery query = new RestaurantsQuery(location, radius, categories, reviewScore, prices, currentlyOpen,
 				handicapAccessible, acceptsReservations, hotAndNew, neutralBathrooms);
 		String response = QueryManager.sendQuery(query);
-		if (response != null && !response.isBlank()) {
-			List<Restaurant> restaurants = JSONLoader.parseRestaurants(response);
-			RestaurantManager theManager = this.mainManager.getRestaurantManager();
-			theManager.setTheRestaurants(restaurants);
-		}
+		List<Restaurant> restaurants = JSONLoader.parseRestaurants(response);
+		RestaurantManager theManager = this.mainManager.getRestaurantManager();
+		theManager.setTheRestaurants(restaurants);
 	}
 
 	private List<Price> buildPrices() {
@@ -169,7 +169,7 @@ public class FilterViewModel {
 	 * 
 	 * @precondition none
 	 * @postcondition none
-	 * @return the radius Fproperty.
+	 * @return the radius property.
 	 */
 	public ListProperty<Radius> radiusProperty() {
 		return this.radiusProperty;

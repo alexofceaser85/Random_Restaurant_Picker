@@ -6,7 +6,6 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import src.error_messages.ErrorMessages;
 import src.model.Price;
 import src.model.Restaurant;
 import src.model.Review;
@@ -34,11 +33,8 @@ public class JSONLoader {
 	 * @return parsed reviews list
 	 **/
 	public static List<Review> parseReviews(String rawJSON) {
-		if (rawJSON == null) {
-			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_NULL);
-		}
-		if (rawJSON.isBlank()) {
-			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_BLANK);
+		if (rawJSON == null || rawJSON.isBlank()) {
+			rawJSON = "{\"reviews\": []}";
 		}
 		JSONObject json = new JSONObject(rawJSON);
 		JSONArray responses = json.getJSONArray("reviews");
@@ -77,11 +73,8 @@ public class JSONLoader {
 	 * @return parsed list of restaurants
 	 **/
 	public static List<Restaurant> parseRestaurants(String rawJSON) {
-		if (rawJSON == null) {
-			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_NULL);
-		}
-		if (rawJSON.isBlank()) {
-			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_BLANK);
+		if (rawJSON == null || rawJSON.isBlank()) {
+			rawJSON = "{\"businesses\": []}";
 		}
 		JSONObject json = new JSONObject(rawJSON);
 		JSONArray businesses = json.getJSONArray("businesses");

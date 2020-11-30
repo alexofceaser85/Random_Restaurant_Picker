@@ -15,7 +15,7 @@ public class TestConstructor {
 	void testValidConstructor() {
 		RestaurantViewModel testViewModel = new RestaurantViewModel(new MainManager(null));
 		assertNotNull(testViewModel.nameProperty());
-		assertNotNull(testViewModel.imageProperty());
+		assertNotNull(testViewModel.imageURLProperty());
 		assertNotNull(testViewModel.locationProperty());
 		assertNotNull(testViewModel.priceRangeProperty());
 		assertNotNull(testViewModel.distanceProperty());

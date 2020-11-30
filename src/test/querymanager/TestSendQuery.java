@@ -1,4 +1,4 @@
-package src.tests.querymanager;
+package src.test.querymanager;
 
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;

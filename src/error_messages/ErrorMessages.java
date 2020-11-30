@@ -68,4 +68,8 @@ public class ErrorMessages {
 	public static final String JSON_SHOULD_NOT_BE_BLANK = "The rawJSON cannot be blank";
 	public static final String QUERY_SHOULD_NOT_BE_NULL = "The query cannot be null";
 	public static final String RESTAURANTS_TO_SET_CANNOT_BE_NULL = "The restaurants cannot be null.";
+	public static final String PRIMARY_STAGE_SHOULD_NOT_BE_NULL = "The primaryStage cannot be null.";
+	public static final String KEY_SHOULD_NOT_BE_NULL = "The key cannot be null.";
+	public static final String KEY_SHOULD_NOT_BE_BLANK = "The key cannot be blank.";
+	public static final String LOADER_SHOULD_NOT_BE_NULL = "The loader cannot be null.";
 }

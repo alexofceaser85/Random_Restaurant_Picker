@@ -1,4 +1,4 @@
-package test.filterviewmodel;
+package src.test.filterviewmodel;
 
 import static org.junit.jupiter.api.Assertions.*;
 

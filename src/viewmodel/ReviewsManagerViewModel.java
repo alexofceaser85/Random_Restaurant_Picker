@@ -2,6 +2,7 @@ package src.viewmodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import src.error_messages.ErrorMessages;
 import src.model.MainManager;
 import src.model.Review;
 import src.model.ReviewManager;
@@ -30,7 +31,7 @@ public class ReviewsManagerViewModel {
 	
 	public ReviewsManagerViewModel(MainManager mainManager) {
 		if (mainManager == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException(ErrorMessages.MAIN_MANAGER_SHOULD_NOT_BE_NULL);
 		}
 		this.theReviewManager = mainManager.getReviewManager();	
 		this.restaurantName = new SimpleStringProperty();

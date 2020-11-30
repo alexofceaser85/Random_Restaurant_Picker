@@ -4,12 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Random;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-import src.data.JSONLoader;
 import src.model.MainManager;
 import src.model.Price;
 import src.model.Restaurant;
@@ -34,25 +30,6 @@ public class TestPickRestaurant {
 		}
 	}
 
-	public static class MockApplication extends Application {
-		@Override
-		public void start(Stage primaryStage) throws Exception {
-			// do nothing due to mock
-		}
-	}
-
-	@BeforeAll
-	public static void setupClass() throws InterruptedException {
-		Thread t = new Thread("JavaFX Init Thread") {
-			public void run() {
-				Application.launch(MockApplication.class, new String[0]);
-			}
-		};
-		t.setDaemon(true);
-		t.start();
-		Thread.sleep(1000);
-	}
-
 	@Test
 	void testEmptyRestaurants() {
 		MainManager testMainManager = new MainManager(new FakeRandom(1));
@@ -72,7 +49,7 @@ public class TestPickRestaurant {
 
 		assertTrue(testViewModel.pickARestaurant());
 		assertEquals("First Restaurant", testViewModel.nameProperty().get());
-		assertEquals(this.testImageURL, testViewModel.imageProperty().get().getUrl().toString());
+		assertEquals(this.testImageURL, testViewModel.imageURLProperty().get());
 		assertEquals("Atlanta, GA, USA", testViewModel.locationProperty().get());
 		assertEquals("$", testViewModel.priceRangeProperty().get());
 		assertEquals("20 mi", testViewModel.distanceProperty().get());
@@ -100,35 +77,13 @@ public class TestPickRestaurant {
 
 		assertTrue(testViewModel.pickARestaurant());
 		assertEquals("Second Restaurant", testViewModel.nameProperty().get());
-		assertEquals(this.testImageURL, testViewModel.imageProperty().get().getUrl().toString());
+		assertEquals(this.testImageURL, testViewModel.imageURLProperty().get());
 		assertEquals("Atlanta, GA, USA", testViewModel.locationProperty().get());
 		assertEquals("$$", testViewModel.priceRangeProperty().get());
 		assertEquals("15 mi", testViewModel.distanceProperty().get());
 		assertEquals("3.9", testViewModel.reviewScoreProperty().get());
 		assertEquals("Second Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("41987", testViewModel.getRestaurantID());
-	}
-
-	@Test
-	void testMissingImage() {
-		MainManager testMainManager = new MainManager(new FakeRandom(0));
-		RestaurantManager testRestaurantManager = testMainManager.getRestaurantManager();
-		RestaurantViewModel testViewModel = new RestaurantViewModel(testMainManager);
-		Restaurant theFirstRestaurant = new Restaurant("First Restaurant", Price.$, "Atlanta, GA, USA", 20, 1.8,
-				"First Menu URL", "unknown", "5416");
-
-		testRestaurantManager.addRestaurant(theFirstRestaurant);
-
-		assertTrue(testViewModel.pickARestaurant());
-		assertEquals("First Restaurant", testViewModel.nameProperty().get());
-		assertEquals(JSONLoader.DEFAULT_IMAGE, testViewModel.imageProperty().get().getUrl().toString());
-		assertEquals("Atlanta, GA, USA", testViewModel.locationProperty().get());
-		assertEquals("$", testViewModel.priceRangeProperty().get());
-		assertEquals("20 mi", testViewModel.distanceProperty().get());
-		assertEquals("1.8", testViewModel.reviewScoreProperty().get());
-		assertEquals("First Menu URL", testViewModel.menuURLProperty().get());
-		assertEquals("5416", testViewModel.getRestaurantID());
-
 	}
 
 }

@@ -1,7 +1,6 @@
 package src.test.jsonloader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
@@ -72,15 +71,13 @@ class TestParseReviews {
 	
 	@Test
 	void testNullJSON() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			JSONLoader.parseReviews(null);
-		});
+		List<Review> testReviews = JSONLoader.parseReviews(null);
+		assertEquals(0, testReviews.size());
 	}
 	@Test
 	void testBlankJSON() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			JSONLoader.parseReviews("");
-		});
+		List<Review> testReviews = JSONLoader.parseReviews("");
+		assertEquals(0, testReviews.size());
 	}
 	@Test
 	void testMissingText() {

@@ -94,15 +94,13 @@ class TestParseRestaurants {
 	
 	@Test
 	void testNullJSON() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			JSONLoader.parseRestaurants(null);
-		});
+		List<Restaurant> testRestaurants = JSONLoader.parseRestaurants(null);
+		assertEquals(0, testRestaurants.size());
 	}
 	@Test
 	void testBlankJSON() {
-		assertThrows(IllegalArgumentException.class, () -> {
-			JSONLoader.parseRestaurants("");
-		});
+		List<Restaurant> testRestaurants = JSONLoader.parseRestaurants("");
+		assertEquals(0, testRestaurants.size());
 	}
 	@Test
 	void testMissingID() {
