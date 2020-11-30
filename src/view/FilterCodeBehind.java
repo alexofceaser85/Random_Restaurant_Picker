@@ -11,6 +11,7 @@ import javafx.util.converter.NumberStringConverter;
 import src.controller.Activatable;
 import src.controller.SceneController;
 import src.model.Radius;
+import src.model.Restaurant;
 import src.viewmodel.FilterViewModel;
 
 /**
@@ -98,8 +99,16 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 	 */
 	public void initialize() {
 		this.bindToViewModel();
-		// this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
-		// TODO Setup Regex in reviewScore
+		this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
+//		this.reviewScoreTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
+//			if (!newValue.matches("{\\d+}")) {
+//				this.reviewScoreTextBox.textProperty().setValue(oldValue);
+//			}
+//			if (newInteger < Restaurant.RESTURANT_MINIMUM_REVIEW_SCORE
+//					&& newInteger > Restaurant.RESTURANT_MAXIMUM_REVIEW_SCORE) {
+//				this.reviewScoreTextBox.textProperty().setValue(oldValue);
+//			}
+//		});
 		// TODO Make Location and Radius text boxes required
 	}
 
