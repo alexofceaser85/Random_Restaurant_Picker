@@ -17,11 +17,24 @@ public class SceneController {
 	private HashMap<String, Pair<Scene, BaseCodeBehind>> pages;
 	private Stage primaryStage;
 
+	/**
+	 * @precondition none
+	 * @postcondition none
+	 * @param primaryStage
+	 */
 	public SceneController(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.pages = new HashMap<String, Pair<Scene, BaseCodeBehind>>();
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @param key
+	 * @param loader
+	 */
 	public void add(String key, FXMLLoader loader) {
 		Scene scene = new Scene(loader.getRoot());
 		BaseCodeBehind codeBehind = (BaseCodeBehind) loader.getController();
@@ -30,6 +43,13 @@ public class SceneController {
 		this.pages.put(key, page);
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @param key
+	 */
 	public void activate(String key) {
 		Pair<Scene, BaseCodeBehind> page = this.pages.get(key);
 		if (page != null) {
@@ -39,6 +59,13 @@ public class SceneController {
 		}
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @param key
+	 */
 	public void show(String key) {
 		Pair<Scene, BaseCodeBehind> page = this.pages.get(key);
 		if (page != null) {

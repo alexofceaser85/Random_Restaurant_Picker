@@ -5,12 +5,23 @@ import java.net.URL;
 
 import src.error_messages.ErrorMessages;
 
+/**
+ *
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ */
 public class URLBuilder {
     private StringBuilder folders;
     private StringBuilder params;
     private String protocol;
     private String host;
 
+    /**
+     * @precondition none
+     * @postcondition none
+     * @param host
+     * @param protocol
+     */
     public URLBuilder(String host, String protocol) {
     	if (host == null) {
 			throw new IllegalArgumentException(ErrorMessages.HOST_SHOULD_NOT_BE_NULL);
@@ -30,6 +41,13 @@ public class URLBuilder {
         this.protocol = protocol;
     }
 
+    /**
+     * 
+     * @precondition none
+     * @postconditon none
+     *
+     * @param folder
+     */
     public void addFolder(String folder) {
     	if (folder == null) {
 			throw new IllegalArgumentException(ErrorMessages.FOLDER_SHOULD_NOT_BE_NULL);
@@ -41,6 +59,14 @@ public class URLBuilder {
     	this.folders.append(folder);
     }
 
+    /**
+     * 
+     * @precondition none
+     * @postconditon none
+     *
+     * @param parameter
+     * @param value
+     */
     public void addParameter(String parameter, String value) {
     	if (parameter == null) {
 			throw new IllegalArgumentException(ErrorMessages.PARAMETER_SHOULD_NOT_BE_NULL);
@@ -62,6 +88,13 @@ public class URLBuilder {
         this.params.append(value);
     }
 
+    /**
+     * 
+     * @precondition none
+     * @postconditon none
+     *
+     * @return
+     */
     public URL getURL() {
     	String paramsEntry = this.params.toString();
     	String foldersEntry = this.folders.toString();

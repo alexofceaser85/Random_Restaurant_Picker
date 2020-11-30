@@ -46,6 +46,11 @@ public class FilterViewModel {
 	private BooleanProperty genderNeutralBathroomProperty;
 	private MainManager mainManager;
 
+	/**
+	 * @precondition none
+	 * @postcondition none
+	 * @param mainManager
+	 */
 	public FilterViewModel(MainManager mainManager) {
 		this.locationAddressProperty = new SimpleStringProperty();
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
@@ -64,6 +69,12 @@ public class FilterViewModel {
 		this.mainManager = mainManager;
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 */
 	public void sendRestaurantQuery() {
 		String location = this.locationAddressProperty.getValue();
 		int radius = this.selectedRadiusProperty.getValue().getMeters();

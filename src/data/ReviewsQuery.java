@@ -2,8 +2,18 @@ package src.data;
 
 import src.error_messages.ErrorMessages;
 
+/**
+ *
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ */
 public class ReviewsQuery extends Query {
 
+	/**
+	 * @precondition none
+	 * @postcondition none
+	 * @param restaurantID
+	 */
 	public ReviewsQuery(String restaurantID) {
 		if (restaurantID == null) {
 			throw new IllegalArgumentException(ErrorMessages.RESTAURANTID_SHOULD_NOT_BE_NULL);

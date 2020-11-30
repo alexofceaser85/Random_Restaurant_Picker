@@ -2,8 +2,6 @@ package src.viewmodel;
 
 import javafx.scene.image.Image;
 
-import java.awt.Desktop;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.List;
 
@@ -21,7 +19,12 @@ import src.model.Restaurant;
 import src.model.RestaurantManager;
 import src.model.Review;
 import src.model.ReviewManager;
-
+/**
+ * ViewModel class of the RestaurantViewCodeBehind
+ * 
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ **/
 public class RestaurantViewModel {
 	private StringProperty nameProperty;
 	private ObjectProperty<Image> imageProperty;
@@ -31,8 +34,15 @@ public class RestaurantViewModel {
 	private StringProperty reviewScoreProperty;
 	private MainManager mainManager;
 	private String restaurantID;
-	private String menuURL;
 
+
+	private StringProperty menuURLProperty;
+
+	/**
+	 * @precondition none
+	 * @postcondition none
+	 * @param mainManager
+	 */
 	public RestaurantViewModel(MainManager mainManager) {
 		this.nameProperty = new SimpleStringProperty();
 		this.imageProperty = new SimpleObjectProperty<Image>();
@@ -41,10 +51,17 @@ public class RestaurantViewModel {
 		this.distanceProperty = new SimpleStringProperty();
 		this.reviewScoreProperty = new SimpleStringProperty();
 		this.restaurantID = "";
-		this.menuURL = "";
+		this.menuURLProperty = new SimpleStringProperty();
 		this.mainManager = mainManager;
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 * @return
+	 */
 	public boolean pickARestaurant() {
 		RestaurantManager theManager = this.mainManager.getRestaurantManager();
 		Restaurant pickedRestaurant = theManager.pickRandom();
@@ -57,15 +74,9 @@ public class RestaurantViewModel {
 		Price price = pickedRestaurant.getPrice();
 
 		int distance = pickedRestaurant.getDistance();
-		String distanceFormatted = Integer.toString(distance);
+		String distanceFormatted = Integer.toString(distance) + " mi";
 
-		String imageURL = pickedRestaurant.getImageURL();
-		Image image;
-		try {
-			image = new Image(imageURL);
-		} catch (Exception e) {
-			image = new Image(JSONLoader.DEFAULT_IMAGE);
-		}
+		Image image = this.buildImage(pickedRestaurant);
 		this.imageProperty.set(image);
 
 		double reviewScore = pickedRestaurant.getReviewScore();
@@ -79,10 +90,27 @@ public class RestaurantViewModel {
 		this.distanceProperty.set(distanceFormatted);
 		this.reviewScoreProperty.set(reviewScoreFormatted);
 		this.restaurantID = pickedRestaurant.getId();
-		this.menuURL = pickedRestaurant.getMenuURL();
+		this.menuURLProperty.set(pickedRestaurant.getMenuURL());
 		return true;
 	}
 
+	private Image buildImage(Restaurant pickedRestaurant) {
+		String imageURL = pickedRestaurant.getImageURL();
+		Image image;
+		try {
+			image = new Image(imageURL);
+		} catch (Exception e) {
+			image = new Image(JSONLoader.DEFAULT_IMAGE);
+		}
+		return image;
+	}
+
+	/**
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 */
 	public void resetFilters() {
 		if (this.mainManager == null) {
 			throw new IllegalArgumentException(ErrorMessages.MAIN_MANAGER_SHOULD_NOT_BE_NULL);
@@ -90,6 +118,20 @@ public class RestaurantViewModel {
 		this.mainManager.setResetFilters(true);
 	}
 
+	/**
+	 * @return the value of menuURLProperty
+	 */
+	public StringProperty menuURLProperty() {
+		return this.menuURLProperty;
+	}
+	
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 */
 	public void sendReviewsQuery() {
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
 
@@ -100,47 +142,96 @@ public class RestaurantViewModel {
 		theManager.setReviews(reviews);
 	}
 
-	public void openMenuInBrowser() {
-		try {
-			Desktop.getDesktop().browse(new URL(this.menuURL).toURI());
-		} catch (Exception e) {
-			// swallow catch
-		}
-	}
-
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
 	public StringProperty nameProperty() {
 		return this.nameProperty;
 	}
 
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
 	public ObjectProperty<Image> imageProperty() {
 		return this.imageProperty;
 	}
 
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
 	public StringProperty locationProperty() {
 		return this.locationProperty;
 	}
 
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
 	public StringProperty priceRangeProperty() {
 		return this.priceRangeProperty;
 	}
 
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
 	public StringProperty distanceProperty() {
 		return this.distanceProperty;
 	}
 
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
 	public StringProperty reviewScoreProperty() {
 		return this.reviewScoreProperty;
 	}
 
+	/**
+	 * Returns the menuURL property
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return the menuURL property
+	 */
+	public MainManager getMainManager() {
+		return this.mainManager;
+	}
+	
+	/**
+	 * @return the value of restaurantID
+	 */
 	public String getRestaurantID() {
 		return this.restaurantID;
 	}
 
-	public MainManager getMainManager() {
-		return this.mainManager;
-	}
-
-	public String getMenuURL() {
-		return this.menuURL;
-	}
+	
 }

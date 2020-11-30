@@ -15,6 +15,13 @@ public enum Price {
 		this.value = value;
 	}
 
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 * @return
+	 */
 	public String getValue() {
 		return this.value;
 	}

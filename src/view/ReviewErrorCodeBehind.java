@@ -4,8 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class ReviewErrorCodeBehind extends BaseCodeBehind{
-
+/**
+ *
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ */
+public class ReviewErrorCodeBehind extends BaseCodeBehind {
     @FXML
     private Text tryAgainText;
 
@@ -13,6 +17,4 @@ public class ReviewErrorCodeBehind extends BaseCodeBehind{
     void handleTryAgain(MouseEvent event) {
     	super.getController().activate("Restaurant");
     }
-
-
 }

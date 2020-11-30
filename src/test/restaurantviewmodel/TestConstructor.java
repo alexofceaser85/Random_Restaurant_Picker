@@ -17,8 +17,8 @@ public class TestConstructor {
 		assertNotNull(testViewModel.priceRangeProperty());
 		assertNotNull(testViewModel.distanceProperty());
 		assertNotNull(testViewModel.reviewScoreProperty());
+		assertNotNull(testViewModel.menuURLProperty());
 		assertEquals("", testViewModel.getRestaurantID());
-		assertEquals("", testViewModel.getMenuURL());
 	}
 
 }

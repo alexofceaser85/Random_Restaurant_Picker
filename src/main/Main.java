@@ -14,9 +14,16 @@ import src.viewmodel.FilterViewModel;
 import src.viewmodel.RestaurantViewModel;
 import src.viewmodel.ReviewsManagerViewModel;
 
+/**
+ * Main class for application entry
+ * 
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ **/
 public class Main extends Application {
 	private SceneController controller;
 	private MainManager mainManager;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		this.mainManager = new MainManager(new Random());
@@ -110,6 +117,14 @@ public class Main extends Application {
 		this.controller.add("Location", locationLoader);
 	}
 	
+	/**
+	 * Main program entry point
+	 * 
+	 * @param args execution arguments
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 **/
 	public static void main(String[] args) {
 		launch(args);
 	}

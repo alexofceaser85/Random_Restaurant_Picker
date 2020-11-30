@@ -77,7 +77,7 @@ public class TestPickRestaurant {
 		assertEquals("$", testViewModel.priceRangeProperty().get());
 		assertEquals("20", testViewModel.distanceProperty().get());
 		assertEquals("1.8", testViewModel.reviewScoreProperty().get());
-		assertEquals("First Menu URL", testViewModel.getMenuURL());
+		assertEquals("First Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("5416", testViewModel.getRestaurantID());
 
 	}
@@ -105,7 +105,7 @@ public class TestPickRestaurant {
 		assertEquals("$$", testViewModel.priceRangeProperty().get());
 		assertEquals("15", testViewModel.distanceProperty().get());
 		assertEquals("3.9", testViewModel.reviewScoreProperty().get());
-		assertEquals("Second Menu URL", testViewModel.getMenuURL());
+		assertEquals("Second Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("41987", testViewModel.getRestaurantID());
 	}
 
@@ -126,7 +126,7 @@ public class TestPickRestaurant {
 		assertEquals("$", testViewModel.priceRangeProperty().get());
 		assertEquals("20", testViewModel.distanceProperty().get());
 		assertEquals("1.8", testViewModel.reviewScoreProperty().get());
-		assertEquals("First Menu URL", testViewModel.getMenuURL());
+		assertEquals("First Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("5416", testViewModel.getRestaurantID());
 
 	}

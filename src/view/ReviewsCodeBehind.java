@@ -12,6 +12,11 @@ import javafx.scene.layout.VBox;
 import src.controller.Activatable;
 import src.viewmodel.ReviewsManagerViewModel;
 
+/**
+ *
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ */
 public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
 	
 	private ReviewsManagerViewModel viewmodel;
@@ -37,6 +42,11 @@ public class ReviewsCodeBehind extends BaseCodeBehind implements Activatable {
     private VBox reviewsContainer;
     private VBox reviewPane;
     
+    /**
+     * @precondition none
+     * @postcondition none
+     * @param theReviewsManagerViewModel
+     */
     public ReviewsCodeBehind(ReviewsManagerViewModel theReviewsManagerViewModel) {
     	this.viewmodel = theReviewsManagerViewModel;
     }

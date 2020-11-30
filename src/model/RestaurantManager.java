@@ -21,6 +21,8 @@ public class RestaurantManager {
 	/**
 	 * The constructor for the Restaurant Manager
 	 * 
+	 * @param randomGenerator the Random object
+	 * 
 	 * @precondition none
 	 * @postcondition none
 	 */
@@ -102,15 +104,34 @@ public class RestaurantManager {
 		return restaurantManagerString;
 	}
 
+	/**
+	 * Picks a random restaurant using randomGenerator
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 *
+	 * @return a random Restaurant
+	 */
 	public Restaurant pickRandom() {
-		if (this.theRestaurants.size() == 0) {
+		if (this.theRestaurants.isEmpty()) {
 			return null;
 		}
 		int randomIndex = this.randomGenerator.nextInt(this.theRestaurants.size());
 		return this.theRestaurants.get(randomIndex);
 	}
 
+	/**
+	 * Sets the restaurants list if restaurants is not null
+	 * 
+	 * @precondition theRestaurants != null
+	 * @postcondition this.theRestaurants == theRestaurants
+	 *
+	 * @param theRestaurants restaurants to be set
+	 */
 	public void setTheRestaurants(List<Restaurant> theRestaurants) {
+		if (theRestaurants == null) {
+			throw new IllegalArgumentException(ErrorMessages.RESTAURANTS_TO_SET_CANNOT_BE_NULL);
+		}
 		this.theRestaurants = theRestaurants;
 	}
 

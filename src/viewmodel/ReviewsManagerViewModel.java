@@ -26,7 +26,7 @@ public class ReviewsManagerViewModel {
 	 * @postcondition 
 	 * 		this.theReviewManager = new ReviewManager
 	 * 		
-	 * @param restaurantName the name of the restaurant which the reviews apply to
+	 * @param mainManager the application MainManager
 	 */
 	
 	public ReviewsManagerViewModel(MainManager mainManager) {
@@ -63,6 +63,8 @@ public class ReviewsManagerViewModel {
 	/**
 	 * Gets the reviewer name for a given review
 	 * 
+	 * @param index index of review
+	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
@@ -76,6 +78,8 @@ public class ReviewsManagerViewModel {
 	/**
 	 * Gets the review content for a given review
 	 * 
+	 * @param index index of review
+	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
@@ -88,6 +92,8 @@ public class ReviewsManagerViewModel {
 	
 	/**
 	 * Gets the review score for a given review
+	 * 
+	 * @param index index of review
 	 * 
 	 * @precondition none
 	 * @postcondition none

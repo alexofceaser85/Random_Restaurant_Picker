@@ -10,12 +10,28 @@ import src.error_messages.ErrorMessages;
 import src.model.Price;
 import src.model.Restaurant;
 import src.model.Review;
-
+/**
+ * Data utility class for converting JSON formatted responses to 
+ * corresponding Reviews or Restaurant Lists
+ * 
+ * @author Furichous Jones IV
+ * @version Fall 2020
+ **/
 public class JSONLoader {
 
 	public static final String DEFAULT_IMAGE = JSONLoader.class.getClassLoader().getResource("assets/default_image.png")
 			.toString();
 
+	/**
+	 * Converts rawJSON to reviews list
+	 * 
+	 * @param rawJSON JSON string to be parsed
+	 * 
+	 * @precondition rawJSON != null && !rawJSON.isBlank()
+	 * @postcondition none
+	 * 
+	 * @return parsed reviews list
+	 **/
 	public static List<Review> parseReviews(String rawJSON) {
 		if (rawJSON == null) {
 			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_NULL);
@@ -49,6 +65,16 @@ public class JSONLoader {
 		}
 	}
 
+	/**
+	 * Converts rawJSON to restaurant list
+	 * 
+	 * @param rawJSON JSON string to be parsed
+	 * 
+	 * @precondition rawJSON != null && !rawJSON.isBlank()
+	 * @postcondition none
+	 * 
+	 * @return parsed restaurants list
+	 **/
 	public static List<Restaurant> parseRestaurants(String rawJSON) {
 		if (rawJSON == null) {
 			throw new IllegalArgumentException(ErrorMessages.JSON_SHOULD_NOT_BE_NULL);

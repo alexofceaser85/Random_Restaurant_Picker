@@ -94,10 +94,11 @@ public class ReviewManager {
 	/**
 	 * Returns a given review
 	 * 
+	 * @param index index of review
 	 * @precondition index >= 0
 	 * @postcondition none
+	 * @return review at index
 	 */
-	
 	public Review getReview(int index) {
 		
 		if (index < 0) {
