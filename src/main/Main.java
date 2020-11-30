@@ -43,12 +43,6 @@ public class Main extends Application {
 		this.controller.activate("Location");
 	}
 
-	/**
-	 * 
-	 * @precondition none
-	 * @postconditon none
-	 *
-	 */
 	private void registerReviewError() {
 		FXMLLoader reviewErrorLoader = new FXMLLoader();
 		reviewErrorLoader.setLocation(Main.class.getClassLoader().getResource("src/view/ReviewErrorGUI.fxml"));
