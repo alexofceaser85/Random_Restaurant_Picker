@@ -4,6 +4,7 @@ package src.view;
 import java.awt.Desktop;
 import java.net.URL;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;

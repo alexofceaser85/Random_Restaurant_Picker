@@ -61,7 +61,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
-	 * Picks a random restaurant
+	 * Picks a random restaurant.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -112,11 +112,8 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Resets the filters of the filter page and returns to that page.
-=======
 	 * Resets the restaurant search filters
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -127,18 +124,11 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Gets the menuURl Property.
 	 * 
 	 * @precondition none
 	 * @postcondition none
-=======
-	 * Gets the menu URL
 	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * @return the value of menuURLProperty
 	 */
 	public StringProperty menuURLProperty() {
@@ -146,20 +136,13 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Sends the review query to make the review manager.
-=======
 	 * Returns the reviews query
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-<<<<<<< HEAD
 	 * @return whether or not the review manager is empty.
-=======
-	 *@return if the reviews returned is empty or not
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 */
 	public boolean sendReviewsQuery() {
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
@@ -257,11 +240,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Gets the restaurant ID.
-=======
-	 * Gets the id of the restaurant
->>>>>>> branch 'master' of https://github.com/alexofceaser85/CS3211_Project_Four.git
 	 * 
 	 * @precondition none
 	 * @postcondition none
