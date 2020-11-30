@@ -11,8 +11,8 @@ import src.error_messages.ErrorMessages;
 public class Restaurant {
 
 	private static final int RESTURANT_MINIMUM_DISTANCE = 0;
-	private static final int RESTURANT_MINIMUM_REVIEW_SCORE = 1;
-	private static final int RESTURANT_MAXIMUM_REVIEW_SCORE = 5;
+	public static final int RESTURANT_MINIMUM_REVIEW_SCORE = 1;
+	public static final int RESTURANT_MAXIMUM_REVIEW_SCORE = 5;
 
 	private String name;
 	private Price price;

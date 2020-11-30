@@ -36,7 +36,6 @@ public class ReviewsManagerViewModel {
 	
 	/**
 	 * Adds a review to the review manager
-	 * 
 	 * @precondition none
 	 * @postcondition this.theReviewManager.size() == this.theReviewManager.size() + 1
 	 */
