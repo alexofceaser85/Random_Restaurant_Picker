@@ -1,12 +1,19 @@
 package src.view;
 
+import java.util.regex.Pattern;
+
+import org.junit.platform.commons.util.StringUtils;
+
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.text.Text;
+import javafx.util.StringConverter;
 import javafx.util.converter.NumberStringConverter;
 import src.controller.Activatable;
 import src.controller.SceneController;
@@ -99,17 +106,6 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 	 */
 	public void initialize() {
 		this.bindToViewModel();
-		this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
-//		this.reviewScoreTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
-//			if (!newValue.matches("{\\d+}")) {
-//				this.reviewScoreTextBox.textProperty().setValue(oldValue);
-//			}
-//			if (newInteger < Restaurant.RESTURANT_MINIMUM_REVIEW_SCORE
-//					&& newInteger > Restaurant.RESTURANT_MAXIMUM_REVIEW_SCORE) {
-//				this.reviewScoreTextBox.textProperty().setValue(oldValue);
-//			}
-//		});
-		// TODO Make Location and Radius text boxes required
 	}
 
 	@FXML
@@ -133,11 +129,14 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 	private void bindToViewModel() {
 		if (this.locationAddressTextBox != null) {
 			this.locationAddressTextBox.textProperty().bindBidirectional(this.viewModel.locationAddressProperty());
+			this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
 			this.radiusComboBox.itemsProperty().bind(this.viewModel.radiusProperty());
 			this.radiusComboBox.valueProperty().bindBidirectional(this.viewModel.selectedRadiusProperty());
+			this.radiusComboBox.setValue(Radius.FIVE);
 		}
 		if (this.categoriesTextBox != null) {
-			this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
+			this.categoriesSetup();
+			this.reviewScoreSetup();
 			this.acceptsReservationsCheckbox.selectedProperty()
 					.bindBidirectional(this.viewModel.acceptsReservationsProperty());
 			this.price1Checkbox.selectedProperty().bindBidirectional(this.viewModel.price1Property());
@@ -150,9 +149,30 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 			this.genderNeutralBathroomsCheckbox.selectedProperty()
 					.bindBidirectional(this.viewModel.genderNeutralBathroomProperty());
 			this.newRestaurantsCheckbox.selectedProperty().bindBidirectional(this.viewModel.newRestaurantsProperty());
-			this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(),
-					new NumberStringConverter());
 		}
+	}
+
+	private void categoriesSetup() {
+		this.categoriesTextBox.textProperty().bindBidirectional(this.viewModel.categoriesProperty());
+		this.categoriesTextBox.setTextFormatter(new TextFormatter<>(c -> {
+			String newString = c.getControlNewText();
+		    if (Pattern.matches("^([a-zA-Z]+(,\\s?)?)*$", newString)) {
+		    	return c;
+			}
+			return null;
+		}));
+	}
+
+	private void reviewScoreSetup() {
+		this.reviewScoreTextBox.textProperty().bindBidirectional(this.viewModel.reviewScoreProperty(),
+				new NumberStringConverter());
+		this.reviewScoreTextBox.setTextFormatter(new TextFormatter<>(c -> {
+			String newString = c.getControlNewText();
+		    if (Pattern.matches("(^(([1-4](\\.[0-9]?)?)|(5(\\.0?)?))$)?", newString)) {
+		    	return c;
+			}
+			return null;
+		}));
 	}
 
 	@Override

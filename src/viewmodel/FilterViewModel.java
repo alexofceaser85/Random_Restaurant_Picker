@@ -61,7 +61,7 @@ public class FilterViewModel {
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
 		this.selectedRadiusProperty = new SimpleObjectProperty<Radius>();
 		this.categoriesProperty = new SimpleStringProperty();
-		this.reviewScoreProperty = new SimpleDoubleProperty();
+		this.reviewScoreProperty = new SimpleDoubleProperty(1);
 		this.currentlyOpenProperty = new SimpleBooleanProperty();
 		this.price1Property = new SimpleBooleanProperty();
 		this.price2Property = new SimpleBooleanProperty();
@@ -136,7 +136,7 @@ public class FilterViewModel {
 			this.locationAddressProperty.setValue("");
 			this.selectedRadiusProperty.setValue(Radius.FIVE);
 			this.categoriesProperty.setValue("");
-			this.reviewScoreProperty.setValue(0.0);
+			this.reviewScoreProperty.setValue(1);
 			this.currentlyOpenProperty.setValue(false);
 			this.price1Property.setValue(false);
 			this.price2Property.setValue(false);
