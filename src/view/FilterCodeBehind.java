@@ -101,7 +101,6 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 	 */
 	public void initialize() {
 		this.bindToViewModel();
-		this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
 	}
 
 	@FXML
