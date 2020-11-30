@@ -17,13 +17,4 @@ public class TestResetFilters {
 		testViewModel.resetFilters();
 		assertTrue(testMainManager.getResetFilters());
 	}
-	
-	@Test
-	void testNullMainManager() {
-		RestaurantViewModel testViewModel = new RestaurantViewModel(null);
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			testViewModel.resetFilters();
-		});
-	}
-
 }

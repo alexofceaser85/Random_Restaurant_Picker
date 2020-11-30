@@ -15,6 +15,6 @@ public class ReviewErrorCodeBehind extends BaseCodeBehind {
 
     @FXML
     void handleTryAgain(MouseEvent event) {
-    	super.getController().activate("Restaurant");
+    	super.getController().show("Restaurant");
     }
 }

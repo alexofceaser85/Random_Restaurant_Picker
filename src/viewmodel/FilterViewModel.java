@@ -47,11 +47,16 @@ public class FilterViewModel {
 	private MainManager mainManager;
 
 	/**
-	 * @precondition none
+	 * 
+	 * @param mainManager the MainManager of the application
+	 * 
+	 * @precondition mainManager != null
 	 * @postcondition none
-	 * @param mainManager
 	 */
 	public FilterViewModel(MainManager mainManager) {
+		if (mainManager == null) {
+			throw new IllegalArgumentException();
+		}
 		this.locationAddressProperty = new SimpleStringProperty();
 		this.radiusProperty = new SimpleListProperty<Radius>(FXCollections.observableArrayList(Radius.values()));
 		this.selectedRadiusProperty = new SimpleObjectProperty<Radius>();

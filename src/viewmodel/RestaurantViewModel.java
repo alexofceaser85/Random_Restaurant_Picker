@@ -34,16 +34,20 @@ public class RestaurantViewModel {
 	private StringProperty reviewScoreProperty;
 	private MainManager mainManager;
 	private String restaurantID;
-
-
 	private StringProperty menuURLProperty;
 
 	/**
-	 * @precondition none
+	 * Constructor of RestaurantViewModel
+	 * 
+	 * @param mainManager the MainManager of the application
+	 * 
+	 * @precondition mainManager != null
 	 * @postcondition none
-	 * @param mainManager
 	 */
 	public RestaurantViewModel(MainManager mainManager) {
+		if (mainManager == null) {
+			throw new IllegalArgumentException();
+		}
 		this.nameProperty = new SimpleStringProperty();
 		this.imageProperty = new SimpleObjectProperty<Image>();
 		this.locationProperty = new SimpleStringProperty();
@@ -56,11 +60,12 @@ public class RestaurantViewModel {
 	}
 
 	/**
+	 * Picks a random restaurant
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
-	 * @return
+	 * @return boolean of whether a restaurant was picked
 	 */
 	public boolean pickARestaurant() {
 		RestaurantManager theManager = this.mainManager.getRestaurantManager();
@@ -112,9 +117,6 @@ public class RestaurantViewModel {
 	 *
 	 */
 	public void resetFilters() {
-		if (this.mainManager == null) {
-			throw new IllegalArgumentException(ErrorMessages.MAIN_MANAGER_SHOULD_NOT_BE_NULL);
-		}
 		this.mainManager.setResetFilters(true);
 	}
 
@@ -129,10 +131,10 @@ public class RestaurantViewModel {
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 */
-	public void sendReviewsQuery() {
+	public boolean sendReviewsQuery() {
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
 
 		String response = QueryManager.sendQuery(query);
@@ -140,13 +142,14 @@ public class RestaurantViewModel {
 
 		ReviewManager theManager = this.mainManager.getReviewManager();
 		theManager.setReviews(reviews);
+		return reviews.isEmpty();
 	}
 
 	/**
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the menuURL property
 	 */
@@ -158,7 +161,7 @@ public class RestaurantViewModel {
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the menuURL property
 	 */
@@ -170,7 +173,7 @@ public class RestaurantViewModel {
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the menuURL property
 	 */
@@ -182,7 +185,7 @@ public class RestaurantViewModel {
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the menuURL property
 	 */
@@ -194,7 +197,7 @@ public class RestaurantViewModel {
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the menuURL property
 	 */
@@ -206,7 +209,7 @@ public class RestaurantViewModel {
 	 * Returns the menuURL property
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
 	 * @return the menuURL property
 	 */
@@ -215,12 +218,12 @@ public class RestaurantViewModel {
 	}
 
 	/**
-	 * Returns the menuURL property
+	 * Returns the mainManager
 	 * 
 	 * @precondition none
-	 * @postconditon none
+	 * @postcondition none
 	 *
-	 * @return the menuURL property
+	 * @return the mainManager value
 	 */
 	public MainManager getMainManager() {
 		return this.mainManager;

@@ -106,8 +106,12 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 
     @FXML
     void seeRestaurantReviews(ActionEvent event) {
-    	this.viewModel.sendReviewsQuery();
-    	super.getController().activate("Reviews");
+    	if (this.viewModel.sendReviewsQuery()) {
+    		super.getController().activate("ReviewsError");
+    	} else {
+    		super.getController().activate("Reviews");
+    	}
+    	
     }
 
 

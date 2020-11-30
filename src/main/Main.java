@@ -29,7 +29,9 @@ public class Main extends Application {
 		this.mainManager = new MainManager(new Random());
 		this.controller = new SceneController(primaryStage);
 		
+		this.registerReviewError();
 		this.registerReviews();
+		
 		this.registerRestaurantError();
 		this.registerRestaurantLoad();
 		this.registerRestaurant();
@@ -39,6 +41,23 @@ public class Main extends Application {
 		this.registerLocation(filterViewModel);
 	
 		this.controller.activate("Location");
+	}
+
+	/**
+	 * 
+	 * @precondition none
+	 * @postconditon none
+	 *
+	 */
+	private void registerReviewError() {
+		FXMLLoader reviewErrorLoader = new FXMLLoader();
+		reviewErrorLoader.setLocation(Main.class.getClassLoader().getResource("src/view/ReviewErrorGUI.fxml"));
+		try {
+			reviewErrorLoader.load();
+		} catch (Exception e) {
+			System.out.println("ReviewsErrorGUI load error");
+		}
+		this.controller.add("ReviewsError", reviewErrorLoader);
 	}
 
 	private void registerReviews() {

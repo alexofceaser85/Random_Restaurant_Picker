@@ -24,7 +24,7 @@ public class Restaurant {
 	private String id;
 
 	/**
-	 * The constructor for the resturant class
+	 * The constructor for the restaurant class
 	 * 
 	 * @precondition name != null name.isEmpty() == False price != null location !=
 	 *               null location.isEmpty() == False distance >= 0 reviewScore >= 1
@@ -45,7 +45,6 @@ public class Restaurant {
 	 * @param imageURL    the URL to the restaurant's image
 	 * @param id          the restaurant's id
 	 **/
-
 	public Restaurant(String name, Price price, String location, int distance, double reviewScore, String menuURL,
 			String imageURL, String id) {
 

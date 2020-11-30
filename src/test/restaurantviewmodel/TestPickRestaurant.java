@@ -75,7 +75,7 @@ public class TestPickRestaurant {
 		assertEquals(this.testImageURL, testViewModel.imageProperty().get().getUrl().toString());
 		assertEquals("Atlanta, GA, USA", testViewModel.locationProperty().get());
 		assertEquals("$", testViewModel.priceRangeProperty().get());
-		assertEquals("20", testViewModel.distanceProperty().get());
+		assertEquals("20 mi", testViewModel.distanceProperty().get());
 		assertEquals("1.8", testViewModel.reviewScoreProperty().get());
 		assertEquals("First Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("5416", testViewModel.getRestaurantID());
@@ -103,7 +103,7 @@ public class TestPickRestaurant {
 		assertEquals(this.testImageURL, testViewModel.imageProperty().get().getUrl().toString());
 		assertEquals("Atlanta, GA, USA", testViewModel.locationProperty().get());
 		assertEquals("$$", testViewModel.priceRangeProperty().get());
-		assertEquals("15", testViewModel.distanceProperty().get());
+		assertEquals("15 mi", testViewModel.distanceProperty().get());
 		assertEquals("3.9", testViewModel.reviewScoreProperty().get());
 		assertEquals("Second Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("41987", testViewModel.getRestaurantID());
@@ -124,7 +124,7 @@ public class TestPickRestaurant {
 		assertEquals(JSONLoader.DEFAULT_IMAGE, testViewModel.imageProperty().get().getUrl().toString());
 		assertEquals("Atlanta, GA, USA", testViewModel.locationProperty().get());
 		assertEquals("$", testViewModel.priceRangeProperty().get());
-		assertEquals("20", testViewModel.distanceProperty().get());
+		assertEquals("20 mi", testViewModel.distanceProperty().get());
 		assertEquals("1.8", testViewModel.reviewScoreProperty().get());
 		assertEquals("First Menu URL", testViewModel.menuURLProperty().get());
 		assertEquals("5416", testViewModel.getRestaurantID());

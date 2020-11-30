@@ -21,15 +21,17 @@ public class ReviewsManagerViewModel {
 	/**
 	 * The constructor for the reviews manager view model
 	 * 
-	 * @precondition none
+	 * @param mainManager the MainManager of the application
 	 * 
+	 * @precondition mainManager != null
 	 * @postcondition 
 	 * 		this.theReviewManager = new ReviewManager
-	 * 		
-	 * @param mainManager the application MainManager
 	 */
 	
 	public ReviewsManagerViewModel(MainManager mainManager) {
+		if (mainManager == null) {
+			throw new IllegalArgumentException();
+		}
 		this.theReviewManager = mainManager.getReviewManager();	
 		this.restaurantName = new SimpleStringProperty();
 	}
@@ -40,7 +42,6 @@ public class ReviewsManagerViewModel {
 	 * @precondition none
 	 * @postcondition this.theReviewManager.size() == this.theReviewManager.size() + 1
 	 */
-	
 	public void addReview(String reviewer, String reviewContent, double reviewScore) {
 		
 		Review theReviewToAdd = new Review(reviewer, reviewContent, reviewScore);
