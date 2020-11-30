@@ -63,6 +63,8 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @param viewModel the viewModel for the restaurant class.
 	 */
     public RestaurantViewCodeBehind(RestaurantViewModel viewModel) {
     	this.viewModel = viewModel;

@@ -102,16 +102,6 @@ public class FilterCodeBehind extends BaseCodeBehind implements Activatable {
 	public void initialize() {
 		this.bindToViewModel();
 		this.beginButton.disableProperty().bind(this.locationAddressTextBox.textProperty().isEmpty());
-//		this.reviewScoreTextBox.textProperty().addListener((observable, oldValue, newValue) -> {
-//			if (!newValue.matches("{\\d+}")) {
-//				this.reviewScoreTextBox.textProperty().setValue(oldValue);
-//			}
-//			if (newInteger < Restaurant.RESTURANT_MINIMUM_REVIEW_SCORE
-//					&& newInteger > Restaurant.RESTURANT_MAXIMUM_REVIEW_SCORE) {
-//				this.reviewScoreTextBox.textProperty().setValue(oldValue);
-//			}
-//		});
-		// TODO Make Location and Radius text boxes required
 	}
 
 	@FXML

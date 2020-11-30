@@ -18,8 +18,9 @@ import src.model.Restaurant;
 import src.model.RestaurantManager;
 import src.model.Review;
 import src.model.ReviewManager;
+
 /**
- * ViewModel class of the RestaurantViewCodeBehind
+ * ViewModel class of the RestaurantViewCodeBehind.
  * 
  * @author Furichous Jones IV
  * @version Fall 2020
@@ -110,6 +111,7 @@ public class RestaurantViewModel {
 	}
 
 	/**
+	 * Resets the filters of the filter page and returns to that page.
 	 * 
 	 * @precondition none
 	 * @postcondition none
@@ -120,18 +122,23 @@ public class RestaurantViewModel {
 	}
 
 	/**
+	 * Gets the menuURl Property.
+	 * 
+	 * @precondition none
+	 * @postcondition none
 	 * @return the value of menuURLProperty
 	 */
 	public StringProperty menuURLProperty() {
 		return this.menuURLProperty;
 	}
-	
+
 	/**
-	 * Returns the menuURL property
+	 * Sends the review query to make the review manager.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 *
+	 * @return whether or not the review manager is empty.
 	 */
 	public boolean sendReviewsQuery() {
 		ReviewsQuery query = new ReviewsQuery(this.restaurantID);
@@ -227,13 +234,17 @@ public class RestaurantViewModel {
 	public MainManager getMainManager() {
 		return this.mainManager;
 	}
-	
+
 	/**
+	 * Gets the restaurant ID.
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
 	 * @return the value of restaurantID
 	 */
 	public String getRestaurantID() {
 		return this.restaurantID;
 	}
 
-	
 }

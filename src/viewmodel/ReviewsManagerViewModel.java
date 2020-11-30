@@ -7,10 +7,10 @@ import src.model.Review;
 import src.model.ReviewManager;
 
 /**
- * This is the view model class for the restaurant manager
+ * This is the view model class for the review manager.
  * 
  * @author Alex DeCesare
- * @version 26-Nov-2020
+ * @version Fall 2020
  */
 
 public class ReviewsManagerViewModel {
@@ -19,13 +19,13 @@ public class ReviewsManagerViewModel {
 	private StringProperty restaurantName;
 	
 	/**
-	 * The constructor for the reviews manager view model
-	 * 
-	 * @param mainManager the MainManager of the application
+	 * The one-parameter constructor for the reviews manager view model
 	 * 
 	 * @precondition mainManager != null
 	 * @postcondition 
 	 * 		this.theReviewManager = new ReviewManager
+	 * 
+	 * @param mainManager the MainManager of the application
 	 */
 	
 	public ReviewsManagerViewModel(MainManager mainManager) {
@@ -37,23 +37,27 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Adds a review to the review manager
+	 * Adds a review to the review manager.
+	 * 
 	 * @precondition none
 	 * @postcondition this.theReviewManager.size() == this.theReviewManager.size() + 1
+	 * 
+	 * @param reviewer the person who has given the review.
+	 * @param reviewContent the content of the body review.
+	 * @param reviewScore the score of the review.
 	 */
 	public void addReview(String reviewer, String reviewContent, double reviewScore) {
-		
 		Review theReviewToAdd = new Review(reviewer, reviewContent, reviewScore);
 		this.theReviewManager.add(theReviewToAdd);	
 	}
 	
 	/**
-	 * Gets the size of the review manager
+	 * Gets the size of the review manager.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the size of the review manager
+	 * @return the size of the review manager.
 	 */
 	
 	public int size() {
@@ -61,14 +65,14 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Gets the reviewer name for a given review
+	 * Gets the reviewer name for a given review.
 	 * 
 	 * @param index index of review
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the reviewer name for a given review
+	 * @return the reviewer name for a given review.
 	 */
 	
 	public String getReviewer(int index) {
@@ -76,14 +80,14 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Gets the review content for a given review
+	 * Gets the review content for a given review.
 	 * 
 	 * @param index index of review
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the review content for a given review
+	 * @return the review content for a given review.
 	 */
 	
 	public String getReviewContent(int index) {
@@ -91,14 +95,14 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Gets the review score for a given review
+	 * Gets the review score for a given review.
 	 * 
 	 * @param index index of review
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the review score for a given review
+	 * @return the review score for a given review.
 	 */
 	
 	public double getReviewScore(int index) {
@@ -106,12 +110,12 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Gets the restaurant name for the review manager
+	 * Gets the restaurant name for the review manager.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the restaurant name for the review manager
+	 * @return the restaurant name for the review manager.
 	 */
 	
 	public StringProperty getRestaurantName() {
@@ -119,12 +123,12 @@ public class ReviewsManagerViewModel {
 	}
 	
 	/**
-	 * Returns the string representation of the review manager
+	 * Returns the string representation of the review manager.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 * 
-	 * @return the string representation of the review manager
+	 * @return the string representation of the review manager.
 	 */
 	
 	@Override
