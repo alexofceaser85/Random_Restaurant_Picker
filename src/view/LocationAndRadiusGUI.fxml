@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="296.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -34,7 +34,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="locationAddressTextBox" minWidth="256.0" prefHeight="25.0" prefWidth="256.0" promptText="Ex: 1601 Maple St, Carrollton, GA 30118" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <TextField fx:id="locationAddressTextBox" maxWidth="256.0" prefHeight="25.0" prefWidth="256.0" promptText="Ex: 1601 Maple St, Carrollton, GA 30118" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Text fx:id="enterRadiusText" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Your Radius:" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <font>
             <Font size="18.0" />

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="294.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -36,13 +36,13 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="categoriesTextBox" prefHeight="25.0" prefWidth="241.0" promptText="Chinese, Burgers, Mexican" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <TextField fx:id="categoriesTextBox" maxWidth="256.0" prefHeight="25.0" prefWidth="241.0" promptText="Chinese, Burgers, Mexican" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Reviews" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="reviewScoreTextBox" prefHeight="25.0" prefWidth="239.0" promptText="5.0" GridPane.rowIndex="4" />
+      <TextField fx:id="reviewScoreTextBox" maxWidth="256.0" prefHeight="25.0" prefWidth="239.0" promptText="5.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price" textAlignment="CENTER" wrappingWidth="182.451171875" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <font>
             <Font size="18.0" />
