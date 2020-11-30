@@ -36,7 +36,7 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
     private ImageView restaurantImage;
     
     @FXML
-    private Text restaurantAddressHyperlink;
+    private Text restaurantAddress;
 
     @FXML
     private Text restaurantPriceText;
@@ -85,7 +85,7 @@ public class RestaurantViewCodeBehind extends BaseCodeBehind implements Activata
     public void initialize() {
     	this.restaurantNameText.textProperty().bind(this.viewModel.nameProperty());
     	this.restaurantDistanceText.textProperty().bind(this.viewModel.distanceProperty());
-    	this.restaurantAddressHyperlink.textProperty().bind(this.viewModel.locationProperty());
+    	this.restaurantAddress.textProperty().bind(this.viewModel.locationProperty());
     	this.restaurantPriceText.textProperty().bind(this.viewModel.priceRangeProperty());
     	this.restaurantReivewScoreText.textProperty().bind(this.viewModel.reviewScoreProperty());
     	this.imageURLProperty.bind(this.viewModel.imageURLProperty());
